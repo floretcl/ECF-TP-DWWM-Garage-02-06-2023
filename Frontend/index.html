@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
   <head>
     <!-- META-->
     <meta charset="UTF-8" />
@@ -74,7 +74,7 @@
       };
     </script>
 
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/style/style.css" />
 
     <!-- GOOGLE FONTS : ROKKITT, RASA, NOBILE -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -95,7 +95,7 @@
     <!-- HEADER -->
     <header class="bg-onyx border-b border-celestialBlue">
       <nav class="flex flex-row flex-nowrap justify-between items-center h-16">
-        <div class="flex flex-row justify-center items-center ms-3">
+        <div class="flex flex-row justify-center items-center ms-3 sm:ms-6 md:ms-8">
           <a href="#">
             <img
               class="w-auto h-16"
@@ -107,7 +107,7 @@
         </div>
         <button type="button" id="btn-menu-mobile">
           <div
-            class="flex flex-col flex-nowrap justify-center items-center p-2 me-3"
+            class="flex flex-col flex-nowrap justify-center items-center p-2 me-3 sm:me-6 md:me-8"
           >
             <div
               id="btn-menu-mobile-line1"
@@ -126,7 +126,7 @@
       </nav>
       <div
         id="menu-mobile"
-        class="flex flex-col flex-nowrap px-6 bg-celestialBlue border-t-2 border-whiteTeal h-0 overflow-hidden transition-height duration-200 ease-in"
+        class="flex flex-col flex-nowrap px-6 sm:px-8 md:px-12 bg-celestialBlue border-b-2 border-whiteTeal h-0 overflow-hidden transition-height duration-200 ease-in"
       >
         <ul class="font-medium text-lg uppercase">
           <li class="mt-6 mb-1">
@@ -174,75 +174,79 @@
       <!-- SECTION HEADING-->
       <!-- TODO: bg-gradient-to-b from-whiteTeal -->
       <section
-        class="flex flex-col flex-nowrap justify-around bg-cover bg-center px-3 py-8"
+        class="flex flex-col flex-nowrap justify-around bg-cover bg-center px-6 sm:px-8 md:px-14 py-8 sm:py-10 md:py-12"
         style="background-image: url(./assets/images/img-15.jpg)"
       >
-        <div class="mb-6">
-          <h1
-            class="font-rokkitt font-bold text-2xl text-whiteTeal uppercase mb-3 drop-shadow-md"
-          >
-            Confiez la santé de votre voiture à des professionnels passionnés
-          </h1>
-          <p
-            class="font-rasa font-semibold text-xl text-whiteTeal uppercase drop-shadow-md"
-          >
-            Réparation de véhicule toute marques :
-          </p>
-        </div>
-        <ul class="flex flex-col flex-nowrap mb-16">
-          <li class="font-medium text-whiteTeal my-1 inline-flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-8 h-8 me-2 fill-celestialBlue drop-shadow-md"
+        <div class="flex flex-col flex-nowrap justify-center items-center">
+          <div class="self-start mb-6 sm:mb-8 max-w-xl sm:max-w-2xl md:max-w-none md:w-10/12">
+            <h1
+              class="font-rokkitt font-bold text-2xl text-whiteTeal uppercase mb-3 drop-shadow-md"
             >
-              <path
-                fill-rule="evenodd"
-                d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08zm3.094 8.016a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <span class="mt-1 drop-shadow-md">Mécanique</span>
-          </li>
-          <li class="font-medium text-whiteTeal my-1 inline-flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-8 h-8 me-2 fill-celestialBlue drop-shadow-md"
+              Confiez la santé de votre voiture à des professionnels passionnés
+            </h1>
+            <p
+              class="font-rasa font-semibold text-xl text-whiteTeal uppercase drop-shadow-md"
             >
-              <path
-                fill-rule="evenodd"
-                d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08zm3.094 8.016a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <span class="mt-1 drop-shadow-md">Carrosserie</span>
-          </li>
-          <li class="font-medium text-whiteTeal my-1 inline-flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-8 h-8 me-2 fill-celestialBlue drop-shadow-md"
+              Réparation de véhicule toute marques :
+            </p>
+          </div>
+          <div class="block self-start w-full max-w-xl sm:max-w-2xl md:max-w-none md:max-w-none md:w-10/12">
+            <ul class="flex flex-col flex-nowrap mb-16 sm:mb-32">
+              <li class="font-medium text-whiteTeal my-1 inline-flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-8 h-8 me-2 fill-celestialBlue drop-shadow-md"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08zm3.094 8.016a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span class="mt-1 drop-shadow-md">Mécanique</span>
+              </li>
+              <li class="font-medium text-whiteTeal my-1 inline-flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-8 h-8 me-2 fill-celestialBlue drop-shadow-md"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08zm3.094 8.016a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span class="mt-1 drop-shadow-md">Carrosserie</span>
+              </li>
+              <li class="font-medium text-whiteTeal my-1 inline-flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-8 h-8 me-2 fill-celestialBlue drop-shadow-md"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08zm3.094 8.016a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span class="mt-1 drop-shadow-md">Entretien</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-row flex-nowrap justify-center items-center">
+            <a
+              class="btn-scroll font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded"
+              href="#services"
             >
-              <path
-                fill-rule="evenodd"
-                d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08zm3.094 8.016a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            <span class="mt-1 drop-shadow-md">Entretien</span>
-          </li>
-        </ul>
-        <div class="flex flex-row flex-nowrap justify-center items-center">
-          <a
-            class="font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded"
-            href="#services"
-          >
-            En savoir plus
-          </a>
+              En savoir plus
+            </a>
+          </div>
         </div>
       </section>
       <!-- END SECTION HEADING-->
@@ -250,15 +254,18 @@
       <!-- SECTION ABOUT-->
       <section
         id="about"
-        class="flex flex-col flex-nowrap justify-around bg-cover bg-center bg-onyx px-4 py-12"
+        class="flex flex-col flex-nowrap justify-around items-center bg-cover bg-center bg-onyx px-6 sm:px-8 md:px-12 py-12 md:py-14"
       >
-        <h2 class="hidden">À propos</h2>
-        <div class="text-whiteTeal text-center mb-4">
-          <div class="flex flex-row flex-nowrap justify-center items-center mb-3">
-            <svg 
+        <h2 class="hidden font-rokkitt font-semibold text-celestialBlue text-2xl uppercase mb-4 px-1">À propos</h2>
+        <div class="text-whiteTeal text-center mb-4 max-w-lg">
+          <div
+            class="flex flex-row flex-nowrap justify-center items-center mb-3 sm:mb-6"
+          >
+            <svg
               class="w-16 h-16 fill-whiteTeal"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24">
+              viewBox="0 0 24 24"
+            >
               <path fill="none" d="M0 0h24v24H0z"></path>
               <path
                 d="M12 11C14.7614 11 17 13.2386 17 16V22H15V16C15 14.4023 13.7511 13.0963 12.1763 13.0051L12 13C10.4023 13 9.09634 14.2489 9.00509 15.8237L9 16V22H7V16C7 13.2386 9.23858 11 12 11ZM5.5 14C5.77885 14 6.05009 14.0326 6.3101 14.0942C6.14202 14.594 6.03873 15.122 6.00896 15.6693L6 16L6.0007 16.0856C5.88757 16.0456 5.76821 16.0187 5.64446 16.0069L5.5 16C4.7203 16 4.07955 16.5949 4.00687 17.3555L4 17.5V22H2V17.5C2 15.567 3.567 14 5.5 14ZM18.5 14C20.433 14 22 15.567 22 17.5V22H20V17.5C20 16.7203 19.4051 16.0796 18.6445 16.0069L18.5 16C18.3248 16 18.1566 16.03 18.0003 16.0852L18 16C18 15.3343 17.8916 14.694 17.6915 14.0956C17.9499 14.0326 18.2211 14 18.5 14ZM5.5 8C6.88071 8 8 9.11929 8 10.5C8 11.8807 6.88071 13 5.5 13C4.11929 13 3 11.8807 3 10.5C3 9.11929 4.11929 8 5.5 8ZM18.5 8C19.8807 8 21 9.11929 21 10.5C21 11.8807 19.8807 13 18.5 13C17.1193 13 16 11.8807 16 10.5C16 9.11929 17.1193 8 18.5 8ZM5.5 10C5.22386 10 5 10.2239 5 10.5C5 10.7761 5.22386 11 5.5 11C5.77614 11 6 10.7761 6 10.5C6 10.2239 5.77614 10 5.5 10ZM18.5 10C18.2239 10 18 10.2239 18 10.5C18 10.7761 18.2239 11 18.5 11C18.7761 11 19 10.7761 19 10.5C19 10.2239 18.7761 10 18.5 10ZM12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2ZM12 4C10.8954 4 10 4.89543 10 6C10 7.10457 10.8954 8 12 8C13.1046 8 14 7.10457 14 6C14 4.89543 13.1046 4 12 4Z"
@@ -275,7 +282,7 @@
             voiture allant de la vidange simple au changement de la boîte de
             vitesses ou du pare-chocs.
           </p>
-          <p class="mb-2">
+          <p class="mb-2 sm:mb-6">
             N'hésitez pas à nous contacter pour plus d'informations.
           </p>
         </div>
@@ -291,90 +298,107 @@
       <!-- END SECTION ABOUT-->
 
       <!-- SECTION SERVICES-->
-      <section id="services" class="my-12 px-4">
+      <section id="services" class="my-12 px-6 sm:px-8 md:px-12">
         <h2
-          class="font-rokkitt font-semibold text-celestialBlue text-2xl uppercase mb-4"
+          class="font-rokkitt font-semibold text-celestialBlue text-2xl uppercase mb-4 px-1"
         >
           Services
         </h2>
-
-        <!-- SERVICE -->
-        <div class="mb-8">
-          <div
-            class="flex flex-col flex-nowrap justify-center items-center group bg-celestialBlue rounded mb-3 p-0 overflow-hidden"
-          > 
-            <div class="overflow-hidden h-auto">
-              <img class="group-hover:scale-110 group-hover:brightness-95 transition" src="./assets/images/img-17.jpg" alt="" />
+        <div class="flex flex-col flex-nowrap justify-center items-center my-8">
+          <!-- SERVICE -->
+          <div class="my-6 sm:my-8 max-w-md sm:max-w-lg md:max-w-xl">
+            <div
+              class="flex flex-col flex-nowrap justify-center items-center group bg-celestialBlue rounded mb-3 sm:mb-6 p-0 overflow-hidden"
+            >
+              <div class="overflow-hidden h-auto max-h-72">
+                <img
+                  class="group-hover:scale-110 group-hover:brightness-95 transition"
+                  src="./assets/images/img-17.jpg"
+                  alt=""
+                />
+              </div>
+              <h3 class="font-rasa text-whiteTeal uppercase text-xl my-3">
+                Mécanique
+              </h3>
             </div>
-            <h3 class="font-rasa text-whiteTeal uppercase text-xl my-3">
-              Mécanique
-            </h3>
+            <ul class="list-disc font-medium text-onyx mt-4 ps-6">
+              <li class="mb-1">Motorisation</li>
+              <li class="mb-1">Système de freinage</li>
+              <li class="mb-1">Climatisation</li>
+              <li class="mb-1">Distribution</li>
+              <li class="mb-1">Direction et Suspension</li>
+              <li class="mb-1">Échappement</li>
+              <li class="mb-1">Démarrage</li>
+              <li class="mb-1">Pneumatique</li>
+            </ul>
           </div>
-          <ul class="list-disc font-medium text-onyx mt-4 ps-6">
-            <li class="mb-1">Motorisation</li>
-            <li class="mb-1">Système de freinage</li>
-            <li class="mb-1">Climatisation</li>
-            <li class="mb-1">Distribution</li>
-            <li class="mb-1">Direction et Suspension</li>
-            <li class="mb-1">Échappement</li>
-            <li class="mb-1">Démarrage</li>
-            <li class="mb-1">Pneumatique</li>
-          </ul>
-        </div>
-        <!-- END SERVICE-->
+          <!-- END SERVICE-->
 
-        <!-- SERVICE-->
-        <div class="mb-8">
-          <div
-            class="flex flex-col flex-nowrap justify-center items-center group bg-celestialBlue rounded mb-3 p-0 overflow-hidden"
-          >
-            <div class="overflow-hidden h-auto">
-              <img class="group-hover:scale-110 group-hover:brightness-95 transition" src="./assets/images/img-7.jpg" alt="#" />
+          <!-- SERVICE-->
+          <div class="my-6 sm:my-8 max-w-md sm:max-w-lg md:max-w-xl">
+            <div
+              class="flex flex-col flex-nowrap justify-center items-center group bg-celestialBlue rounded mb-3 sm:mb-6 p-0 overflow-hidden"
+            >
+              <div class="overflow-hidden h-auto max-h-72">
+                <img
+                  class="group-hover:scale-110 group-hover:brightness-95 transition"
+                  src="./assets/images/img-7.jpg"
+                  alt="#"
+                />
+              </div>
+              <h3 class="font-rasa text-whiteTeal uppercase text-xl my-3">
+                Carrosserie
+              </h3>
             </div>
-            <h3 class="font-rasa text-whiteTeal uppercase text-xl my-3">
-              Carrosserie
-            </h3>
+            <ul class="list-disc font-medium text-onyx mt-4 ps-6">
+              <li class="mb-1">Tôlerie</li>
+              <li class="mb-1">Débosselage</li>
+              <li class="mb-1">Peinture</li>
+              <li class="mb-1">Vitrage</li>
+            </ul>
           </div>
-          <ul class="list-disc font-medium text-onyx mt-4 ps-6">
-            <li class="mb-1">Tôlerie</li>
-            <li class="mb-1">Débosselage</li>
-            <li class="mb-1">Peinture</li>
-            <li class="mb-1">Vitrage</li>
-          </ul>
-        </div>
-        <!-- END SERVICE-->
+          <!-- END SERVICE-->
 
-        <!-- SERVICE-->
-        <div class="my-14">
-          <div
-            class="flex flex-col flex-nowrap justify-center items-center group bg-celestialBlue rounded mb-3 p-0 overflow-hidden"
-          >
-            <div class="overflow-hidden h-auto">
-              <img class="group-hover:scale-110 group-hover:brightness-95 transition" src="./assets/images/img-23.jpg" alt="#" />
+          <!-- SERVICE-->
+          <div class="my-6 sm:my-8 max-w-md sm:max-w-lg md:max-w-xl">
+            <div
+              class="flex flex-col flex-nowrap justify-center items-center group bg-celestialBlue rounded mb-3 sm:mb-6 p-0 overflow-hidden"
+            >
+              <div class="overflow-hidden h-auto max-h-72">
+                <img
+                  class="group-hover:scale-110 group-hover:brightness-95 transition"
+                  src="./assets/images/img-23.jpg"
+                  alt="#"
+                />
+              </div>
+              <h3 class="font-rasa text-whiteTeal uppercase text-xl my-3">
+                Entretien
+              </h3>
             </div>
-            <h3 class="font-rasa text-whiteTeal uppercase text-xl my-3">
-              Entretien
-            </h3>
+            <ul class="list-disc font-medium text-onyx mt-4 ps-6">
+              <li class="mb-1">Révisioin périodique</li>
+              <li class="mb-1">Pré-contrôle technique</li>
+              <li class="mb-1">Vidange et filtres</li>
+              <li class="mb-1">Décontamination</li>
+            </ul>
           </div>
-          <ul class="list-disc font-medium text-onyx mt-4 ps-6">
-            <li class="mb-1">Révisioin périodique</li>
-            <li class="mb-1">Pré-contrôle technique</li>
-            <li class="mb-1">Vidange et filtres</li>
-            <li class="mb-1">Décontamination</li>
-          </ul>
+          <!-- END SERVICE-->
         </div>
-        <!-- END SERVICE-->
       </section>
       <!-- END SECTION SERVICES-->
 
       <!-- SECTION VEHICLES-->
       <section
         id="vehicles"
-        class="flex flex-col flex-nowrap justify-around bg-cover bg-center bg-onyx px-4 py-12"
+        class="flex flex-col flex-nowrap justify-around bg-cover bg-center bg-onyx px-6 sm:px-8 md:px-12 py-12 md:pt-14"
       >
-        <h2 class="hidden">Nos véhicules</h2>
-        <img class="mx-4 mb-6" src="./assets/images/img-10.jpg" alt="" />
-        <div class="text-whiteTeal text-center mb-4">
+        <h2 class="hidden font-rokkitt font-semibold text-celestialBlue text-2xl uppercase mb-4 px-1">Nos véhicules</h2>
+        <img
+          class="mx-4 mb-6 md:mb-8 h-auto max-h-64 sm:max-h-72 object-contain"
+          src="./assets/images/img-10.jpg"
+          alt=""
+        />
+        <div class="text-lg text-whiteTeal text-center mb-4 sm:mb-6">
           <p class="mb-3">Vous recherchez un véhicule d’occasion ?</p>
           <p>Découvrez nos offres du moment !</p>
         </div>
@@ -390,20 +414,22 @@
       <!-- END SECTION VEHICLES-->
 
       <!-- SECTION CUSTOMER REVIEWS -->
-      <section id="reviews" class="my-14 px-4">
+      <section id="reviews" class="my-14 px-6 sm:px-8 md:px-12">
         <h2
-          class="font-rokkitt font-semibold text-celestialBlue text-2xl uppercase mb-4"
+          class="font-rokkitt font-semibold text-celestialBlue text-2xl uppercase mb-4 px-1"
         >
           Témoignages
         </h2>
-        <ul class="mt-6 mb-4">
+        <ul
+          class="flex flex-col flex-nowrap justify-center items-center mt-6 mb-1"
+        >
           <li>
             <!-- CUSTOMER REVIEW-->
             <div
-              class="flex flex-col flex-nowrap items-center rounded my-6 p-6 bg-slate-200 shadow-lg"
+              class="flex flex-col flex-nowrap justify-center items-center rounded w-auto max-w-md md:max-w-xl my-6 sm:my-8 p-6 sm:p-8 md:p-10 bg-slate-200 shadow-lg"
             >
               <div>
-                <ul class="flex flex-row flex-nowrap mb-2">
+                <ul class="flex flex-row flex-nowrap mb-4">
                   <li>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -478,7 +504,7 @@
                   </li>
                 </ul>
               </div>
-              <p class="text-onyx mb-2">
+              <p class="text-onyx mb-4 sm:mb-6">
                 Je suis un client régulier de Garage V.Parrot depuis deux ans
                 maintenant et je dois dire que la qualité de leurs services ne
                 m’a jamais déçu. De l'entretien de routine aux réparations plus
@@ -493,10 +519,10 @@
           <li>
             <!-- CUSTOMER REVIEW-->
             <div
-              class="flex flex-col flex-nowrap items-center rounded my-6 p-6 bg-slate-200 shadow-lg"
+              class="flex flex-col flex-nowrap justify-center items-center rounded w-auto max-w-md md:max-w-xl my-6 sm:my-8 p-6 sm:p-8 md:p-10 bg-slate-200 shadow-lg"
             >
               <div>
-                <ul class="flex flex-row flex-nowrap mb-2">
+                <ul class="flex flex-row flex-nowrap mb-4">
                   <li>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -569,7 +595,7 @@
                   </li>
                 </ul>
               </div>
-              <p class="text-onyx mb-2">
+              <p class="text-onyx mb-4 sm:mb-6">
                 Ce qui distingue le Garage V.Parrot des autres garages, c'est
                 leur engagement à fournir le meilleur niveau de service
                 possible. Ils apprécient vraiment leurs clients et prennent le
@@ -584,10 +610,10 @@
           <li>
             <!-- CUSTOMER REVIEW-->
             <div
-              class="flex flex-col flex-nowrap items-center rounded my-6 p-6 bg-slate-200 shadow-lg"
+              class="flex flex-col flex-nowrap justify-center items-center rounded w-auto max-w-md md:max-w-xl my-6 sm:my-8 p-6 sm:p-8 md:p-10 bg-slate-200 shadow-lg"
             >
               <div>
-                <ul class="flex flex-row flex-nowrap mb-2">
+                <ul class="flex flex-row flex-nowrap mb-4">
                   <li>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -662,7 +688,7 @@
                   </li>
                 </ul>
               </div>
-              <p class="text-onyx mb-2">
+              <p class="text-onyx mb-4 sm:mb-6">
                 L'équipe du Garage V.Parrot est vraiment compétente et
                 qualifiée. J’ai eu le sentiment que mon véhicule était entre de
                 bonnes mains. Je recommande vivement Garage V.Parrot à tous ceux
@@ -675,7 +701,7 @@
             <!-- END CUSTOMER REVIEW-->
           </li>
         </ul>
-        <div class="flex flex-row flex-nowrap justify-center items-center mb-6">
+        <div class="flex flex-row flex-nowrap justify-center items-center mb-10">
           <a
             class="font-regular text-sm text-rosyBrown hover:text-celestialBlue border-2 border-rosyBrown hover:border-celestialBlue active:bg-onyx pt-2 pb-1 px-4 rounded-full transition"
             href="#"
@@ -698,9 +724,9 @@
       <footer>
         <section
           id="opening-time"
-          class="flex flex-col flex-nowrap justify-center items-center px-4 py-10 bg-celestialBlue"
+          class="flex flex-col flex-nowrap justify-center items-center px-4 sm:px-6 py-10 sm:py-12 bg-celestialBlue"
         >
-          <h2 class="font-rasa text-whiteTeal text-xl uppercase mb-4">
+          <h2 class="font-rasa text-whiteTeal text-xl uppercase mb-4 sm:mb-6">
             Horaires d'ouverture
           </h2>
           <div class="grid grid-cols-5 grid-rows-7 gap-y-2 text-whiteTeal">
@@ -723,7 +749,7 @@
 
         <section
           id="address-infos"
-          class="flex flex-col flex-nowrap justify-center items-center text-center px-4 py-4 bg-onyx text-whiteTeal"
+          class="flex flex-col sm:flex-row flex-nowrap justify-center items-center sm:items-end text-center sm:text-left px-4 sm:px-6 md:px-8 py-4 sm:py-6 bg-onyx text-whiteTeal"
         >
           <h2 class="font-rasa text-xl uppercase mb-4 hidden">
             Adresse et informations
@@ -736,10 +762,10 @@
             />
             <img src="./assets/logos/Logo-black.png" alt="#" />
           </picture>
-          <div class="w-full px-32">
+          <div class="w-12 sm:hidden">
             <hr class="rounded" />
           </div>
-          <nav class="my-4">
+          <nav class="my-4 sm:my-0 sm:mx-2 sm:me-4 md:mx-6 md:me-8">
             <ul>
               <li class="mb-1">
                 <a
@@ -785,25 +811,28 @@
               </li>
             </ul>
           </nav>
-          <div class="w-full px-32">
+          <div class="w-12 sm:hidden">
             <hr class="rounded" />
           </div>
-          <div class="text-sm my-4">
-            <p>Garage V.Parrot</p>
-            <p>
-              11 Rue Léon Jouhaux<br />
-              31500 Toulouse
+          <div class="flex flex-col flex-nowrap sm:mx-8 md:mx-12">
+            <div class="text-sm my-4 leading-relaxed">
+              <p>Garage V.Parrot</p>
+              <p>
+                11 Rue Léon Jouhaux<br />
+                31500 Toulouse
+              </p>
+              <p>Tel. : <a href="tel:+33561234567">05 61 23 45 67</a></p>
+            </div>
+            <p class="sm:flex sm:flex-col sm:flex-nowrap text-xs sm:mb-1">
+              Garage V.Parrot ©2023
+              <span class="sm:hidden">-</span>
+              <a
+                class="transition hover:text-celestialBlue hover:underline active:text-darkBlue"
+                href="#"
+                >Mentions légales
+              </a>
             </p>
-            <p>Tel. : <a href="tel:+33561234567">05 61 23 45 67</a></p>
           </div>
-          <p class="flex flex-row text-xs">
-            Garage V.Parrot ©2023 -
-            <a
-              class="transition hover:text-celestialBlue active:text-darkBlue"
-              href="#"
-              >&nbsp;Mentions légales</a
-            >
-          </p>
         </section>
       </footer>
     </main>
