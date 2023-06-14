@@ -1,0 +1,40 @@
+.btn__bg--hover-out {
+  background: linear-gradient(90deg, #1F01B9 0% 20%, #1E91D6 80% 100%);
+  background-size: 400% 100%;
+  background-position: 100% 0%;
+  animation: bg-from-darkBlue-to-celestialBlue 250ms ease-in 0s;
+}
+
+.btn__bg--hover {
+  background: linear-gradient(90deg, #1F01B9 0% 20%, #1E91D6 80% 100%);
+  background-size: 400% 100%;
+  background-position: 0% 0%;
+  animation: bg-from-celestialBlue-to-darkBlue 250ms ease-in 0s;
+}
+
+.my-transition-height {
+  height: 800px;
+  transition: height 1s ease-in;
+}
+
+@keyframes bg-from-celestialBlue-to-darkBlue {
+  from {
+    background-position: 100% 0%;
+  }
+  to {
+    background-position: 0% 0%;
+  }
+}
+@keyframes bg-from-darkBlue-to-celestialBlue {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 100% 0%;
+  }
+}
+.menu-mobile-active {
+  height: 214px !important;
+}
+
+/*# sourceMappingURL=style.css.map */
