@@ -1,40 +1,105 @@
-.btn__bg--hover-out {
-    background: linear-gradient(90deg, #1F01B9 0% 20%, #1E91D6 80% 100%);
-    background-size: 400% 100%;
-    background-position: 100% 0%;
-    animation: bg-from-darkBlue-to-celestialBlue 250ms ease-in 0s;
+$grey-color: #c3c3c3;
+$whiteTeal-color: #FBFFFE;
+$celestialBlue-color: #1e91d6;
+$darkBlue-color: #1f01b9;
+
+.btn-bg--hover-out {
+  background: linear-gradient(90deg, $darkBlue-color 0% 20%, $celestialBlue-color 80% 100%);
+  background-size: 400% 100%;
+  background-position: 100% 0%;
+  animation: bg-from-darkBlue-to-celestialBlue 250ms ease-in 0s;
 }
 
-.btn__bg--hover {
-    background: linear-gradient(90deg, #1F01B9 0% 20%, #1E91D6 80% 100%);
-    background-size: 400% 100%;
-    background-position: 0% 0%;
-    animation: bg-from-celestialBlue-to-darkBlue 250ms ease-in 0s;
+.btn-bg--hover {
+  background: linear-gradient(90deg, $darkBlue-color 0% 20%, $celestialBlue-color 80% 100%);
+  background-size: 400% 100%;
+  background-position: 0% 0%;
+  animation: bg-from-celestialBlue-to-darkBlue 250ms ease-in 0s;
 }
 
 .my-transition-height {
-    height: 800px;
-    transition: height 1s ease-in;
+  height: 800px;
+  transition: height 1s ease-in;
 }
 
 @keyframes bg-from-celestialBlue-to-darkBlue {
-    from {
-        background-position: 100% 0%;
-    }
-    to {
-        background-position: 0% 0%;
-    }
+  from {
+    background-position: 100% 0%;
+  }
+  to {
+    background-position: 0% 0%;
+  }
 }
 
 @keyframes bg-from-darkBlue-to-celestialBlue {
-    from {
-        background-position: 0% 0%;
-    }
-    to {
-        background-position: 100% 0%;
-    }
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 100% 0%;
+  }
 }
 
 .menu-mobile-active {
-    height: 214px !important;
+  height: 214px !important;
+}
+
+// FILTERS => TWO VALUE RANGE SLIDERS //
+
+input[type="range"] {
+  -webkit-appearance: none; // must be none for custom appearance
+  appearance: none; // must be none for custom appearance
+  height: 3px; // height of range line
+  width: 100%; // width must be 100%
+  position: absolute; // must be absolute for multiple range value effect 
+  background-color: $grey-color; // grey color
+  pointer-events: none; // Remove range interaction (line)
+}
+
+#range-min-price,
+#range-min-year,
+#range-min-km {
+  top: 1.5px;
+  height: 0; // must be 0 for multiple range value effect
+  z-index: 10; // must be 10 for multiple range value effect
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  pointer-events: all; // Active range thumb interaction (circle)
+  width: 18px;
+  height: 18px;
+  background-color: $whiteTeal-color;
+  border: 1px solid $grey-color;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px $whiteTeal-color;
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+  pointer-events: all; // Active range thumb interaction (circle)
+  width: 18px;
+  height: 18px;
+  background-color: $whiteTeal-color;
+  border: 1px solid $grey-color;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px $whiteTeal-color;
+  cursor: pointer;  
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  background-color: $celestialBlue-color;
+}
+input[type=range]::-moz-range-thumb:hover {
+  background-color: $celestialBlue-color;
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+  box-shadow: inset 0 0 3px $celestialBlue-color, 0 0 9px $celestialBlue-color;
+  -webkit-box-shadow: inset 0 0 3px $celestialBlue-color, 0 0 9px $celestialBlue-color;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+  opacity: 1;
 }
