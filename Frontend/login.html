@@ -82,7 +82,7 @@
     </script>
 
     <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="./assets/style/style.css" />
+    <link rel="stylesheet" href="./assets/style/main.css" />
 
     <!-- LEAFLET CSS -->
     <link
@@ -107,7 +107,7 @@
   </head>
 
   <!-- BODY -->
-  <body class="font-nobile bg-whiteTeal">
+  <body class="preload font-nobile bg-whiteTeal">
     <!-- HEADER -->
     <header class="bg-onyx border-b border-celestialBlue">
       <nav
@@ -267,7 +267,6 @@
             action=""
             method="post"
           >
-            <fieldset>
               <div class="grid grid-cols-1 gap-y-4 md:gap-y-6 mb-4">
                 <div class="flex flex-col flex-nowrap">
                   <label
@@ -305,13 +304,11 @@
               >
                 <button
                   id="form-contact-submit"
-                  class="btn-scroll font-regular text-whiteTeal text-center uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 m-4 drop-shadow-md rounded"
-                  type="submit"
+                  class="font-regular text-whiteTeal text-center uppercase bg-celestialBlue transition-all active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 m-4 drop-shadow-md rounded"
                 >
                   Connexion
                 </button>
               </div>
-            </fieldset>
           </form>
         </div>
       </section>
@@ -453,6 +450,7 @@
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/leaflet.js"></script>
   </body>
 </html>
