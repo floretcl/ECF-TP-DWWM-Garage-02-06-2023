@@ -82,7 +82,7 @@
     </script>
 
     <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="./assets/style/style.css" />
+    <link rel="stylesheet" href="./assets/style/main.css" />
 
     <!-- LEAFLET CSS -->
     <link
@@ -107,7 +107,7 @@
   </head>
 
   <!-- BODY -->
-  <body class="font-nobile bg-whiteTeal">
+  <body class="preload font-nobile bg-whiteTeal">
     <!-- HEADER -->
     <header class="bg-onyx border-b border-celestialBlue">
       <nav
@@ -270,69 +270,69 @@
             action=""
             method="post"
           >
-            <fieldset>
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4 mb-4">
-                <div class="flex flex-col flex-nowrap">
-                  <label
-                    class="text-celestialBlue font-medium text-sm my-1"
-                    for="form-contact-firstname"
-                    >Prénom</label
-                  >
-                  <input
-                    class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2"
-                    type="text"
-                    name="form-contact-firstname"
-                    id="form-contact-firstname"
-                    required
-                  />
-                </div>
-                <div class="flex flex-col flex-nowrap">
-                  <label
-                    class="text-celestialBlue font-medium text-sm my-1"
-                    for=""
-                    >Nom</label
-                  >
-                  <input
-                    class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2"
-                    type="text"
-                    name="form-contact-lastname"
-                    id="form-contact-lastname"
-                    required
-                  />
-                </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4 mb-4">
+              <div class="flex flex-col flex-nowrap">
+                <label
+                  class="text-celestialBlue font-medium text-sm my-1"
+                  for="form-contact-firstname"
+                  >Prénom</label
+                >
+                <input
+                  class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2"
+                  type="text"
+                  name="form-contact-firstname"
+                  id="form-contact-firstname"
+                  required
+                />
               </div>
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4 mb-4">
-                <div class="flex flex-col flex-nowrap">
-                  <label
-                    class="text-celestialBlue font-medium text-sm my-1"
-                    for="form-contact-email"
-                    >Email</label
-                  >
-                  <input
-                    class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2"
-                    type="email"
-                    name="form-contact-email"
-                    id="form-contact-email"
-                    required
-                  />
-                </div>
-                <div class="flex flex-col flex-nowrap">
-                  <label
-                    class="text-celestialBlue font-medium text-sm my-1"
-                    for="form-contact-number"
-                    >Téléphone</label
-                  >
-                  <input
-                    class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2"
-                    type="tel"
-                    name="form-contact-number"
-                    id="form-contact-number"
-                    required
-                  />
-                </div>
+              <div class="flex flex-col flex-nowrap">
+                <label
+                  class="text-celestialBlue font-medium text-sm my-1"
+                  for="form-contact-lastname"
+                  >Nom</label
+                >
+                <input
+                  class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2"
+                  type="text"
+                  name="form-contact-lastname"
+                  id="form-contact-lastname"
+                  required
+                />
               </div>
-            </fieldset>
-            <fieldset class="flex flex-col flex-nowrap justify-center my-6">
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4 mb-4">
+              <div class="flex flex-col flex-nowrap">
+                <label
+                  class="text-celestialBlue font-medium text-sm my-1"
+                  for="form-contact-email"
+                  >Email</label
+                >
+                <input
+                  class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2"
+                  type="email"
+                  name="form-contact-email"
+                  id="form-contact-email"
+                  required
+                />
+              </div>
+              <div class="flex flex-col flex-nowrap">
+                <label
+                  class="text-celestialBlue font-medium text-sm my-1"
+                  for="form-contact-number"
+                  >Téléphone</label
+                >
+                <input
+                  class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2"
+                  type="tel"
+                  name="form-contact-number"
+                  id="form-contact-number"
+                  required
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-col flex-nowrap justify-center container my-6"
+            >
               <div class="flex flex-col flex-nowrap mb-4">
                 <label
                   class="text-celestialBlue font-medium text-sm my-1"
@@ -349,7 +349,7 @@
               <div class="flex flex-col flex-nowrap mb-4">
                 <label
                   class="text-celestialBlue font-medium text-sm my-1"
-                  for="form-contact-messag"
+                  for="form-contact-message"
                   >Message</label
                 >
                 <textarea
@@ -361,159 +361,154 @@
                   required
                 ></textarea>
               </div>
-              <div
-                class="flex flex-row flex-nowrap justify-center items-center"
+            </div>
+            <div class="flex flex-row flex-nowrap justify-center items-center">
+              <button
+                id="form-contact-submit"
+                class="font-regular text-whiteTeal text-center uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation hover:btn-gradient-animation-active pt-3 pb-2 px-4 m-8 drop-shadow-md rounded"
               >
-                <button
-                  id="form-contact-submit"
-                  class="btn-scroll font-regular text-whiteTeal text-center uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 m-8 drop-shadow-md rounded"
-                  type="submit"
-                >
-                  Envoyer
-                </button>
-              </div>
-            </fieldset>
+                Envoyer
+              </button>
+            </div>
           </form>
         </div>
       </section>
-
       <!-- END SECTION CONTACT-->
-
-      <!-- FOOTER -->
-      <footer>
-        <section id="opening-time" class="bg-celestialBlue">
-          <div
-            class="flex flex-row justify-evenly items-center lg:container mx-auto"
-          >
-            <div
-              class="flex flex-col flex-nowrap justify-center items-center md:items-start px-4 sm:px-6 md:px-4 py-10 sm:py-12"
-            >
-              <h2
-                class="font-rasa text-whiteTeal text-xl uppercase mb-4 sm:mb-6"
-              >
-                Horaires d'ouverture
-              </h2>
-              <div class="grid grid-cols-5 grid-rows-7 gap-y-2 text-whiteTeal">
-                <div>Lun.</div>
-                <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
-                <div>Mar.</div>
-                <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
-                <div>Mer.</div>
-                <div class="col-span-4">: 09h00-12h00, 14h00 - 17h00</div>
-                <div>Jeu.</div>
-                <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
-                <div>Ven.</div>
-                <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
-                <div>Sam.</div>
-                <div class="col-span-4">: 08h30-12h00</div>
-                <div>Dim.</div>
-                <div class="col-span-4">: Fermé</div>
-              </div>
-            </div>
-            <div
-              id="leaflet-map"
-              class="hidden md:block md:h-56 md:w-80 lg:h-64 lg:w-96 xl:h-72 xl:w-128 px-4"
-            ></div>
-          </div>
-        </section>
-
-        <section id="address-infos" class="bg-onyx">
-          <div
-            class="flex flex-col sm:flex-row flex-nowrap justify-center sm:justify-evenly items-center text-center sm:text-left px-4 sm:px-6 md:px-8 py-4 sm:py-6 text-whiteTeal md:container mx-auto"
-          >
-            <h2 class="font-rasa text-xl uppercase mb-4 hidden">
-              Adresse et informations
-            </h2>
-            <picture>
-              <source
-                srcset="./assets/logos/Logo-black.png"
-                media="all"
-                width="200px"
-              />
-              <img src="./assets/logos/Logo-black.png" alt="#" />
-            </picture>
-            <div class="w-12 sm:hidden">
-              <hr class="rounded" />
-            </div>
-            <nav class="my-4 sm:my-0 sm:mx-2 sm:me-4 md:mx-6 md:me-8">
-              <ul>
-                <li class="mb-1">
-                  <a
-                    class="transition hover:text-celestialBlue active:text-darkBlue"
-                    href="index.html#about"
-                    >Présentation</a
-                  >
-                </li>
-                <li class="mb-1">
-                  <a
-                    class="transition hover:text-celestialBlue active:text-darkBlue"
-                    href="index.html#services"
-                    >Nos Services</a
-                  >
-                </li>
-                <li class="mb-1">
-                  <a
-                    class="transition hover:text-celestialBlue active:text-darkBlue"
-                    href="index.html#reviews"
-                    >Témoignages</a
-                  >
-                </li>
-                <li class="mb-1">
-                  <a
-                    class="transition hover:text-celestialBlue active:text-darkBlue"
-                    href="vehicles.html"
-                    >Véhicules d'occasion</a
-                  >
-                </li>
-                <li class="mb-1">
-                  <a
-                    class="transition hover:text-celestialBlue active:text-darkBlue"
-                    href="#opening-time"
-                    >Nos horaires</a
-                  >
-                </li>
-                <li class="mb-1">
-                  <a
-                    class="transition hover:text-celestialBlue active:text-darkBlue"
-                    href="contact.html"
-                    >Nous contacter</a
-                  >
-                </li>
-              </ul>
-            </nav>
-            <div class="w-12 sm:hidden">
-              <hr class="rounded" />
-            </div>
-            <div class="flex flex-col flex-nowrap sm:mx-8 md:mx-12">
-              <div class="text-sm my-4 sm:mt-0 leading-relaxed">
-                <p>Garage V.Parrot</p>
-                <p>
-                  11 Rue Léon Jouhaux<br />
-                  31500 Toulouse
-                </p>
-                <p>Tel. : <a href="tel:+33561234567">05 61 23 45 67</a></p>
-              </div>
-              <p
-                class="sm:flex sm:flex-col sm:flex-nowrap text-xs leading-normal"
-              >
-                Garage V.Parrot ©2023
-                <span class="sm:hidden">-</span>
-                <a
-                  class="transition hover:text-celestialBlue hover:underline active:text-darkBlue"
-                  href="legals.html"
-                  >Mentions légales
-                </a>
-              </p>
-            </div>
-          </div>
-        </section>
-      </footer>
     </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <section id="opening-time" class="bg-celestialBlue">
+        <div
+          class="flex flex-row justify-evenly items-center lg:container mx-auto"
+        >
+          <div
+            class="flex flex-col flex-nowrap justify-center items-center md:items-start px-4 sm:px-6 md:px-4 py-10 sm:py-12"
+          >
+            <h2 class="font-rasa text-whiteTeal text-xl uppercase mb-4 sm:mb-6">
+              Horaires d'ouverture
+            </h2>
+            <div class="grid grid-cols-5 grid-rows-7 gap-y-2 text-whiteTeal">
+              <div>Lun.</div>
+              <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
+              <div>Mar.</div>
+              <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
+              <div>Mer.</div>
+              <div class="col-span-4">: 09h00-12h00, 14h00 - 17h00</div>
+              <div>Jeu.</div>
+              <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
+              <div>Ven.</div>
+              <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
+              <div>Sam.</div>
+              <div class="col-span-4">: 08h30-12h00</div>
+              <div>Dim.</div>
+              <div class="col-span-4">: Fermé</div>
+            </div>
+          </div>
+          <div
+            id="leaflet-map"
+            class="hidden md:block md:h-56 md:w-80 lg:h-64 lg:w-96 xl:h-72 xl:w-128 px-4 z-0"
+          ></div>
+        </div>
+      </section>
+
+      <section id="address-infos" class="bg-onyx">
+        <div
+          class="flex flex-col sm:flex-row flex-nowrap justify-center sm:justify-evenly items-center text-center sm:text-left px-4 sm:px-6 md:px-8 py-4 sm:py-6 text-whiteTeal md:container mx-auto"
+        >
+          <h2 class="font-rasa text-xl uppercase mb-4 hidden">
+            Adresse et informations
+          </h2>
+          <picture>
+            <source
+              srcset="./assets/logos/Logo-black.png"
+              media="all"
+              width="200px"
+            />
+            <img src="./assets/logos/Logo-black.png" alt="#" />
+          </picture>
+          <div class="w-12 sm:hidden">
+            <hr class="rounded" />
+          </div>
+          <nav class="my-4 sm:my-0 sm:mx-2 sm:me-4 md:mx-6 md:me-8">
+            <ul>
+              <li class="mb-1">
+                <a
+                  class="transition hover:text-celestialBlue active:text-darkBlue"
+                  href="index.html#about"
+                  >Présentation</a
+                >
+              </li>
+              <li class="mb-1">
+                <a
+                  class="transition hover:text-celestialBlue active:text-darkBlue"
+                  href="index.html#services"
+                  >Nos Services</a
+                >
+              </li>
+              <li class="mb-1">
+                <a
+                  class="transition hover:text-celestialBlue active:text-darkBlue"
+                  href="index.html#reviews"
+                  >Témoignages</a
+                >
+              </li>
+              <li class="mb-1">
+                <a
+                  class="transition hover:text-celestialBlue active:text-darkBlue"
+                  href="vehicles.html"
+                  >Véhicules d'occasion</a
+                >
+              </li>
+              <li class="mb-1">
+                <a
+                  class="transition hover:text-celestialBlue active:text-darkBlue"
+                  href="#opening-time"
+                  >Nos horaires</a
+                >
+              </li>
+              <li class="mb-1">
+                <a
+                  class="transition hover:text-celestialBlue active:text-darkBlue"
+                  href="contact.html"
+                  >Nous contacter</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div class="w-12 sm:hidden">
+            <hr class="rounded" />
+          </div>
+          <div class="flex flex-col flex-nowrap sm:mx-8 md:mx-12">
+            <div class="text-sm my-4 sm:mt-0 leading-relaxed">
+              <p>Garage V.Parrot</p>
+              <p>
+                11 Rue Léon Jouhaux<br />
+                31500 Toulouse
+              </p>
+              <p>Tel. : <a href="tel:+33561234567">05 61 23 45 67</a></p>
+            </div>
+            <p
+              class="sm:flex sm:flex-col sm:flex-nowrap text-xs leading-normal"
+            >
+              Garage V.Parrot ©2023
+              <span class="sm:hidden">-</span>
+              <a
+                class="transition hover:text-celestialBlue hover:underline active:text-darkBlue"
+                href="legals.html"
+                >Mentions légales
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </footer>
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/leaflet.js"></script>
   </body>
 </html>
