@@ -1,3 +1,9 @@
+//--------------------- PAGE PRELOAD : PREVENT ANIMATION ON LOADING ---------------------------//
+
+setTimeout(() => {
+  document.body.classList.remove('preload');
+},500);
+
 //--------------------- MENU (NAV) MOBILE ---------------------------//
 const buttonMenuMobile = document.getElementById('btn-menu-mobile');
 const menuMobile = document.getElementById('menu-mobile');
@@ -22,8 +28,16 @@ buttonMenuMobile.addEventListener('click', () => {
   toggleButtonMenuMobile();
 });
 
-//--------------------- PAGE PRELOAD : PREVENT ANIMATION ON LOADING ---------------------------//
+//--------------------- MODAL : REVIEWS/TESIMONIES  ---------------------------//
 
-setTimeout(() => {
-  document.body.classList.remove('preload');
-},500);
+const modalReview = document.getElementById('modal-review');
+const modalReviewOpenBtn = document.getElementById('modal-review-open-btn');
+const modalReviewCloseBtn = document.getElementById('modal-review-close-btn');
+
+modalReviewOpenBtn.addEventListener('click', () => {
+  modalReview.className = '';
+});
+
+modalReviewCloseBtn.addEventListener('click', () => {
+  modalReview.className = 'hidden';
+});
