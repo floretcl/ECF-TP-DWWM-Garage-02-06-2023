@@ -6,10 +6,10 @@ const modalVehiclesCloseBtn = document.getElementById('modal-vehicles-close-btn'
 
 for (const button of modalVehiclesOpenBtns) {
   button.addEventListener('click', () => {
-    modalVehicles.className = '';
+    modalVehicles.classList.remove('hidden');
   });
 }
 
 modalVehiclesCloseBtn.addEventListener('click', () => {
-  modalVehicles.className = 'hidden';
+  modalVehicles.classList.add('hidden');
 });
