@@ -6,6 +6,7 @@
 *.log
 *.pot
 *.pyc
+*.pgpass
 
 __pycache__
 db.sqlite3
