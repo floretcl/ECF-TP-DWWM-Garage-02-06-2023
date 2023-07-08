@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 class Garage(models.Model):
     name = models.CharField("nom", max_length=50, primary_key=True)
@@ -68,9 +69,10 @@ class CustomerReview(models.Model):
     date = models.DateTimeField("date d'envoi")
 
     def __str__(self) -> str:
+        localDate = timezone.localtime(self.date)
         return (
             f"témoignage de {self.name} reçu le "
-            f"{self.date.strftime('%d/%m/%Y, %H:%M:%S')}"
+            f"{localDate.strftime('%d/%m/%Y, %H:%M:%S')}"
         )
 
 class CustomerMessage(models.Model):
@@ -83,7 +85,8 @@ class CustomerMessage(models.Model):
     date = models.DateTimeField("date d'envoi")
 
     def __str__(self) -> str:
+        localDate = timezone.localtime(self.date)
         return (
             f"message de {self.firstname} {self.lastname} reçu le "
-            f"{self.date.strftime('%d/%m/%Y, %H:%M:%S')}"
+            f"{localDate.strftime('%d/%m/%Y, %H:%M:%S')}"
         )
