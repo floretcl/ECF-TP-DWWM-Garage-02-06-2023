@@ -1,3 +1,21 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import (
+    Garage,
+    OpeningTime,
+    Service,
+    Vehicle,
+    VehiclePicture,
+    CustomerReview,
+    CustomerMessage
+)
+
+admin.site.register([
+    Garage,
+    OpeningTime,
+    Service,
+    Vehicle,
+    VehiclePicture,
+    CustomerReview,
+    CustomerMessage
+])
