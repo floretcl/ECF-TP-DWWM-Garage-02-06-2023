@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <!-- META-->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- FAVICON -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/favicons/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="./assets/favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="./assets/favicons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta
+      name="msapplication-config"
+      content="./assets/favicons/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              onyx: "#454545",
+              celestialBlue: "#1E91D6",
+              whiteTeal: "#FBFFFE",
+              rosyBrown: "#BF8B85",
+              darkBlue: "#1F01B9",
+              whiteTealForGradient: "#FBFFFECC",
+            },
+            fontFamily: {
+              nobile: ["Nobile", "sans-serif"],
+              rasa: ["Rasa", "serif"],
+              rokkitt: ["Rokkitt", "serif"],
+            },
+            spacing: {
+              128: "32rem",
+            },
+            height: {
+              0.75: "0.1875rem",
+            },
+            margin: {
+              0.75: "0.1875rem",
+            },
+            backgroundImage: {
+              homeHeadingImg: "url('./assets/images/img-15.jpg')",
+              vehiclesHeadingImg: "url('./assets/images/img-20.jpg')",
+              vehiclesSectionGradient:
+                "linear-gradient(0deg, #FBFFFE 0 10%, #454545 10% 90%, #FBFFFE 90% 100%)",
+            },
+            transitionProperty: {
+              height: "height",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="./assets/style/main.css" />
+    <link rel="stylesheet" href="./assets/style/vehicles-filters.css" />
+
+    <!-- LEAFLET CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <!-- GOOGLE FONTS : ROKKITT, RASA, NOBILE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nobile:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Rasa:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Rokkitt:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- TITLE & DESCRIPTION -->
+    <title>Garage V.Parrot à Toulouse</title>
+    <!-- TODO: changer le titre-->
+    <meta name="description" content="" />
+  </head>
+
+  <!-- BODY -->
+  <body class="preload font-nobile bg-whiteTeal">
+    <!-- HEADER -->
+    <header class="bg-onyx border-b border-celestialBlue">
+      <nav
+        class="flex flex-row flex-nowrap justify-between items-center h-16 xl:container mx-auto"
+      >
+        <div
+          class="flex flex-row justify-center items-center ms-3 sm:ms-6 md:ms-8"
+        >
+          <a href="index.html">
+            <img
+              class="w-auto h-16"
+              src="./assets/logos/Logo-icon-black.png"
+              alt="Garage V.Parrot"
+            />
+          </a>
+          <span class="font-bold text-whiteTeal text-lg pt-1">V.Parrot</span>
+        </div>
+        <ul
+          class="lg:flex flex-row flex-nowrap hidden text-lg uppercase me-8 pt-1"
+        >
+          <li class="mx-3">
+            <a
+              class="text-whiteTeal transition hover:text-celestialBlue active:text-darkBlue"
+              href="index.html"
+              >Accueil</a
+            >
+          </li>
+          <li class="mx-3">
+            <a
+              class="text-whiteTeal transition hover:text-celestialBlue active:text-darkBlue"
+              href="index.html#services"
+              >Services</a
+            >
+          </li>
+          <li class="mx-3">
+            <a
+              class="text-whiteTeal transition hover:text-celestialBlue active:text-darkBlue"
+              href="vehicles.html"
+              >Véhicules d'occasion</a
+            >
+          </li>
+          <li class="mx-3">
+            <a
+              class="text-whiteTeal transition hover:text-celestialBlue active:text-darkBlue"
+              href="contact.html"
+              >Contact</a
+            >
+          </li>
+          <li class="mx-3 ps-6 border-s-2">
+            <a
+              class="text-whiteTeal transition hover:text-celestialBlue active:text-darkBlue"
+              href="login.html"
+              >Connexion</a
+            >
+          </li>
+        </ul>
+        <button type="button" id="btn-menu-mobile" class="lg:hidden">
+          <div
+            class="flex flex-col flex-nowrap justify-center items-center p-2 me-3 sm:me-6 md:me-8"
+          >
+            <div
+              id="btn-menu-mobile-line1"
+              class="h-0.75 w-7 my-0.75 rounded bg-whiteTeal transition ease-in transform duration-300"
+            ></div>
+            <div
+              id="btn-menu-mobile-line2"
+              class="h-0.75 w-7 my-0.75 rounded bg-whiteTeal transition ease-in transform duration-300"
+            ></div>
+            <div
+              id="btn-menu-mobile-line3"
+              class="h-0.75 w-7 my-0.75 rounded bg-whiteTeal transition ease-in transform duration-300"
+            ></div>
+          </div>
+        </button>
+      </nav>
+      <div
+        id="menu-mobile"
+        class="flex flex-col flex-nowrap px-6 sm:px-8 md:px-12 bg-celestialBlue border-b-2 border-whiteTeal h-0 overflow-hidden transition-height duration-200 ease-in"
+      >
+        <ul class="font-medium text-lg uppercase">
+          <li class="mt-6 mb-1">
+            <a
+              href="index.html"
+              class="text-whiteTeal transition hover:text-onyx active:text-darkBlue hover:underline hover:underline-offset-4 hover:decoration-1"
+              >Accueil</a
+            >
+          </li>
+          <li class="mt-2 mb-1">
+            <a
+              href="index.html#services"
+              class="text-whiteTeal transition hover:text-onyx active:text-darkBlue hover:underline hover:underline-offset-4 hover:decoration-1"
+              >Services</a
+            >
+          </li>
+          <li class="mt-2 mb-1">
+            <a
+              href="vehicles.html"
+              class="text-whiteTeal transition hover:text-onyx active:text-darkBlue hover:underline hover:underline-offset-4 hover:decoration-1"
+              >Véhicules d'occasion</a
+            >
+          </li>
+          <li class="mt-2 mb-1">
+            <a
+              href="contact.html"
+              class="text-whiteTeal transition hover:text-onyx active:text-darkBlue hover:underline hover:underline-offset-4 hover:decoration-1"
+              >Contact</a
+            >
+          </li>
+          <li class="mt-2 mb-1">
+            <a
+              href="login.html"
+              class="text-whiteTeal transition hover:text-onyx active:text-darkBlue hover:underline hover:underline-offset-4 hover:decoration-1"
+              >Connexion</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+    <!-- HEADER -->
+
+    <!-- MAIN -->
+    <main>
+      <!-- SECTION HEADING-->
+      <section
+        class="bg-vehiclesHeadingImg bg-cover bg-center min-h-[280px] md:min-h-[340px]"
+      >
+        <div
+          class="flex flex-col flex-nowrap justify-center items-center px-6 sm:px-8 md:px-14 py-8 sm:py-10 md:py-12 lg:py-20 xl:container mx-auto"
+        >
+          <div
+            class="self-start mb-6 sm:mb-8 max-w-xl sm:max-w-2xl md:max-w-none md:w-10/12"
+          >
+            <h1
+              class="font-rokkitt font-bold text-2xl lg:text-4xl text-whiteTeal uppercase mb-3 lg:mt-32 drop-shadow-md"
+            >
+              Découvrez notre sélection de véhicules d'occasion révisés par
+              notre atelier
+            </h1>
+            <p
+              class="font-rasa font-semibold text-xl lg:text-2xl text-whiteTeal uppercase drop-shadow-md"
+            >
+              Tous nos véhicules sont garantie 12 mois pour réparations, dans
+              notre garage
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- END SECTION HEADING-->
+
+      <!-- SECTION VEHICLES FILTER-->
+      <section id="vehicles-filters">
+        <div
+          class="flex flex-col xl:flex-row flex-nowrap xl:justify-center items-center px-8 pt-12 pb-4 xl:mx-2"
+        >
+          <!-- RESET FILTER BUTTON -->
+          <div
+            class="flex flex-row flex-nowrap justify-center items-center xl:mx-6"
+          >
+            <button
+              id="button-reset-filter"
+              class="font-regular text-whiteTeal text-center uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded"
+            >
+              Réinitialiser les filtres
+            </button>
+          </div>
+          <!-- END RESET FILTER BUTTON-->
+
+          <div
+            class="container flex flex-col flex-nowrap lg:flex-row lg:justify-center items-center my-8"
+          >
+            <!-- PRICE FILTER-->
+            <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
+              <h3 class="font-semibold font-onyx mb-4">Prix</h3>
+              <div class="relative h-6">
+                <input
+                  id="range-min-price"
+                  type="range"
+                  value="0"
+                  min="0"
+                  max="1000000"
+                  step="500"
+                />
+                <input
+                  id="range-max-price"
+                  type="range"
+                  value="1000000"
+                  min="0"
+                  max="1000000"
+                  step="500"
+                />
+              </div>
+              <div class="flex justify-between">
+                <p class="onyx w-28 h-fit text-onyx text-sm text-left">
+                  <span id="text-min-price">0</span> €
+                </p>
+                <p class="onyx w-28 h-fit text-onyx text-sm text-right">
+                  <span id="text-max-price">1 000 000</span> €
+                </p>
+              </div>
+            </div>
+            <!-- END PRICE FILTER-->
+
+            <!-- YEAR FILTER-->
+            <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
+              <h3 class="font-semibold font-onyx mb-4">Années</h3>
+              <div class="relative h-6">
+                <input
+                  id="range-min-year"
+                  type="range"
+                  value="0"
+                  min="0"
+                  max="2023"
+                  step="1"
+                />
+                <input
+                  id="range-max-year"
+                  type="range"
+                  value="2023"
+                  min="0"
+                  max="2023"
+                  step="1"
+                />
+              </div>
+              <div class="flex justify-between">
+                <p class="onyx w-28 h-fit text-onyx text-sm text-left">
+                  <span id="text-min-year">0</span>
+                </p>
+                <p class="onyx w-28 h-fit text-onyx text-sm text-right">
+                  <span id="text-max-year">2023</span>
+                </p>
+              </div>
+            </div>
+            <!-- END YEAR FILTER-->
+
+            <!-- KMs FILTER-->
+            <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
+              <h3 class="font-semibold font-onyx mb-4">Kilométrage</h3>
+              <div class="relative h-6">
+                <input
+                  id="range-min-km"
+                  type="range"
+                  value="0"
+                  min="0"
+                  max="1000000"
+                  step="1000"
+                />
+                <input
+                  id="range-max-km"
+                  type="range"
+                  value="1000000"
+                  min="0"
+                  max="1000000"
+                  step="1000"
+                />
+              </div>
+              <div class="flex justify-between">
+                <p class="onyx w-28 h-fit text-onyx text-sm text-left">
+                  <span id="text-min-km">0</span> Km
+                </p>
+                <p class="onyx w-28 h-fit text-onyx text-sm text-right">
+                  <span id="text-max-km">1 000 000</span> Km
+                </p>
+              </div>
+            </div>
+            <!-- END KMs FILTER-->
+          </div>
+        </div>
+      </section>
+      <!-- END SECTION VEHICLES FILTER-->
+
+      <!-- SECTION VEHICLES LIST-->
+      <section id="vehicles-list">
+        <div
+          class="flex flex-col flex-nowrap justify-center items-center sm:px-14 pb-14 bg-whiteTeal"
+        >
+          <h2 class="font-rasa text-xl uppercase mb-4 hidden">
+            Liste des véhicules d'occasion
+          </h2>
+          <div
+            class="grid gap-14 md:gap-x-16 md:gap-x-12 md:gap-y-20 lg:gap-x-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-2 mb-8"
+          >
+            <!-- CARD VEHICLE-->
+            <div class="shadow-lg rounded-md">
+              <div>
+                <a href="#">
+                  <img
+                    class="rounded-t-md max-h-[350px] hover:contrast-125 transition"
+                    src="./assets/images/vehicles/ford-explorer.webp"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <div
+                class="flex flex-col flex-nowrap justify-center items-start px-6 py-5"
+              >
+                <h3 class="font-bold text-lg text-onyx uppercase mb-2">
+                  Nom et modèle du véhicule : Ford explorer
+                </h3>
+                <ul
+                  class="list-disc list-inside text-slate-500 mb-5 lg:mb-8 xl:mb-10"
+                >
+                  <li>Année: <span>2020</span></li>
+                  <li>Kilométrage: <span>12 000</span> km</li>
+                </ul>
+                <p class="text-center font-bold text-lg text-onyx my-4">
+                  30 000<span> €</span>
+                </p>
+                <div class="self-center">
+                  <p>Ce véhicule vous intéresse ?</p>
+                  <div
+                    class="flex flex-row flex-nowrap justify-center items-center my-2"
+                  >
+                    <button
+                      class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded"
+                    >
+                      Contactez nous
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END CARD VEHICLE-->
+
+            <!-- CARD VEHICLE-->
+            <div class="shadow-lg rounded-md">
+              <div>
+                <a href="#">
+                  <img
+                    class="rounded-t-md max-h-[350px] hover:contrast-125 transition"
+                    src="./assets/images/vehicles/ford-explorer.webp"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <div
+                class="flex flex-col flex-nowrap justify-center items-start px-6 py-5"
+              >
+                <h3 class="font-bold text-lg text-onyx uppercase mb-2">
+                  Nom et modèle du véhicule : Ford explorer
+                </h3>
+                <ul
+                  class="list-disc list-inside text-slate-500 mb-5 lg:mb-8 xl:mb-10"
+                >
+                  <li>Année: <span>2020</span></li>
+                  <li>Kilométrage: <span>12 000</span> km</li>
+                </ul>
+                <p class="text-center font-bold text-lg text-onyx my-4">
+                  30 000<span> €</span>
+                </p>
+                <div class="self-center">
+                  <p>Ce véhicule vous intéresse ?</p>
+                  <div
+                    class="flex flex-row flex-nowrap justify-center items-center my-2"
+                  >
+                    <button
+                      class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded"
+                    >
+                      Contactez nous
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END CARD VEHICLE-->
+
+            <!-- CARD VEHICLE-->
+            <div class="shadow-lg rounded-md">
+              <div>
+                <a href="#">
+                  <img
+                    class="rounded-t-md max-h-[350px] hover:contrast-125 transition"
+                    src="./assets/images/vehicles/ford-explorer.webp"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <div
+                class="flex flex-col flex-nowrap justify-center items-start px-6 py-5"
+              >
+                <h3 class="font-bold text-lg text-onyx uppercase mb-2">
+                  Nom et modèle du véhicule : Ford explorer
+                </h3>
+                <ul
+                  class="list-disc list-inside text-slate-500 mb-5 lg:mb-8 xl:mb-10"
+                >
+                  <li>Année: <span>2020</span></li>
+                  <li>Kilométrage: <span>12 000</span> km</li>
+                </ul>
+                <p class="text-center font-bold text-lg text-onyx my-4">
+                  30 000<span> €</span>
+                </p>
+                <div class="self-center">
+                  <p>Ce véhicule vous intéresse ?</p>
+                  <div
+                    class="flex flex-row flex-nowrap justify-center items-center my-2"
+                  >
+                    <button
+                      class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded"
+                    >
+                      Contactez nous
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END CARD VEHICLE-->
+
+            <!-- CARD VEHICLE-->
+            <div class="shadow-lg rounded-md">
+              <div>
+                <a href="#">
+                  <img
+                    class="rounded-t-md max-h-[350px] hover:contrast-125 transition"
+                    src="./assets/images/vehicles/ford-explorer.webp"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <div
+                class="flex flex-col flex-nowrap justify-center items-start px-6 py-5"
+              >
+                <h3 class="font-bold text-lg text-onyx uppercase mb-2">
+                  Nom et modèle du véhicule : Ford explorer
+                </h3>
+                <ul
+                  class="list-disc list-inside text-slate-500 mb-5 lg:mb-8 xl:mb-10"
+                >
+                  <li>Année: <span>2020</span></li>
+                  <li>Kilométrage: <span>12 000</span> km</li>
+                </ul>
+                <p class="text-center font-bold text-lg text-onyx my-4">
+                  30 000<span> €</span>
+                </p>
+                <div class="self-center">
+                  <p>Ce véhicule vous intéresse ?</p>
+                  <div
+                    class="flex flex-row flex-nowrap justify-center items-center my-2"
+                  >
+                    <button
+                      class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded"
+                    >
+                      Contactez nous
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END CARD VEHICLE-->
+
+            <!-- CARD VEHICLE-->
+            <div class="shadow-lg rounded-md">
+              <div>
+                <a href="#">
+                  <img
+                    class="rounded-t-md max-h-[350px] hover:contrast-125 transition"
+                    src="./assets/images/vehicles/ford-explorer.webp"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <div
+                class="flex flex-col flex-nowrap justify-center items-start px-6 py-5"
+              >
+                <h3 class="font-bold text-lg text-onyx uppercase mb-2">
+                  Nom et modèle du véhicule : Ford explorer
+                </h3>
+                <ul
+                  class="list-disc list-inside text-slate-500 mb-5 lg:mb-8 xl:mb-10"
+                >
+                  <li>Année: <span>2020</span></li>
+                  <li>Kilométrage: <span>12 000</span> km</li>
+                </ul>
+                <p class="text-center font-bold text-lg text-onyx my-4">
+                  30 000<span> €</span>
+                </p>
+                <div class="self-center">
+                  <p>Ce véhicule vous intéresse ?</p>
+                  <div
+                    class="flex flex-row flex-nowrap justify-center items-center my-2"
+                  >
+                    <button
+                      class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded"
+                    >
+                      Contactez nous
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END CARD VEHICLE-->
+
+            <!-- CARD VEHICLE-->
+            <div class="shadow-lg rounded-md">
+              <div>
+                <a href="#">
+                  <img
+                    class="rounded-t-md max-h-[350px] hover:contrast-125 transition"
+                    src="./assets/images/vehicles/ford-explorer.webp"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <div
+                class="flex flex-col flex-nowrap justify-center items-start px-6 py-5"
+              >
+                <h3 class="font-bold text-lg text-onyx uppercase mb-2">
+                  Nom et modèle du véhicule : Ford explorer
+                </h3>
+                <ul
+                  class="list-disc list-inside text-slate-500 mb-5 lg:mb-8 xl:mb-10"
+                >
+                  <li>Année: <span>2020</span></li>
+                  <li>Kilométrage: <span>12 000</span> km</li>
+                </ul>
+                <p class="text-center font-bold text-lg text-onyx my-4">
+                  30 000<span> €</span>
+                </p>
+                <div class="self-center">
+                  <p>Ce véhicule vous intéresse ?</p>
+                  <div
+                    class="flex flex-row flex-nowrap justify-center items-center my-2"
+                  >
+                    <button
+                      class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded"
+                    >
+                      Contactez nous
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END CARD VEHICLE-->
+
+            <!-- CARD VEHICLE-->
+            <div class="shadow-lg rounded-md">
+              <div>
+                <a href="#">
+                  <img
+                    class="rounded-t-md max-h-[350px] hover:contrast-125 transition"
+                    src="./assets/images/vehicles/ford-explorer.webp"
+                    alt=""
+                  />
+                </a>
+              </div>
+              <div
+                class="flex flex-col flex-nowrap justify-center items-start px-4 py-5"
+              >
+                <h3 class="font-bold text-lg text-onyx uppercase mb-2">
+                  Nom et modèle du véhicule : Ford explorer
+                </h3>
+                <ul
+                  class="list-disc list-inside text-slate-500 mb-5 lg:mb-8 xl:mb-10"
+                >
+                  <li>Année: <span>2020</span></li>
+                  <li>Kilométrage: <span>12 000</span> km</li>
+                </ul>
+                <p class="text-center font-bold text-lg text-onyx my-4">
+                  30 000<span> €</span>
+                </p>
+                <div class="self-center">
+                  <p>Ce véhicule vous intéresse ?</p>
+                  <div
+                    class="flex flex-row flex-nowrap justify-center items-center my-2"
+                  >
+                    <button
+                      class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded"
+                    >
+                      Contactez nous
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END CARD VEHICLE-->
+          </div>
+          <div
+            class="flex flex-row flex-nowrap justify-center items-center mb-10 lg:hidden"
+          >
+            <a
+              class="font-regular text-sm text-whiteTeal bg-rosyBrown hover:brightness-110 hover:scale-105 transition-all active:brightness-110 pt-2 pb-1 px-4 rounded-full"
+              href="#"
+            >
+              Voir plus
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- END SECTION VEHICLES LIST-->
+      <!-- SECTION MODAL vehicles-->
+      <section id="modal-vehicles" class="hidden">
+        <div
+          class="relative z-10"
+          aria-labelledby="modal-title"
+          role="dialog"
+          aria-modal="true"
+        >
+          <!--
+        Background backdrop, show/hide based on modal state.
+    
+        Entering: "ease-out duration-300"
+          From: "opacity-0"
+          To: "opacity-100"
+        Leaving: "ease-in duration-200"
+          From: "opacity-100"
+          To: "opacity-0"
+      -->
+          <div
+            class="fixed inset-0 bg-slate-600 bg-opacity-75 transition-opacity"
+          ></div>
+
+          <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div
+              class="flex justify-center items-end sm:items-center min-h-full p-4 sm:p-0"
+            >
+              <!--
+            Modal panel, show/hide based on modal state.
+    
+            Entering: "ease-out duration-300"
+              From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              To: "opacity-100 translate-y-0 sm:scale-100"
+            Leaving: "ease-in duration-200"
+              From: "opacity-100 translate-y-0 sm:scale-100"
+              To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+          -->
+              <div
+                class="relative transform overflow-hidden rounded-lg bg-whiteTeal shadow-xl transition-all sm:my-8 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl"
+              >
+                <div class="flex flex-row flex-nowrap justify-end">
+                  <button
+                    id="modal-vehicles-close-btn"
+                    class="font-regular text-slate-600 pt-3 pb-2 px-4 sm:pt-4 sm:px-5 drop-shadow-md rounded"
+                    type="button"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-8 h-8"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div class="px-4 sm:px-8 sm:pb-2 md:px-12 lg:px-16">
+                  <div class="w-full">
+                    <div>
+                      <h3 class="font-semibold text-onyx mb-8" id="modal-title">
+                        Demande de contact
+                      </h3>
+                      <form
+                        id="form-vehicles"
+                        class="flex flex-col flex-nowrap justify-center w-full"
+                        action=""
+                        method="post"
+                      >
+                        <div
+                          class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6"
+                        >
+                          <label
+                            class="text-celestialBlue font-medium text-sm my-1"
+                            for="form-vehicles-firstname"
+                          >
+                            Prénom
+                          </label>
+                          <input
+                            class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2"
+                            type="text"
+                            name="form-vehicles-firstname"
+                            id="form-vehicles-firstname"
+                            required
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6"
+                        >
+                          <label
+                            class="text-celestialBlue font-medium text-sm my-1"
+                            for="form-vehicles-lastname"
+                          >
+                            Nom
+                          </label>
+                          <input
+                            class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2"
+                            type="text"
+                            name="form-vehicles-lastname"
+                            id="form-vehicles-lastname"
+                            required
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6"
+                        >
+                          <label
+                            class="text-celestialBlue font-medium text-sm my-1"
+                            for="form-vehicles-email"
+                          >
+                            Email
+                          </label>
+                          <input
+                            class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2"
+                            type="email"
+                            name="form-vehicles-email"
+                            id="form-vehicles-email"
+                            required
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6"
+                        >
+                          <label
+                            class="text-celestialBlue font-medium text-sm my-1"
+                            for="form-vehicles-phoneNumber"
+                          >
+                            Téléphone
+                          </label>
+                          <input
+                            class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2"
+                            type="tel"
+                            name="form-vehicles-phoneNumber"
+                            id="form-vehicles-phoneNumber"
+                            required
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col flex-nowrap justify-center w-full my-6"
+                        >
+                          <div
+                            class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6"
+                          >
+                            <label
+                              class="text-celestialBlue font-medium text-sm my-1"
+                              for="form-vehicles-subject"
+                            >
+                              Sujet
+                            </label>
+                            <input
+                              class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2"
+                              type="text"
+                              name="form-vehicles-subject"
+                              id="form-vehicles-subject"
+                              required
+                            />
+                          </div>
+                          <div
+                            class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6"
+                          >
+                            <label
+                              class="text-celestialBlue font-medium text-sm my-1"
+                              for="form-vehicles-message"
+                            >
+                              Message
+                            </label>
+                            <textarea
+                              class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-28 sm:h-32 md:h-40 px-2"
+                              name="form-vehicles-message"
+                              id="form-vehicles-message"
+                              cols="30"
+                              rows="10"
+                              required
+                            ></textarea>
+                          </div>
+                        </div>
+                        <div
+                          class="py-3 flex flex-row justify-center sm:justify-start"
+                        >
+                          <div
+                            class="flex flex-row flex-nowrap justify-center items-center"
+                          >
+                            <button
+                              id="form-vehicles-submit"
+                              class="font-regular text-whiteTeal text-center uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 mt-8 mb-4 drop-shadow-md rounded"
+                            >
+                              Envoyer
+                            </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END SECTION MODAL vehicles-->
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <section id="opening-time" class="bg-celestialBlue">
+        <div
+          class="flex flex-row justify-evenly items-center lg:container mx-auto"
+        >
+          <div
+            class="flex flex-col flex-nowrap justify-center items-center md:items-start px-4 sm:px-6 md:px-4 py-10 sm:py-12"
+          >
+            <h2 class="font-rasa text-whiteTeal text-xl uppercase mb-4 sm:mb-6">
+              Horaires d'ouverture
+            </h2>
+            <div class="grid grid-cols-5 grid-rows-7 gap-y-2 text-whiteTeal">
+              <div>Lun.</div>
+              <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
+              <div>Mar.</div>
+              <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
+              <div>Mer.</div>
+              <div class="col-span-4">: 09h00-12h00, 14h00 - 17h00</div>
+              <div>Jeu.</div>
+              <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
+              <div>Ven.</div>
+              <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
+              <div>Sam.</div>
+              <div class="col-span-4">: 08h30-12h00</div>
+              <div>Dim.</div>
+              <div class="col-span-4">: Fermé</div>
+            </div>
+          </div>
+          <div
+            id="leaflet-map"
+            class="hidden md:block md:h-56 md:w-80 lg:h-64 lg:w-96 xl:h-72 xl:w-128 px-4 z-0 rounded-sm"
+          ></div>
+        </div>
+      </section>
+
+      <section id="address-infos" class="bg-onyx">
+        <div
+          class="flex flex-col sm:flex-row flex-nowrap justify-center sm:justify-evenly items-center text-center sm:text-left px-4 sm:px-6 md:px-8 py-4 sm:py-6 text-whiteTeal md:container mx-auto"
+        >
+          <h2 class="font-rasa text-xl uppercase mb-4 hidden">
+            Adresse et informations
+          </h2>
+          <picture>
+            <source
+              srcset="./assets/logos/Logo-black.png"
+              media="all"
+              width="200px"
+            />
+            <img src="./assets/logos/Logo-black.png" alt="#" />
+          </picture>
+          <div class="w-12 sm:hidden">
+            <hr class="rounded" />
+          </div>
+          <nav class="my-4 sm:my-0 sm:mx-2 sm:me-4 md:mx-6 md:me-8">
+            <ul>
+              <li class="mb-1">
+                <a
+                  class="transition hover:text-celestialBlue active:text-darkBlue"
+                  href="index.html#about"
+                  >Présentation</a
+                >
+              </li>
+              <li class="mb-1">
+                <a
+                  class="transition hover:text-celestialBlue active:text-darkBlue"
+                  href="index.html#services"
+                  >Nos Services</a
+                >
+              </li>
+              <li class="mb-1">
+                <a
+                  class="transition hover:text-celestialBlue active:text-darkBlue"
+                  href="index.html#reviews"
+                  >Témoignages</a
+                >
+              </li>
+              <li class="mb-1">
+                <a
+                  class="transition hover:text-celestialBlue active:text-darkBlue"
+                  href="vehicles.html"
+                  >Véhicules d'occasion</a
+                >
+              </li>
+              <li class="mb-1">
+                <a
+                  class="transition hover:text-celestialBlue active:text-darkBlue"
+                  href="#opening-time"
+                  >Nos horaires</a
+                >
+              </li>
+              <li class="mb-1">
+                <a
+                  class="transition hover:text-celestialBlue active:text-darkBlue"
+                  href="contact.html"
+                  >Nous contacter</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div class="w-12 sm:hidden">
+            <hr class="rounded" />
+          </div>
+          <div class="flex flex-col flex-nowrap sm:mx-8 md:mx-12">
+            <div class="text-sm my-4 sm:mt-0 leading-relaxed">
+              <p>Garage V.Parrot</p>
+              <p>
+                11 Rue Léon Jouhaux<br />
+                31500 Toulouse
+              </p>
+              <p>Tel. : <a href="tel:+33561234567">05 61 23 45 67</a></p>
+            </div>
+            <p
+              class="sm:flex sm:flex-col sm:flex-nowrap text-xs leading-normal"
+            >
+              Garage V.Parrot ©2023
+              <span class="sm:hidden">-</span>
+              <a
+                class="transition hover:text-celestialBlue hover:underline active:text-darkBlue"
+                href="./legal-notice.html"
+                >Mentions légales
+              </a>
+              <span class="sm:hidden">-</span>
+              <a
+                class="transition hover:text-celestialBlue hover:underline active:text-darkBlue"
+                href="./privacy-policy.html"
+                >Politique de confidentialité des données
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </footer>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/leaflet.js"></script>
+    <script src="./assets/js/vehicles-filters.js"></script>
+    <script src="./assets/js/vehicle-modal.js"></script>
+  </body>
+</html>
