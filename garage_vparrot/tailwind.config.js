@@ -26,7 +26,9 @@ module.exports = {
         0.75: "0.1875rem",
       },
       backgroundImage: {
-        homeHeadingImg: "url('{% static 'garage/images/pictures/img-15.jpg' %}')",
+        homeHeadingImg: "url('../../../static/garage/images/pictures/img-15.jpg')",
+        vehiclesHeadingImg: "url('../../../static/garage/images/pictures/img-20.jpg')",
+        contactHeadingImg: "url('../../../static/garage/images/pictures/img-18.jpg')",
         vehiclesSectionGradient:
           "linear-gradient(0deg, #FBFFFE 0 10%, #454545 10% 90%, #FBFFFE 90% 100%)",
       },
