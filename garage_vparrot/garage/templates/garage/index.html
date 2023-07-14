@@ -1,5 +1,6 @@
 {% extends "garage/base.html" %}
 {% load static %}
+{% load garage_extras %}
 
 <!-- TODO: changer le titre-->
 {% block title %}Garage V.Parrot à Toulouse{% endblock %}
@@ -698,51 +699,48 @@
                       action=""
                       method="post"
                     >
+                    {% csrf_token %}
                       <div
                         class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6"
                       >
-                        <label
-                          class="text-celestialBlue font-medium text-sm my-1"
-                          for="form-review-name"
-                        >
-                          Nom
-                        </label>
-                        <input
-                          class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2"
-                          type="text"
-                          name="form-review-name"
-                          id="form-review-name"
-                          required
-                        />
+                        {{ form.name|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
+
+                        {{ form.name|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2' }}
+
+                        {% if form.name.errors %}
+                        <ul>
+                          {% for error in form.name.errors %}
+                          <li class="text-red-700 mt-2">{{ error }}</li>
+                          {% endfor %}
+                        </ul>
+                        {% endif %}
                       </div>
+
                       <div
                         class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6"
                       >
-                        <label
-                          class="text-celestialBlue font-medium text-sm my-1"
-                          for="form-review-message"
-                        >
-                          Message
-                        </label>
-                        <textarea
-                          class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-28 sm:h-32 md:h-40 px-2"
-                          name="form-review-message"
-                          id="form-review-message"
-                          cols="30"
-                          rows="10"
-                          required
-                        ></textarea>
+                        {{ form.message|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
+
+                        {{ form.message|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 h-28 sm:h-32 md:h-40 px-2' }}
+
+                        {% if form.message.errors %}
+                        <ul>
+                          {% for error in form.message.errors %}
+                          <li class="text-red-700 mt-2">{{ error }}</li>
+                          {% endfor %}
+                        </ul>
+                        {% endif %}
                       </div>
+
                       <div class="flex flex-col flex-nowrap mb-6">
-                        <label
-                          class="text-celestialBlue font-medium text-sm my-1"
-                          for="form-review-rating"
-                        >
-                          Note
-                        </label>
+
+                        {{ form.rating|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
+
                         <div
                           class="flex flex-row flex-nowrap justify-start items-center"
                         >
+                          {{ form.rating|add_class:'range-stars active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9' }}
+                        <!--
                           <input
                             class="range-stars active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9"
                             type="range"
@@ -754,8 +752,31 @@
                             value="1"
                             required
                           />
+                          -->
                         </div>
+                        FIELD ERRORS
+
+                        {% if form.rating.errors %}
+                        <ul>
+                          {% for error in form.rating.errors %}
+                          <li class="text-red-700 mt-2">{{ error }}</li>
+                          {% endfor %}
+                        </ul>
+                        {% endif %}
                       </div>
+                      NON_FIELD_ERRORS
+                      {% if form.non_field_errors %}
+                        <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
+                          <ul>
+                            {% for error in form.non_field_errors %}
+                            <li class="text-red_700">
+                              {{ error }}
+                            </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                        {% endif %}
+                      
                       <div
                         class="py-3 flex flex-row justify-center sm:justify-start"
                       >
