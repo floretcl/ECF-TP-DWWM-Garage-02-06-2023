@@ -176,13 +176,14 @@
       <div
         class="grid gap-14 md:gap-x-16 md:gap-y-20 lg:gap-x-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-2 mb-8"
       >
+      {% for vehicle in vehicles %}
         <!-- CARD VEHICLE-->
         <div class="shadow-lg rounded-md">
           <div>
             <a href="#">
               <img
                 class="rounded-t-md max-h-[350px] hover:contrast-125 transition"
-                src="{% static 'garage/images/vehicles/ford-explorer.webp'%}"
+                src="../{{ vehicle.pictures.all|first }}"
                 alt=""
               />
             </a>
@@ -191,16 +192,16 @@
             class="flex flex-col flex-nowrap justify-center items-start px-6 py-5"
           >
             <h3 class="font-bold text-lg text-onyx uppercase mb-2">
-              Nom et modèle du véhicule : Ford explorer
+              {{ vehicle.name }}
             </h3>
             <ul
               class="list-disc list-inside text-slate-500 mb-5 lg:mb-8 xl:mb-10"
             >
-              <li>Année: <span>2020</span></li>
-              <li>Kilométrage: <span>12 000</span> km</li>
+              <li>Année: <span>{{ vehicle.year }}</span></li>
+              <li>Kilométrage: <span>{{ vehicle.km }}</span> km</li>
             </ul>
             <p class="text-center font-bold text-lg text-onyx my-4">
-              30 000<span> €</span>
+              {{ vehicle.price }}<span> €</span>
             </p>
             <div class="self-center">
               <p>Ce véhicule vous intéresse ?</p>
@@ -208,6 +209,7 @@
                 class="flex flex-row flex-nowrap justify-center items-center my-2"
               >
                 <button
+                  id="{{ vehicle.id }}"
                   class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded"
                 >
                   Contactez nous
@@ -217,7 +219,7 @@
           </div>
         </div>
         <!-- END CARD VEHICLE-->
-
+      {% endfor %}
         <!-- CARD VEHICLE-->
         <div class="shadow-lg rounded-md">
           <div>
