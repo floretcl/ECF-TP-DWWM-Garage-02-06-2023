@@ -18,15 +18,19 @@ class Garage(models.Model):
 
 class OpeningTime(models.Model):
     class Day(models.TextChoices):
-        MONDAY = 'monday', "lundi"
-        TUESDAY = 'tuesday', "mardi"
-        WEDNESDAY = 'wednesday', "mercredi"
-        THURSDAY = 'thursday', "jeudi"
-        FRIDAY = 'friday', "vendredi"
-        SATURDAY = 'saturday', "samedi"
-        SUNDAY = 'sunday', "dimanche"
+        MONDAY = 'Lun.', "Lundi"
+        TUESDAY = 'Mar.', "Mardi"
+        WEDNESDAY = 'Mer.', "Mercredi"
+        THURSDAY = 'Jeu.', "Jeudi"
+        FRIDAY = 'Ven.', "Vendredi"
+        SATURDAY = 'Sam.', "Samedi"
+        SUNDAY = 'Dim.', "Dimanche"
 
-    garage = models.ForeignKey(Garage, on_delete=models.CASCADE)
+    garage = models.ForeignKey(
+        Garage,
+        on_delete=models.CASCADE,
+        default='Garage.objects.first()'
+    )
     day = models.CharField(
         "jour de la semaine", 
         primary_key=True,
@@ -42,7 +46,11 @@ class OpeningTime(models.Model):
         verbose_name = "Horaire"
 
 class ServiceType(models.Model):
-    garage = models.ForeignKey(Garage, on_delete=models.CASCADE)
+    garage = models.ForeignKey(
+        Garage,
+        on_delete=models.CASCADE,
+        default='Garage.objects.first()'
+    )
     name = models.CharField("nom", max_length=50)
     image = models.ImageField("image", upload_to='uploads/%Y/%m/')
     
@@ -63,7 +71,11 @@ class Service(models.Model):
         verbose_name = "Service"
 
 class Vehicle(models.Model):
-    garage = models.ForeignKey(Garage, on_delete=models.CASCADE)
+    garage = models.ForeignKey(
+        Garage,
+        on_delete=models.CASCADE,
+        default='Garage.objects.first()'
+    )
     name = models.CharField("nom", max_length=80)
     price = models.CharField("prix", max_length=80)
     year = models.SmallIntegerField("année")
