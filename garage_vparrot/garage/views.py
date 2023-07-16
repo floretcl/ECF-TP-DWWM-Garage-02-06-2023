@@ -3,7 +3,7 @@ from django.db.models.query import QuerySet
 from django.http import HttpRequest, HttpResponse
 from django.views.generic import View, TemplateView, FormView, ListView
 from django.views.generic.list import MultipleObjectMixin
-from .models import CustomerReview
+from .models import Service, CustomerReview
 from .modelforms import ContactForm, ReviewForm
 
 class IndexView(View):
@@ -30,6 +30,8 @@ class IndexReviewListView(ListView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        services = Service.objects.all()
+        context["services"] = services
         context["form"] = ReviewForm()
         return context
     
