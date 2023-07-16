@@ -185,7 +185,9 @@
         <div
           class="flex flex-col lg:flex-row flex-nowrap justify-center items-center lg:items-start my-8 lg:mb-16"
         >
-          <!-- SERVICE -->
+        {% regroup services by type as type_list %}
+          {% for type in type_list %}
+            <!-- SERVICE -->
           <div class="my-6 sm:my-8 lg:mx-4 max-w-md sm:max-w-lg md:max-w-xl">
             <div
               class="flex flex-col flex-nowrap justify-center items-center group bg-celestialBlue rounded mb-3 sm:mb-6 p-0 overflow-hidden"
@@ -193,83 +195,24 @@
               <div class="overflow-hidden h-auto max-h-72">
                 <img
                   class="group-hover:scale-110 group-hover:brightness-95 transition"
-                  src="{% static 'garage/images/pictures/img-17.jpg' %}"
+                  src="{{ type.grouper.image }}"
                   alt=""
                 />
               </div>
               <h3 class="font-rasa text-whiteTeal uppercase text-xl my-3">
-                Mécanique
+                {{ type.grouper.name }}
               </h3>
             </div>
             <ul
               class="list-disc font-medium text-onyx mt-4 ps-6 overflow-auto h-38"
             >
-              <li class="mb-1">Motorisation</li>
-              <li class="mb-1">Système de freinage</li>
-              <li class="mb-1">Direction et Suspension</li>
-              <li class="mb-1">Échappement</li>
-              <li class="mb-1">Démarrage</li>
-              <li class="mb-1">Pneumatique</li>
+              {% for service in type.list %}
+              <li class="mb-1">{{ service.name }}</li>
+              {% endfor %}
             </ul>
           </div>
           <!-- END SERVICE-->
-
-          <!-- SERVICE-->
-          <div class="my-6 sm:my-8 lg:mx-4 max-w-md sm:max-w-lg md:max-w-xl">
-            <div
-              class="flex flex-col flex-nowrap justify-center items-center group bg-celestialBlue rounded mb-3 sm:mb-6 p-0 overflow-hidden"
-            >
-              <div class="overflow-hidden h-auto max-h-72">
-                <img
-                  class="group-hover:scale-110 group-hover:brightness-95 transition"
-                  src="{% static 'garage/images/pictures/img-7.jpg' %}"
-                  alt="#"
-                />
-              </div>
-              <h3 class="font-rasa text-whiteTeal uppercase text-xl my-3">
-                Carrosserie
-              </h3>
-            </div>
-            <ul
-              class="list-disc font-medium text-onyx mt-4 ps-6 overflow-auto h-38"
-            >
-              <li class="mb-1">Débosselage</li>
-              <li class="mb-1">Peinture</li>
-              <li class="mb-1">Vitrage</li>
-              <li class="mb-1">Remplacements de pièces de carrosserie</li>
-              <li class="mb-1">Dévoilage des jantes</li>
-            </ul>
-          </div>
-          <!-- END SERVICE-->
-
-          <!-- SERVICE-->
-          <div class="my-6 sm:my-8 lg:mx-4 max-w-md sm:max-w-lg md:max-w-xl">
-            <div
-              class="flex flex-col flex-nowrap justify-center items-center group bg-celestialBlue rounded mb-3 sm:mb-6 p-0 overflow-hidden"
-            >
-              <div class="overflow-hidden h-auto max-h-72">
-                <img
-                  class="group-hover:scale-110 group-hover:brightness-95 transition"
-                  src="{% static 'garage/images/pictures/img-23.jpg' %}"
-                  alt="#"
-                />
-              </div>
-              <h3 class="font-rasa text-whiteTeal uppercase text-xl my-3">
-                Entretien
-              </h3>
-            </div>
-            <ul
-              class="list-disc font-medium text-onyx mt-4 ps-6 overflow-auto h-38"
-            >
-              <li class="mb-1">Révision périodique</li>
-              <li class="mb-1">Pré-contrôle technique</li>
-              <li class="mb-1">Vidange et filtres</li>
-              <li class="mb-1">Courroie de distribution</li>
-              <li class="mb-1">Climatisation</li>
-              <li class="mb-1">Décontamination</li>
-            </ul>
-          </div>
-          <!-- END SERVICE-->
+          {% endfor %}
         </div>
       </div>
     </section>

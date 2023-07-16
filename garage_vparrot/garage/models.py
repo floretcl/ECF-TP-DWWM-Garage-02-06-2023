@@ -12,6 +12,9 @@ class Garage(models.Model):
 
     def __str__(self) -> str:
         return self.name
+    
+    class Meta:
+        verbose_name = "Garage"
 
 class OpeningTime(models.Model):
     class Day(models.TextChoices):
@@ -34,14 +37,30 @@ class OpeningTime(models.Model):
 
     def __str__(self) -> str:
         return self.day
+    
+    class Meta:
+        verbose_name = "Horaire"
+
+class ServiceType(models.Model):
+    garage = models.ForeignKey(Garage, on_delete=models.CASCADE)
+    name = models.CharField("nom", max_length=50)
+    image = models.ImageField("image", upload_to='uploads/%Y/%m/')
+    
+    def __str__(self) -> str:
+        return self.name
+    
+    class Meta:
+        verbose_name = "Types de service"
 
 class Service(models.Model):
-    garage = models.ForeignKey(Garage, on_delete=models.CASCADE)
-    type = models.CharField("type", max_length=50)
+    type = models.ForeignKey(ServiceType, on_delete=models.CASCADE)
     name = models.CharField("nom", max_length=80)
 
     def __str__(self) -> str:
         return self.name
+    
+    class Meta:
+        verbose_name = "Service"
 
 class Vehicle(models.Model):
     garage = models.ForeignKey(Garage, on_delete=models.CASCADE)
@@ -52,6 +71,9 @@ class Vehicle(models.Model):
 
     def __str__(self) -> str:
         return self.name
+    
+    class Meta:
+        verbose_name = "Véhicule"
 
 class VehiclePicture(models.Model):
     vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
@@ -59,7 +81,9 @@ class VehiclePicture(models.Model):
 
     def __str__(self) -> str:
         return self.picture.name
-
+    
+    class Meta:
+        verbose_name = "Photos des véhicule"
 
 class CustomerReview(models.Model):
     name = models.CharField("nom", max_length=20)
@@ -92,6 +116,9 @@ class CustomerReview(models.Model):
             else:
                 list.append("empty")
         return list
+    
+    class Meta:
+        verbose_name = "Témoignages client"
 
 class CustomerMessage(models.Model):
     firstname = models.CharField("prénom", max_length=80)
@@ -114,3 +141,6 @@ class CustomerMessage(models.Model):
             f"Message de {self.firstname} {self.lastname} reçu le "
             f"{localDate.strftime('%d/%m/%Y, %H:%M:%S')}"
         )
+    
+    class Meta:
+        verbose_name = "Messages client"
