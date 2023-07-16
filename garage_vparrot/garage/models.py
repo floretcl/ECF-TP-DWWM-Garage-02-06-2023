@@ -80,9 +80,18 @@ class CustomerReview(models.Model):
     def __str__(self) -> str:
         localDate = timezone.localtime(self.date)
         return (
-            f"témoignage de {self.name} reçu le "
+            f"Témoignage de {self.name} reçu le "
             f"{localDate.strftime('%d/%m/%Y, %H:%M:%S')}"
         )
+    
+    def list_to_display_stars(self) -> list:
+        list = []
+        for i in range(5):
+            if self.rating > i:
+                list.append("star")
+            else:
+                list.append("empty")
+        return list
 
 class CustomerMessage(models.Model):
     firstname = models.CharField("prénom", max_length=80)
@@ -95,13 +104,13 @@ class CustomerMessage(models.Model):
             validators.RegexValidator(regex=r'^0[1-9](\d{8})$', message="Saisissez un numéro de téléphone valide, ex: 0123456789.")
         ]
     )
-    subject = models.CharField("sujet", max_length=255)
+    subject = models.CharField("sujet", max_length=255, blank=True, null=True)
     message = models.TextField("message", max_length=5000)
     date = models.DateTimeField("date de réception", auto_now_add=True)
 
     def __str__(self) -> str:
         localDate = timezone.localtime(self.date)
         return (
-            f"message de {self.firstname} {self.lastname} reçu le "
+            f"Message de {self.firstname} {self.lastname} reçu le "
             f"{localDate.strftime('%d/%m/%Y, %H:%M:%S')}"
         )
