@@ -9,5 +9,4 @@ urlpatterns = [
     path('contact/', views.ContactView.as_view(), name='contact'),
     path('legal-notice/', views.LegalNoticeView.as_view(), name='legal-notice'),
     path('privacy-policy/', views.PrivacyPolicyView.as_view(), name='privacy-policy'),
-    path('temp/', views.IndexReviewView.as_view(), name='index-review-list'),
 ]
