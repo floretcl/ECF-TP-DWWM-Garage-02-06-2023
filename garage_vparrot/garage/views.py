@@ -1,23 +1,31 @@
-from django.views import generic
-from .modelforms import ContactForm
+from django.views.generic import View, TemplateView, FormView, ListView
+from django.views.generic.edit import ModelFormMixin
+from .models import CustomerReview
+from .modelforms import ContactForm, ReviewForm
 
-class IndexView(generic.View):
+class IndexView(FormView):
     template_name = 'garage/index.html'
+    form_class = ReviewForm
+    success_url = '/'
+            
+    def form_valid(self, form):
+        form.save()
+        return super(IndexView, self).form_valid(form)
 
-class VehiclesView(generic.TemplateView):
+class VehiclesView(TemplateView):
     template_name = 'garage/vehicles.html'
 
-class ContactView(generic.FormView):
+class ContactView(FormView):
     template_name = 'garage/contact.html'
     form_class = ContactForm
     success_url = '/contact/'
     
     def form_valid(self, form):
         form.save()
-        return super().form_valid(form)
+        return super(ContactView, self).form_valid(form)
 
-class LegalNoticeView(generic.TemplateView):
+class LegalNoticeView(TemplateView):
     template_name = 'garage/legal-notice.html'
 
-class PrivacyPolicyView(generic.TemplateView):
+class PrivacyPolicyView(TemplateView):
     template_name = 'garage/privacy-policy.html'
