@@ -87,7 +87,6 @@
           class="flex flex-row justify-center items-center ms-3 sm:ms-6 md:ms-8"
         >
           <a href="{% url 'garage:index' %}">
-            <!-- TODO: modify to picture tag-->
             <img
               class="w-auto h-16"
               src="{% static 'garage/images/logos/Logo-icon-black.png' %}"
@@ -218,20 +217,10 @@
               Horaires d'ouverture
             </h2>
             <div class="grid grid-cols-5 grid-rows-7 gap-y-2 text-whiteTeal">
-              <div>Lun.</div>
-              <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
-              <div>Mar.</div>
-              <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
-              <div>Mer.</div>
-              <div class="col-span-4">: 09h00-12h00, 14h00 - 17h00</div>
-              <div>Jeu.</div>
-              <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
-              <div>Ven.</div>
-              <div class="col-span-4">: 08h30-12h00, 14h00 - 18h30</div>
-              <div>Sam.</div>
-              <div class="col-span-4">: 08h30-12h00</div>
-              <div>Dim.</div>
-              <div class="col-span-4">: Fermé</div>
+              {% for op in opening_time %}
+              <div>{{ op.day }}</div>
+              <div class="col-span-4">: {{ op.opening_hours }}</div>
+              {% endfor %}
             </div>
           </div>
           <div
