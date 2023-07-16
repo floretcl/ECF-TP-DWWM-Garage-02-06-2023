@@ -3,6 +3,7 @@ from django.contrib import admin
 from .models import (
     Garage,
     OpeningTime,
+    ServiceType,
     Service,
     Vehicle,
     VehiclePicture,
@@ -13,6 +14,7 @@ from .models import (
 admin.site.register([
     Garage,
     OpeningTime,
+    ServiceType,
     Service,
     Vehicle,
     VehiclePicture,

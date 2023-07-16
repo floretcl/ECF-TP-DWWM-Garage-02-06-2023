@@ -34,10 +34,17 @@ class OpeningTime(models.Model):
 
     def __str__(self) -> str:
         return self.day
+    
+class ServiceType(models.Model):
+    garage = models.ForeignKey(Garage, on_delete=models.CASCADE)
+    name = models.CharField("nom", max_length=50)
+    image = models.ImageField("image", upload_to='uploads/%Y/%m/')
+    
+    def __str__(self) -> str:
+        return self.name
 
 class Service(models.Model):
-    garage = models.ForeignKey(Garage, on_delete=models.CASCADE)
-    type = models.CharField("type", max_length=50)
+    type = models.ForeignKey(ServiceType, on_delete=models.CASCADE)
     name = models.CharField("nom", max_length=80)
 
     def __str__(self) -> str:
