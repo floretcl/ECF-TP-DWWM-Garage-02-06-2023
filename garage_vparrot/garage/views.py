@@ -1,3 +1,5 @@
+from typing import Any, Dict
+from django.db.models.query import QuerySet
 from django.views.generic import View, TemplateView, FormView, ListView
 from django.views.generic.edit import ModelFormMixin
 from .models import CustomerReview
@@ -11,6 +13,13 @@ class IndexView(FormView):
     def form_valid(self, form):
         form.save()
         return super(IndexView, self).form_valid(form)
+    
+class IndexReviewView(ListView):
+    template_name = 'garage/index-review-list.html'
+    model = CustomerReview
+    
+    def get_queryset(self):
+        return CustomerReview.objects.order_by("-date")
 
 class VehiclesView(TemplateView):
     template_name = 'garage/vehicles.html'
