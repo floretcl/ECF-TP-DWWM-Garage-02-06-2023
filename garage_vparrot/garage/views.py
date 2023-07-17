@@ -64,7 +64,7 @@ class VehiclesListView(ListView):
     template_name = 'garage/vehicles.html'
     model = Vehicle
     context_object_name = 'vehicles'
-    paginate_by = 9
+    paginate_by = 6
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

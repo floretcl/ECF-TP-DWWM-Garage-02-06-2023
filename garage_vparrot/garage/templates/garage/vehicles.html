@@ -222,15 +222,23 @@
         <!-- END CARD VEHICLE-->
       {% endfor %}
       </div>
-      <div
-        class="flex flex-row flex-nowrap justify-center items-center mb-10"
-      >
-        <a
-          class="font-regular text-sm text-whiteTeal bg-rosyBrown hover:brightness-110 hover:scale-105 transition-all active:brightness-110 pt-2 pb-1 px-4 rounded-full"
-          href="#"
-        >
-          Voir plus
-        </a>
+      <div class="flex flex-row flex-nowrap justify-center items-center mt-6 mb-10">
+        <span class="">
+          {% if page_obj.has_previous %}
+            <a class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-110 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg mx-1" href="?page=1">&laquo;</a>
+            <a class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-105 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+          {% endif %}
+        </span>
+  
+          <span class="font-regular text-sm text-whiteTeal bg-rosyBrown border-rosyBrown border-2 h-10 py-2 px-4 mx-2 rounded-lg">
+            {{ page_obj.number }}
+          </span>
+        <span>
+          {% if page_obj.has_next %}
+            <a class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-105 transition-all active:brightness-110 h-10 py-2 px-4 rounded-lg" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+            <a class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-105 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg mx-1" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+          {% endif %}
+        </span>
       </div>
     </div>
   </section>
