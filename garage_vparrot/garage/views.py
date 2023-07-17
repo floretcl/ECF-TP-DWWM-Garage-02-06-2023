@@ -1,32 +1,33 @@
 from typing import Any, Dict
-from django.db.models.query import QuerySet
-from django.http import HttpRequest, HttpResponse
-from django.views.generic import View, TemplateView, FormView, ListView
 from django.views.generic.list import MultipleObjectMixin
-from .models import OpeningTime, Service, CustomerReview
-from .modelforms import ContactForm, ReviewForm
+from .modelforms import ContactForm, VehicleContactForm, ReviewForm
+from django.views.generic import (
+    View,
+    TemplateView,
+    FormView,
+    ListView
+)
+from .models import (
+    OpeningTime,
+    Service,
+    Vehicle,
+    VehiclePicture,
+    CustomerReview
+)
+
 
 class IndexView(View):
     def get(self, request, *args, **kwargs):
-        view = IndexReviewListView.as_view()
+        view = IndexListsView.as_view()
         return view(request, *args, **kwargs)
     def post(self, request, *args, **kwargs):
         view = IndexReviewFormView.as_view()
         return view(request, *args, **kwargs)
-
-class IndexReviewFormView(MultipleObjectMixin, FormView):
-    template_name = 'garage/index.html'
-    form_class = ReviewForm
-    model = CustomerReview
-    success_url = '/'
-            
-    def form_valid(self, form):
-        form.save()
-        return super().form_valid(form)
     
-class IndexReviewListView(ListView):
+class IndexListsView(ListView):
     template_name = 'garage/index.html'
     model = CustomerReview
+    context_object_name = 'reviews'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -40,8 +41,48 @@ class IndexReviewListView(ListView):
     def get_queryset(self):
         return CustomerReview.objects.filter(valid=True).order_by("-date")[:3]
 
-class VehiclesView(TemplateView):
+class IndexReviewFormView(MultipleObjectMixin, FormView):
+    template_name = 'garage/index.html'
+    form_class = ReviewForm
+    model = CustomerReview
+    success_url = '/'
+            
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+
+class VehiclesView(View):
+    def get(self, request, *args, **kwargs):
+        view = VehiclesListView.as_view()
+        return view(request, *args, **kwargs)
+    def post(self, request, *args, **kwargs):
+        view = VehicleContactFormView.as_view()
+        return view(request, *args, **kwargs)
+    
+class VehiclesListView(ListView):
     template_name = 'garage/vehicles.html'
+    model = Vehicle
+    context_object_name = 'vehicles'
+    paginate_by = 9
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        opening_time = OpeningTime.objects.all()
+        context["opening_time"] = opening_time
+        context["vehicles_pictures"] = VehiclePicture.objects.all()
+        context["form"] = VehicleContactForm()
+        return context
+
+class VehicleContactFormView(MultipleObjectMixin, FormView):
+    template_name = 'garage/vehicles.html'
+    form_class = VehicleContactForm
+    model = Vehicle
+    success_url = '/vehicles/'
+            
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
 
 class ContactView(FormView):
     template_name = 'garage/contact.html'

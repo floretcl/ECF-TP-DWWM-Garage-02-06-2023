@@ -1,10 +1,20 @@
-from django.forms import ModelForm, NumberInput
+from django.forms import ModelForm, NumberInput, TextInput
 from .models import CustomerMessage, CustomerReview
 
 class ContactForm(ModelForm):
     class Meta:
         model = CustomerMessage
         fields = ['firstname', 'lastname', 'email', 'phone_number', 'subject', 'message']
+
+class VehicleContactForm(ModelForm):
+    class Meta:
+        model = CustomerMessage
+        fields = ['firstname', 'lastname', 'email', 'phone_number', 'subject', 'message']
+        widgets = {
+            "subject": TextInput(attrs={
+                'disabled': True,
+            }),
+        }
 
 class ReviewForm(ModelForm):
     class Meta:

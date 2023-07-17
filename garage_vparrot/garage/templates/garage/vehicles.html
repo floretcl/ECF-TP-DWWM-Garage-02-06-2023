@@ -1,5 +1,6 @@
 {% extends "garage/base.html" %}
 {% load static %}
+{% load garage_extras %}
 
 {% block title %}Véhicules d'occasion | Garage V.Parrot à Toulouse{% endblock %}
 {% block meta-description %}
@@ -176,13 +177,14 @@
       <div
         class="grid gap-14 md:gap-x-16 md:gap-y-20 lg:gap-x-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-2 mb-8"
       >
+      {% for vehicle in vehicles %}
         <!-- CARD VEHICLE-->
         <div class="shadow-lg rounded-md">
           <div>
             <a href="#">
               <img
                 class="rounded-t-md max-h-[350px] hover:contrast-125 transition"
-                src="{% static 'garage/images/vehicles/ford-explorer.webp'%}"
+                src="../{{ vehicle.pictures.all|first }}"
                 alt=""
               />
             </a>
@@ -191,16 +193,16 @@
             class="flex flex-col flex-nowrap justify-center items-start px-6 py-5"
           >
             <h3 class="font-bold text-lg text-onyx uppercase mb-2">
-              Nom et modèle du véhicule : Ford explorer
+              {{ vehicle.name }}
             </h3>
             <ul
               class="list-disc list-inside text-slate-500 mb-5 lg:mb-8 xl:mb-10"
             >
-              <li>Année: <span>2020</span></li>
-              <li>Kilométrage: <span>12 000</span> km</li>
+              <li>Année: <span>{{ vehicle.year }}</span></li>
+              <li>Kilométrage: <span>{{ vehicle.km }}</span> km</li>
             </ul>
             <p class="text-center font-bold text-lg text-onyx my-4">
-              30 000<span> €</span>
+              {{ vehicle.price }}<span> €</span>
             </p>
             <div class="self-center">
               <p>Ce véhicule vous intéresse ?</p>
@@ -208,6 +210,7 @@
                 class="flex flex-row flex-nowrap justify-center items-center my-2"
               >
                 <button
+                  id="{{ vehicle.id }}"
                   class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded"
                 >
                   Contactez nous
@@ -217,7 +220,7 @@
           </div>
         </div>
         <!-- END CARD VEHICLE-->
-
+      {% endfor %}
         <!-- CARD VEHICLE-->
         <div class="shadow-lg rounded-md">
           <div>
@@ -551,70 +554,67 @@
                     Demande de contact
                   </h3>
                   <form
-                    id="form-vehicles"
+                    id="form-vehicle"
                     class="flex flex-col flex-nowrap justify-center w-full"
                     action=""
                     method="post"
                   >
+                  {% csrf_token %}
                     <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
-                      <label
-                        class="text-celestialBlue font-medium text-sm my-1"
-                        for="form-vehicles-firstname"
-                      >
-                        Prénom
-                      </label>
-                      <input
-                        class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2"
-                        type="text"
-                        name="form-vehicles-firstname"
-                        id="form-vehicles-firstname"
-                        required
-                      />
+                      {{ form.firstname|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }} 
+
+                      {{ form.firstname|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }} 
+
+                      {% if form.firstname.errors %}
+                      <ul>
+                        {% for error in form.firstname.errors %}
+                        <li class="text-red-700 mt-2">{{ error }}</li>
+                        {% endfor %}
+                      </ul>
+                      {% endif %}
                     </div>
                     <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
-                      <label
-                        class="text-celestialBlue font-medium text-sm my-1"
-                        for="form-vehicles-lastname"
-                      >
-                        Nom
-                      </label>
-                      <input
-                        class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2"
-                        type="text"
-                        name="form-vehicles-lastname"
-                        id="form-vehicles-lastname"
-                        required
-                      />
+                      {{ form.lastname|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }} 
+
+                      {{ form.lastname|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }} 
+
+                      {% if form.lastname.errors %}
+                      <ul>
+                        {% for error in form.lastname.errors %}
+                        <li class="text-red-700 mt-2">{{ error }}</li>
+                        {% endfor %}
+                      </ul>
+                      {% endif %}
                     </div>
                     <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
-                      <label
-                        class="text-celestialBlue font-medium text-sm my-1"
-                        for="form-vehicles-email"
-                      >
-                        Email
-                      </label>
-                      <input
-                        class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2"
-                        type="email"
-                        name="form-vehicles-email"
-                        id="form-vehicles-email"
-                        required
-                      />
+                      {{ form.email|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }} 
+
+                      {{ form.email|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }} 
+
+                      {% if form.email.errors %}
+                      <ul>
+                        {% for error in form.email.errors %}
+                        <li class="text-red-700 mt-2">
+                          {{ error }}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                      {% endif %}
                     </div>
                     <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
-                      <label
-                        class="text-celestialBlue font-medium text-sm my-1"
-                        for="form-vehicles-phoneNumber"
-                      >
-                        Téléphone
-                      </label>
-                      <input
-                        class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2"
-                        type="tel"
-                        name="form-vehicles-phoneNumber"
-                        id="form-vehicles-phoneNumber"
-                        required
-                      />
+                      {{ form.phone_number|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }} 
+            
+                      {{ form.phone_number|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }} 
+
+                      {% if form.phone_number.errors %}
+                      <ul>
+                        {% for error in form.phone_number.errors %}
+                        <li class="text-red-700 mt-2">
+                          {{ error }}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                      {% endif %}
                     </div>
                     <div
                       class="flex flex-col flex-nowrap justify-center w-full my-6"
@@ -622,38 +622,48 @@
                       <div
                         class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6"
                       >
-                        <label
-                          class="text-celestialBlue font-medium text-sm my-1"
-                          for="form-vehicles-subject"
-                        >
-                          Sujet
-                        </label>
-                        <input
-                          class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2"
-                          type="text"
-                          name="form-vehicles-subject"
-                          id="form-vehicles-subject"
-                          required
-                        />
+                        {{ form.subject|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
+
+                        {{ form.subject|add_class:'text-onyx border-2 active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }} 
+            
+                        {% if form.subject.errors %}
+                        <ul>
+                          {% for error in form.subject.errors %}
+                          <li class="text-red-700 mt-2">
+                            {{ error }}
+                          </li>
+                          {% endfor %}
+                        </ul>
+                        {% endif %}
                       </div>
                       <div
                         class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6"
                       >
-                        <label
-                          class="text-celestialBlue font-medium text-sm my-1"
-                          for="form-vehicles-message"
-                        >
-                          Message
-                        </label>
-                        <textarea
-                          class="text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-28 sm:h-32 md:h-40 px-2"
-                          name="form-vehicles-message"
-                          id="form-vehicles-message"
-                          cols="30"
-                          rows="10"
-                          required
-                        ></textarea>
+                        {{ form.message|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
+              
+                        {{ form.message|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-28 sm:h-32 md:h-40 px-2' }} 
+                        
+                        {% if form.message.errors %}
+                        <ul>
+                          {% for error in form.message.errors %}
+                          <li class="text-red-700 mt-2">
+                            {{ error }}
+                          </li>
+                          {% endfor %}
+                        </ul>
+                        {% endif %}
                       </div>
+                      {% if form.non_field_errors %}
+                      <div class="flex flex-col flex_nowrap mb-4">
+                        <ul>
+                          {% for error in form.non_field_errors %}
+                          <li class="text-red_700">
+                            {{ error }}
+                          </li>
+                          {% endfor %}
+                        </ul>
+                      </div>
+                      {% endif %}
                     </div>
                     <div
                       class="py-3 flex flex-row justify-center sm:justify-start"
@@ -662,7 +672,9 @@
                         class="flex flex-row flex-nowrap justify-center items-center"
                       >
                         <button
-                          id="form-vehicles-submit"
+                          type="submit"
+                          value="Envoyer"
+                          id="form-vehicle-submit"
                           class="font-regular text-whiteTeal text-center uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 mt-8 mb-4 drop-shadow-md rounded"
                         >
                           Envoyer

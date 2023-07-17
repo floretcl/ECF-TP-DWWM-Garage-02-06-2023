@@ -29,7 +29,7 @@ class OpeningTime(models.Model):
     garage = models.ForeignKey(
         Garage,
         on_delete=models.CASCADE,
-        default='Garage.objects.first()'
+        default='Garage.objects.first()',
     )
     day = models.CharField(
         "jour de la semaine", 
@@ -49,7 +49,7 @@ class ServiceType(models.Model):
     garage = models.ForeignKey(
         Garage,
         on_delete=models.CASCADE,
-        default='Garage.objects.first()'
+        default='Garage.objects.first()',
     )
     name = models.CharField("nom", max_length=50)
     image = models.ImageField("image", upload_to='uploads/%Y/%m/')
@@ -61,7 +61,11 @@ class ServiceType(models.Model):
         verbose_name = "Types de service"
 
 class Service(models.Model):
-    type = models.ForeignKey(ServiceType, on_delete=models.CASCADE)
+    type = models.ForeignKey(
+        ServiceType,
+        on_delete=models.CASCADE,
+        related_name='service_name'
+    )
     name = models.CharField("nom", max_length=80)
 
     def __str__(self) -> str:
@@ -74,7 +78,7 @@ class Vehicle(models.Model):
     garage = models.ForeignKey(
         Garage,
         on_delete=models.CASCADE,
-        default='Garage.objects.first()'
+        default='Garage.objects.first()',
     )
     name = models.CharField("nom", max_length=80)
     price = models.CharField("prix", max_length=80)
@@ -88,7 +92,11 @@ class Vehicle(models.Model):
         verbose_name = "Véhicule"
 
 class VehiclePicture(models.Model):
-    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+    vehicle = models.ForeignKey(
+        Vehicle, 
+        on_delete=models.CASCADE, 
+        related_name='pictures',
+    )
     picture = models.ImageField("photos", upload_to='uploads/%Y/%m/')
 
     def __str__(self) -> str:

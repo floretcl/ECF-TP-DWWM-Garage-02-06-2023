@@ -80,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'OPTIONS': {
-            'service': 'garagevparrot_service',
+            'service': 'garage_vparrot_service',
             'passfile': '.pgpass',
         },
     }
