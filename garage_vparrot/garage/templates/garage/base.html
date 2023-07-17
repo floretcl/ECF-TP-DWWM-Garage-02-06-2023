@@ -83,17 +83,16 @@
       <nav
         class="flex flex-row flex-nowrap justify-between items-center h-16 xl:container mx-auto"
       >
-        <div
-          class="flex flex-row justify-center items-center ms-3 sm:ms-6 md:ms-8"
-        >
-          <a href="{% url 'garage:index' %}">
+        <div>
+          <a class="flex flex-row justify-center items-center ms-3 sm:ms-6 md:ms-8" href="{% url 'garage:index' %}">
             <img
               class="w-auto h-16"
               src="{% static 'garage/images/logos/Logo-icon-black.png' %}"
               alt="Garage V.Parrot"
             />
+            <span class="font-bold text-whiteTeal text-lg pt-1">V.Parrot</span>
           </a>
-          <span class="font-bold text-whiteTeal text-lg pt-1">V.Parrot</span>
+          
         </div>
         <ul
           class="lg:flex flex-row flex-nowrap hidden text-md uppercase me-8 pt-1"
