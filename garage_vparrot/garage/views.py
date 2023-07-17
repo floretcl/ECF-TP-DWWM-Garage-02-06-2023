@@ -92,6 +92,11 @@ class ContactView(FormView):
     def form_valid(self, form):
         form.save()
         return super(ContactView, self).form_valid(form)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["opening_time"] = OpeningTime.objects.all()
+        return context
 
 class LegalNoticeView(TemplateView):
     template_name = 'garage/legal-notice.html'
