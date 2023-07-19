@@ -1,4 +1,7 @@
 from typing import Any, Dict
+from django.core import serializers
+from django.db.models.query import QuerySet
+from django.http import HttpResponse, JsonResponse
 from django.views.generic.list import MultipleObjectMixin
 from .modelforms import ContactForm, VehicleContactForm, ReviewForm
 from django.views.generic import (
@@ -73,6 +76,33 @@ class VehiclesListView(ListView):
         context["vehicles_pictures"] = VehiclePicture.objects.all()
         context["form"] = VehicleContactForm()
         return context
+    
+    def get_queryset(self):
+        return Vehicle.objects.order_by('id')
+
+class VehicleListJsonResponse(ListView):
+    model = Vehicle
+    context_object_name = 'vehicle-list'
+    
+    def get(self, request, *args, **kwargs):
+        vehicle_list = self.get_queryset()
+        data = serializers.serialize('json', vehicle_list)
+        return JsonResponse(data, safe=False)
+    
+    def get_queryset(self):
+        return Vehicle.objects.order_by('id')
+
+class VehiclePicturesJsonResponse(ListView):
+    model = VehiclePicture
+    context_object_name = 'vehicle-picture-list'
+    
+    def get(self, request, *args, **kwargs):
+        vehicle_picture_list = self.get_queryset()
+        data = serializers.serialize('json', vehicle_picture_list)
+        return JsonResponse(data, safe=False)
+    
+    def get_queryset(self):
+        return VehiclePicture.objects.order_by('vehicle')
 
 class VehicleContactFormView(MultipleObjectMixin, FormView):
     template_name = 'garage/vehicles.html'
