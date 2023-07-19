@@ -40,7 +40,7 @@
   <!-- END SECTION HEADING-->
 
   <!-- SECTION VEHICLES FILTER-->
-  <section id="vehicles-filters">
+  <section id="vehicles-filters" class="xl:container mx-auto">
     <div
       class="flex flex-col xl:flex-row flex-nowrap xl:justify-center items-center px-8 pt-12 pb-4 xl:mx-2"
     >
@@ -58,7 +58,7 @@
       <!-- END RESET FILTER BUTTON-->
 
       <div
-        class="container flex flex-col flex-nowrap lg:flex-row lg:justify-center items-center my-8"
+        class="flex flex-col flex-nowrap lg:flex-row lg:justify-center items-center w-full my-8"
       >
         <!-- PRICE FILTER-->
         <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
@@ -71,7 +71,7 @@
               value="0"
               min="0"
               max="1000000"
-              step="500"
+              step="1000"
             />
             <input
               id="range-max-price"
@@ -80,15 +80,15 @@
               value="1000000"
               min="0"
               max="1000000"
-              step="500"
+              step="1000"
             />
           </div>
           <div class="flex justify-between">
             <p class="onyx w-28 h-fit text-onyx text-sm text-left">
-              <span id="text-min-price">0</span> €
+              <span id="text-min-price"></span> €
             </p>
             <p class="onyx w-28 h-fit text-onyx text-sm text-right">
-              <span id="text-max-price">1 000 000</span> €
+              <span id="text-max-price"></span> €
             </p>
           </div>
         </div>
@@ -104,25 +104,25 @@
               type="range"
               value="0"
               min="0"
-              max="2023"
+              max="9999"
               step="1"
             />
             <input
               id="range-max-year"
               class="range-filters"
               type="range"
-              value="2023"
+              value="0"
               min="0"
-              max="2023"
+              max="9999"
               step="1"
             />
           </div>
           <div class="flex justify-between">
             <p class="onyx w-28 h-fit text-onyx text-sm text-left">
-              <span id="text-min-year">0</span>
+              <span id="text-min-year"></span>
             </p>
             <p class="onyx w-28 h-fit text-onyx text-sm text-right">
-              <span id="text-max-year">2023</span>
+              <span id="text-max-year"></span>
             </p>
           </div>
         </div>
@@ -153,10 +153,10 @@
           </div>
           <div class="flex justify-between">
             <p class="onyx w-28 h-fit text-onyx text-sm text-left">
-              <span id="text-min-km">0</span> Km
+              <span id="text-min-km"></span> Km
             </p>
             <p class="onyx w-28 h-fit text-onyx text-sm text-right">
-              <span id="text-max-km">1 000 000</span> Km
+              <span id="text-max-km"></span> Km
             </p>
           </div>
         </div>
@@ -167,77 +167,29 @@
   <!-- END SECTION VEHICLES FILTER-->
 
   <!-- SECTION VEHICLES LIST-->
-  <section id="vehicles-list">
+  <section id="vehicles">
     <div
-      class="flex flex-col flex-nowrap justify-center items-center sm:px-14 pb-14 bg-whiteTeal"
+      class="lg:container mx-auto flex flex-col flex-nowrap justify-center items-center sm:px-14 pb-14 bg-whiteTeal"
     >
       <h2 class="font-rasa text-xl uppercase mb-4 hidden">
         Liste des véhicules d'occasion
       </h2>
       <div
+        id="vehicles-list"
         class="grid gap-14 md:gap-x-16 md:gap-y-20 lg:gap-x-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-2 mb-8"
       >
-      {% for vehicle in vehicles %}
-        <!-- CARD VEHICLE-->
-        <div class="shadow-lg rounded-md">
-          <div>
-            <a href="#">
-              <img
-                class="rounded-t-md h-[240px] object-cover hover:contrast-125 transition"
-                src="../{{ vehicle.pictures.all|first }}"
-                alt=""
-              />
-            </a>
-          </div>
-          <div
-            class="flex flex-col flex-nowrap justify-center items-start px-6 py-5"
-          >
-            <h3 class="font-bold text-lg text-onyx uppercase mb-2">
-              {{ vehicle.name }}
-            </h3>
-            <ul
-              class="list-disc list-inside text-slate-500 mb-5 lg:mb-8 xl:mb-10"
-            >
-              <li>Année: <span>{{ vehicle.year }}</span></li>
-              <li>Kilométrage: <span>{{ vehicle.km }}</span> km</li>
-            </ul>
-            <p class="text-center font-bold text-lg text-onyx my-4">
-              {{ vehicle.price }}<span> €</span>
-            </p>
-            <div class="self-center">
-              <p>Ce véhicule vous intéresse ?</p>
-              <div
-                class="flex flex-row flex-nowrap justify-center items-center my-2"
-              >
-                <button
-                  id="{{ vehicle.id }}"
-                  class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded"
-                >
-                  Contactez nous
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- END CARD VEHICLE-->
-      {% endfor %}
+
+        <!-- VEHICLES CARD -->
+      
       </div>
+      
       <div class="flex flex-row flex-nowrap justify-center items-center mt-6 mb-10">
         <span class="">
-          {% if page_obj.has_previous %}
-            <a class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-110 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg mx-1" href="?page=1">&laquo;</a>
-            <a class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-105 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
-          {% endif %}
+          <button id="vehicles-previous-page" class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-110 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg mx-1">&laquo;</button>
         </span>
-  
-          <span class="font-regular text-sm text-whiteTeal bg-rosyBrown border-rosyBrown border-2 h-10 py-2 px-4 mx-2 rounded-lg">
-            {{ page_obj.number }}
-          </span>
+        <span id="vehicles-current-page" class="font-regular text-sm text-whiteTeal bg-rosyBrown border-rosyBrown border-2 h-10 py-2 px-4 mx-2 rounded-lg"></span>
         <span>
-          {% if page_obj.has_next %}
-            <a class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-105 transition-all active:brightness-110 h-10 py-2 px-4 rounded-lg" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
-            <a class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-105 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg mx-1" href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
-          {% endif %}
+          <button id="vehicles-next-page" class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-105 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg mx-1">&raquo;</button>
         </span>
       </div>
     </div>
@@ -381,7 +333,7 @@
                       >
                         {{ form.subject|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
 
-                        {{ form.subject|add_class:'text-onyx border-2 active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }} 
+                        {{ form.subject|add_class:'text-gray-400 border-2 active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }} 
             
                         {% if form.subject.errors %}
                         <ul>
@@ -458,6 +410,6 @@
 ></script>
 <script src="{% static 'garage/javascript/main.js' %}"></script>
 <script src="{% static 'garage/javascript/leaflet.js' %}"></script>
-<script src="{% static 'garage/javascript/vehicles-filters.js' %}"></script>
+<script src="{% static 'garage/javascript/vehicles-list.js' %}"></script>
 <script src="{% static 'garage/javascript/vehicle-modal.js' %}"></script>
 {% endblock %}
