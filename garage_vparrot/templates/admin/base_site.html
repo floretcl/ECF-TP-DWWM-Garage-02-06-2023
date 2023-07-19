@@ -1,0 +1,7 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block branding %}
+  <img src="{% static 'garage/images/logos/Logo-icon-black.png' %}" alt="Logo du Garage V.Parrot" height="32px">
+  {{ block.super }}
+{% endblock %}
