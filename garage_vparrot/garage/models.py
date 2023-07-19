@@ -81,7 +81,7 @@ class Vehicle(models.Model):
         default='Garage.objects.first()',
     )
     name = models.CharField("nom", max_length=80)
-    price = models.CharField("prix", max_length=80)
+    price = models.IntegerField("prix")
     year = models.SmallIntegerField("année")
     km = models.IntegerField("kilométrage")
 
