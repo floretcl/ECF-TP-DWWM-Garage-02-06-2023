@@ -33,7 +33,6 @@ class OpeningTime(models.Model):
     )
     day = models.CharField(
         "jour de la semaine", 
-        primary_key=True,
         max_length=10,
         choices=Day.choices,
         )
