@@ -9,8 +9,12 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
+import environ
 from pathlib import Path
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,13 +23,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-hgh$%vn$t&kqj2nhp$(f56m85jjlm!xfnsj9z(0mgr6lvj^0n%'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = []
+if env('ENV') == 'PROD':
+    ALLOWED_HOSTS = ['garage-vparrot.clementfloret.fr']
+else:
+    ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,14 +85,15 @@ WSGI_APPLICATION = 'garage_vparrot.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'OPTIONS': {
-            'service': 'garage_vparrot_service',
-            'passfile': '.pgpass',
-        },
-    }
-}
+'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': env('DB_NAME'),
+    'USER': env('DB_USER'),
+    'PASSWORD': env('DB_PASSWORD'),
+    'HOST': env('DB_HOST'),
+    'PORT': env('DB_PORT'),
+    'CONN_MAX_AGE': 500,
+}}
 
 
 # Password validation
@@ -122,6 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -136,4 +146,13 @@ INTERNAL_IPS = [
     '127.0.0.1',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://*.127.0.0.1']
+if env('ENV') == 'PROD':
+    CSRF_TRUSTED_ORIGINS = ['https://garage-vparrot.clementfloret.fr']
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
+    #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+else:
+    CSRF_TRUSTED_ORIGINS = ['https://*.127.0.0.1']
+
+ADMINS= env('ADMINS')
