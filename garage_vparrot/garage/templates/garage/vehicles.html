@@ -180,7 +180,48 @@
       >
 
         <!-- VEHICLES CARD -->
-      
+        <!-- CARD VEHICLE-->
+        <div class="hidden shadow-lg rounded-md">
+          <div>
+            <a href="#">
+              <img
+                class="rounded-t-md h-[240px] object-cover hover:contrast-125 transition"
+                src="../{{ vehicle.pictures.all|first }}"
+                alt=""
+              />
+            </a>
+          </div>
+          <div
+            class="flex flex-col flex-nowrap justify-center items-start px-6 py-5"
+          >
+            <h3 class="font-bold text-lg text-onyx uppercase mb-2">
+              {{ vehicle.name }}
+            </h3>
+            <ul
+              class="list-disc list-inside text-slate-500 mb-5 lg:mb-8 xl:mb-10"
+            >
+              <li>Année: <span>{{ vehicle.year }}</span></li>
+              <li>Kilométrage: <span>{{ vehicle.km }}</span> km</li>
+            </ul>
+            <p class="text-center font-bold text-lg text-onyx my-4">
+              {{ vehicle.price }}<span> €</span>
+            </p>
+            <div class="self-center">
+              <p>Ce véhicule vous intéresse ?</p>
+              <div
+                class="flex flex-row flex-nowrap justify-center items-center my-2"
+              >
+                <button
+                  id="{{ vehicle.id }}"
+                  class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded"
+                >
+                  Contactez nous
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END CARD VEHICLE-->
       </div>
       
       <div class="flex flex-row flex-nowrap justify-center items-center mt-6 mb-10">
