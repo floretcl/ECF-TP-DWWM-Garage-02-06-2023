@@ -93,6 +93,9 @@ DATABASES = {
     'HOST': env('DB_HOST'),
     'PORT': env('DB_PORT'),
     'CONN_MAX_AGE': 500,
+    'OPTIONS': {
+        'init_command': "SET sql_mode='STRICT_TRANS_TABLES'", 
+    }
 }}
 
 
