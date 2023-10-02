@@ -13,5 +13,6 @@ media
 env
 venv
 *.env
+.idea
 
 node_modules
