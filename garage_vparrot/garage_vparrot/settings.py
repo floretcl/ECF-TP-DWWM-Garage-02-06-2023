@@ -154,8 +154,9 @@ if env('ENV') == 'PROD':
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
     SECURE_SSL_REDIRECT = True
+    ADMINS= env('ADMINS')
     #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 else:
     CSRF_TRUSTED_ORIGINS = ['https://*.127.0.0.1']
 
-ADMINS= env('ADMINS')
+
