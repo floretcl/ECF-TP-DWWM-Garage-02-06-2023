@@ -4,7 +4,7 @@
 
 {% block title %}Véhicules d'occasion | Garage V.Parrot à Toulouse{% endblock %}
 {% block meta-description %}
-  Véhicules d'occasion toute marques révisés,
+  Véhicules d'occasion toutes marques révisés,
   le Garage V.Parrot garantie tous ses véhicules 12 mois pour vous apporter
   l'assurance de repartir avec la voiture de vos rêves en toute sécurité.
 {% endblock %}
@@ -64,6 +64,7 @@
         <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
           <h3 class="font-semibold font-onyx mb-4">Prix</h3>
           <div class="relative h-6">
+            <label for="range-min-price" hidden>Prix minimum</label>
             <input
               id="range-min-price"
               class="range-filters"
@@ -73,6 +74,7 @@
               max="1000000"
               step="1000"
             />
+            <label for="range-max-price" hidden>Prix maximum</label>
             <input
               id="range-max-price"
               class="range-filters"
@@ -98,6 +100,7 @@
         <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
           <h3 class="font-semibold font-onyx mb-4">Années</h3>
           <div class="relative h-6">
+            <label for="range-min-year" hidden>Année minimum</label>
             <input
               id="range-min-year"
               class="range-filters"
@@ -107,6 +110,7 @@
               max="9999"
               step="1"
             />
+            <label for="range-max-year" hidden>Année maximum</label>
             <input
               id="range-max-year"
               class="range-filters"
@@ -132,6 +136,7 @@
         <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
           <h3 class="font-semibold font-onyx mb-4">Kilométrage</h3>
           <div class="relative h-6">
+            <label for="range-min-km" hidden>Kilométrage minimum</label>
             <input
               id="range-min-km"
               class="range-filters"
@@ -141,6 +146,7 @@
               max="1000000"
               step="1000"
             />
+            <label for="range-max-km" hidden>Kilométrage maximum</label>
             <input
               id="range-max-km"
               class="range-filters"
@@ -292,8 +298,8 @@
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                    d="M6 18L18 6M6 6l12 12">
+                  </path>
                 </svg>
               </button>
             </div>
@@ -311,26 +317,26 @@
                   >
                   {% csrf_token %}
                     <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
-                      {{ form.firstname|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }} 
+                      {{ form.first_name|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
 
-                      {{ form.firstname|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }} 
+                      {{ form.first_name|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
 
-                      {% if form.firstname.errors %}
+                      {% if form.first_name.errors %}
                       <ul>
-                        {% for error in form.firstname.errors %}
+                        {% for error in form.first_name.errors %}
                         <li class="text-red-700 mt-2">{{ error }}</li>
                         {% endfor %}
                       </ul>
                       {% endif %}
                     </div>
                     <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
-                      {{ form.lastname|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }} 
+                      {{ form.last_name|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
 
-                      {{ form.lastname|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }} 
+                      {{ form.last_name|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
 
-                      {% if form.lastname.errors %}
+                      {% if form.last_name.errors %}
                       <ul>
-                        {% for error in form.lastname.errors %}
+                        {% for error in form.last_name.errors %}
                         <li class="text-red-700 mt-2">{{ error }}</li>
                         {% endfor %}
                       </ul>
