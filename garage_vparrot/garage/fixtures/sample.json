@@ -1,1 +1,764 @@
-[{"model": "admin.logentry", "pk": 1, "fields": {"action_time": "2023-07-16T17:07:27.534Z", "user": 1, "content_type": 7, "object_id": "Garage V.Parrot", "object_repr": "Garage V.Parrot", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 2, "fields": {"action_time": "2023-07-16T17:17:23.796Z", "user": 1, "content_type": 8, "object_id": "Ven.", "object_repr": "Ven.", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 3, "fields": {"action_time": "2023-07-16T17:17:23.798Z", "user": 1, "content_type": 8, "object_id": "Sam.", "object_repr": "Sam.", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 4, "fields": {"action_time": "2023-07-16T17:17:23.800Z", "user": 1, "content_type": 8, "object_id": "Mer.", "object_repr": "Mer.", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 5, "fields": {"action_time": "2023-07-16T17:17:23.801Z", "user": 1, "content_type": 8, "object_id": "Mar.", "object_repr": "Mar.", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 6, "fields": {"action_time": "2023-07-16T17:17:23.802Z", "user": 1, "content_type": 8, "object_id": "Lun.", "object_repr": "Lun.", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 7, "fields": {"action_time": "2023-07-16T17:17:23.803Z", "user": 1, "content_type": 8, "object_id": "Jeu.", "object_repr": "Jeu.", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 8, "fields": {"action_time": "2023-07-16T17:17:23.804Z", "user": 1, "content_type": 8, "object_id": "Dim.", "object_repr": "Dim.", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 9, "fields": {"action_time": "2023-07-16T17:21:10.177Z", "user": 1, "content_type": 3, "object_id": "1", "object_repr": "propriétaire", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 10, "fields": {"action_time": "2023-07-16T17:22:02.815Z", "user": 1, "content_type": 3, "object_id": "2", "object_repr": "employe", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 11, "fields": {"action_time": "2023-07-16T17:22:15.532Z", "user": 1, "content_type": 3, "object_id": "1", "object_repr": "proprietaire", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"}}, {"model": "admin.logentry", "pk": 12, "fields": {"action_time": "2023-07-16T17:22:23.337Z", "user": 1, "content_type": 3, "object_id": "1", "object_repr": "propriétaire", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"}}, {"model": "admin.logentry", "pk": 13, "fields": {"action_time": "2023-07-16T17:22:28.531Z", "user": 1, "content_type": 3, "object_id": "2", "object_repr": "employé", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"}}, {"model": "admin.logentry", "pk": 14, "fields": {"action_time": "2023-07-16T17:23:18.173Z", "user": 1, "content_type": 4, "object_id": "2", "object_repr": "vincent_parrot", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 15, "fields": {"action_time": "2023-07-16T17:24:06.905Z", "user": 1, "content_type": 4, "object_id": "2", "object_repr": "vincent_parrot", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Email address\", \"Staff status\", \"Groups\"]}}]"}}, {"model": "admin.logentry", "pk": 16, "fields": {"action_time": "2023-07-16T17:25:04.935Z", "user": 1, "content_type": 4, "object_id": "3", "object_repr": "employe_test", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 17, "fields": {"action_time": "2023-07-16T17:25:13.949Z", "user": 1, "content_type": 4, "object_id": "3", "object_repr": "employe_test", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Staff status\", \"Groups\"]}}]"}}, {"model": "admin.logentry", "pk": 18, "fields": {"action_time": "2023-07-16T17:26:54.813Z", "user": 1, "content_type": 8, "object_id": "Lun.", "object_repr": "Lun.", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 19, "fields": {"action_time": "2023-07-16T17:27:02.698Z", "user": 1, "content_type": 8, "object_id": "Mar.", "object_repr": "Mar.", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 20, "fields": {"action_time": "2023-07-16T17:27:10.514Z", "user": 1, "content_type": 8, "object_id": "Mer.", "object_repr": "Mer.", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 21, "fields": {"action_time": "2023-07-16T17:27:19.422Z", "user": 1, "content_type": 8, "object_id": "Jeu.", "object_repr": "Jeu.", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 22, "fields": {"action_time": "2023-07-16T17:27:27.793Z", "user": 1, "content_type": 8, "object_id": "Mer.", "object_repr": "Mer.", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Horaires d'ouverture\"]}}]"}}, {"model": "admin.logentry", "pk": 23, "fields": {"action_time": "2023-07-16T17:27:45.851Z", "user": 1, "content_type": 8, "object_id": "Ven.", "object_repr": "Ven.", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 24, "fields": {"action_time": "2023-07-16T17:27:55.034Z", "user": 1, "content_type": 8, "object_id": "Sam.", "object_repr": "Sam.", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 25, "fields": {"action_time": "2023-07-16T17:28:04.021Z", "user": 1, "content_type": 8, "object_id": "Dim.", "object_repr": "Dim.", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 26, "fields": {"action_time": "2023-07-16T18:40:13.778Z", "user": 1, "content_type": 12, "object_id": "17", "object_repr": "uploads/2023/07/toyota-tundra.webp", "action_flag": 2, "change_message": "[]"}}, {"model": "admin.logentry", "pk": 27, "fields": {"action_time": "2023-07-16T18:40:18.918Z", "user": 1, "content_type": 12, "object_id": "16", "object_repr": "uploads/2023/07/toyota-highlander.webp", "action_flag": 2, "change_message": "[]"}}, {"model": "admin.logentry", "pk": 28, "fields": {"action_time": "2023-07-16T18:40:23.509Z", "user": 1, "content_type": 12, "object_id": "15", "object_repr": "uploads/2023/07/toyota-avensis.webp", "action_flag": 2, "change_message": "[]"}}, {"model": "admin.logentry", "pk": 29, "fields": {"action_time": "2023-07-16T18:40:28.439Z", "user": 1, "content_type": 12, "object_id": "14", "object_repr": "uploads/2023/07/tesla-model-x.webp", "action_flag": 2, "change_message": "[]"}}, {"model": "admin.logentry", "pk": 30, "fields": {"action_time": "2023-07-16T18:40:38.182Z", "user": 1, "content_type": 12, "object_id": "14", "object_repr": "uploads/2023/07/tesla-model-x.webp", "action_flag": 2, "change_message": "[]"}}, {"model": "admin.logentry", "pk": 31, "fields": {"action_time": "2023-07-16T18:40:46.230Z", "user": 1, "content_type": 12, "object_id": "1", "object_repr": "uploads/2023/07/bmw-5-series.webp", "action_flag": 2, "change_message": "[]"}}, {"model": "admin.logentry", "pk": 32, "fields": {"action_time": "2023-07-17T08:31:40.363Z", "user": 1, "content_type": 14, "object_id": "24", "object_repr": "Message de Clément Floret reçu le 17/07/2023, 10:30:59", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 33, "fields": {"action_time": "2023-07-17T08:31:50.036Z", "user": 1, "content_type": 14, "object_id": "23", "object_repr": "Message de Clément Floret reçu le 17/07/2023, 10:30:27", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 34, "fields": {"action_time": "2023-07-17T08:31:50.038Z", "user": 1, "content_type": 14, "object_id": "22", "object_repr": "Message de Clément Floret reçu le 17/07/2023, 10:30:07", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 35, "fields": {"action_time": "2023-07-17T08:31:50.039Z", "user": 1, "content_type": 14, "object_id": "21", "object_repr": "Message de Clément Floret reçu le 17/07/2023, 10:29:49", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 36, "fields": {"action_time": "2023-07-17T13:32:57.408Z", "user": 1, "content_type": 8, "object_id": "Ven.", "object_repr": "Ven.", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 37, "fields": {"action_time": "2023-07-17T13:32:57.410Z", "user": 1, "content_type": 8, "object_id": "Sam.", "object_repr": "Sam.", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 38, "fields": {"action_time": "2023-07-17T13:32:57.411Z", "user": 1, "content_type": 8, "object_id": "Jeu.", "object_repr": "Jeu.", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 39, "fields": {"action_time": "2023-07-17T13:32:57.412Z", "user": 1, "content_type": 8, "object_id": "Dim.", "object_repr": "Dim.", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 40, "fields": {"action_time": "2023-07-17T13:33:10.828Z", "user": 1, "content_type": 8, "object_id": "Jeu.", "object_repr": "Jeu.", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 41, "fields": {"action_time": "2023-07-17T13:33:19.931Z", "user": 1, "content_type": 8, "object_id": "Ven.", "object_repr": "Ven.", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 42, "fields": {"action_time": "2023-07-17T13:33:29.368Z", "user": 1, "content_type": 8, "object_id": "Sam.", "object_repr": "Sam.", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 43, "fields": {"action_time": "2023-07-17T13:33:36.740Z", "user": 1, "content_type": 8, "object_id": "Dim.", "object_repr": "Dim.", "action_flag": 1, "change_message": "[{\"added\": {}}]"}}, {"model": "admin.logentry", "pk": 44, "fields": {"action_time": "2023-07-18T10:40:56.600Z", "user": 1, "content_type": 11, "object_id": "10", "object_repr": "Mercedes GLA Class", "action_flag": 2, "change_message": "[{\"changed\": {\"fields\": [\"Ann\\u00e9e\"]}}]"}}, {"model": "admin.logentry", "pk": 45, "fields": {"action_time": "2023-07-18T11:39:13.030Z", "user": 1, "content_type": 11, "object_id": "11", "object_repr": "Skoda Fabia", "action_flag": 2, "change_message": "[]"}}, {"model": "admin.logentry", "pk": 46, "fields": {"action_time": "2023-07-19T10:32:14.058Z", "user": 1, "content_type": 13, "object_id": "18", "object_repr": "Témoignage de NUl reçu le 19/07/2023, 12:32:00", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 47, "fields": {"action_time": "2023-07-19T10:32:32.925Z", "user": 1, "content_type": 14, "object_id": "28", "object_repr": "Message de Clément Floret reçu le 19/07/2023, 12:31:47", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 48, "fields": {"action_time": "2023-07-19T10:32:32.927Z", "user": 1, "content_type": 14, "object_id": "27", "object_repr": "Message de Clément Floret reçu le 19/07/2023, 12:31:25", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 49, "fields": {"action_time": "2023-07-19T10:32:32.928Z", "user": 1, "content_type": 14, "object_id": "26", "object_repr": "Message de Clément Floret reçu le 17/07/2023, 10:45:23", "action_flag": 3, "change_message": ""}}, {"model": "admin.logentry", "pk": 50, "fields": {"action_time": "2023-07-19T10:32:32.929Z", "user": 1, "content_type": 14, "object_id": "25", "object_repr": "Message de Clément Floret reçu le 17/07/2023, 10:37:36", "action_flag": 3, "change_message": ""}}, {"model": "auth.permission", "pk": 1, "fields": {"name": "Can add log entry", "content_type": 1, "codename": "add_logentry"}}, {"model": "auth.permission", "pk": 2, "fields": {"name": "Can change log entry", "content_type": 1, "codename": "change_logentry"}}, {"model": "auth.permission", "pk": 3, "fields": {"name": "Can delete log entry", "content_type": 1, "codename": "delete_logentry"}}, {"model": "auth.permission", "pk": 4, "fields": {"name": "Can view log entry", "content_type": 1, "codename": "view_logentry"}}, {"model": "auth.permission", "pk": 5, "fields": {"name": "Can add permission", "content_type": 2, "codename": "add_permission"}}, {"model": "auth.permission", "pk": 6, "fields": {"name": "Can change permission", "content_type": 2, "codename": "change_permission"}}, {"model": "auth.permission", "pk": 7, "fields": {"name": "Can delete permission", "content_type": 2, "codename": "delete_permission"}}, {"model": "auth.permission", "pk": 8, "fields": {"name": "Can view permission", "content_type": 2, "codename": "view_permission"}}, {"model": "auth.permission", "pk": 9, "fields": {"name": "Can add group", "content_type": 3, "codename": "add_group"}}, {"model": "auth.permission", "pk": 10, "fields": {"name": "Can change group", "content_type": 3, "codename": "change_group"}}, {"model": "auth.permission", "pk": 11, "fields": {"name": "Can delete group", "content_type": 3, "codename": "delete_group"}}, {"model": "auth.permission", "pk": 12, "fields": {"name": "Can view group", "content_type": 3, "codename": "view_group"}}, {"model": "auth.permission", "pk": 13, "fields": {"name": "Can add user", "content_type": 4, "codename": "add_user"}}, {"model": "auth.permission", "pk": 14, "fields": {"name": "Can change user", "content_type": 4, "codename": "change_user"}}, {"model": "auth.permission", "pk": 15, "fields": {"name": "Can delete user", "content_type": 4, "codename": "delete_user"}}, {"model": "auth.permission", "pk": 16, "fields": {"name": "Can view user", "content_type": 4, "codename": "view_user"}}, {"model": "auth.permission", "pk": 17, "fields": {"name": "Can add content type", "content_type": 5, "codename": "add_contenttype"}}, {"model": "auth.permission", "pk": 18, "fields": {"name": "Can change content type", "content_type": 5, "codename": "change_contenttype"}}, {"model": "auth.permission", "pk": 19, "fields": {"name": "Can delete content type", "content_type": 5, "codename": "delete_contenttype"}}, {"model": "auth.permission", "pk": 20, "fields": {"name": "Can view content type", "content_type": 5, "codename": "view_contenttype"}}, {"model": "auth.permission", "pk": 21, "fields": {"name": "Can add session", "content_type": 6, "codename": "add_session"}}, {"model": "auth.permission", "pk": 22, "fields": {"name": "Can change session", "content_type": 6, "codename": "change_session"}}, {"model": "auth.permission", "pk": 23, "fields": {"name": "Can delete session", "content_type": 6, "codename": "delete_session"}}, {"model": "auth.permission", "pk": 24, "fields": {"name": "Can view session", "content_type": 6, "codename": "view_session"}}, {"model": "auth.permission", "pk": 25, "fields": {"name": "Can add Garage", "content_type": 7, "codename": "add_garage"}}, {"model": "auth.permission", "pk": 26, "fields": {"name": "Can change Garage", "content_type": 7, "codename": "change_garage"}}, {"model": "auth.permission", "pk": 27, "fields": {"name": "Can delete Garage", "content_type": 7, "codename": "delete_garage"}}, {"model": "auth.permission", "pk": 28, "fields": {"name": "Can view Garage", "content_type": 7, "codename": "view_garage"}}, {"model": "auth.permission", "pk": 29, "fields": {"name": "Can add Horaire", "content_type": 8, "codename": "add_openingtime"}}, {"model": "auth.permission", "pk": 30, "fields": {"name": "Can change Horaire", "content_type": 8, "codename": "change_openingtime"}}, {"model": "auth.permission", "pk": 31, "fields": {"name": "Can delete Horaire", "content_type": 8, "codename": "delete_openingtime"}}, {"model": "auth.permission", "pk": 32, "fields": {"name": "Can view Horaire", "content_type": 8, "codename": "view_openingtime"}}, {"model": "auth.permission", "pk": 33, "fields": {"name": "Can add Types de service", "content_type": 9, "codename": "add_servicetype"}}, {"model": "auth.permission", "pk": 34, "fields": {"name": "Can change Types de service", "content_type": 9, "codename": "change_servicetype"}}, {"model": "auth.permission", "pk": 35, "fields": {"name": "Can delete Types de service", "content_type": 9, "codename": "delete_servicetype"}}, {"model": "auth.permission", "pk": 36, "fields": {"name": "Can view Types de service", "content_type": 9, "codename": "view_servicetype"}}, {"model": "auth.permission", "pk": 37, "fields": {"name": "Can add Service", "content_type": 10, "codename": "add_service"}}, {"model": "auth.permission", "pk": 38, "fields": {"name": "Can change Service", "content_type": 10, "codename": "change_service"}}, {"model": "auth.permission", "pk": 39, "fields": {"name": "Can delete Service", "content_type": 10, "codename": "delete_service"}}, {"model": "auth.permission", "pk": 40, "fields": {"name": "Can view Service", "content_type": 10, "codename": "view_service"}}, {"model": "auth.permission", "pk": 41, "fields": {"name": "Can add Véhicule", "content_type": 11, "codename": "add_vehicle"}}, {"model": "auth.permission", "pk": 42, "fields": {"name": "Can change Véhicule", "content_type": 11, "codename": "change_vehicle"}}, {"model": "auth.permission", "pk": 43, "fields": {"name": "Can delete Véhicule", "content_type": 11, "codename": "delete_vehicle"}}, {"model": "auth.permission", "pk": 44, "fields": {"name": "Can view Véhicule", "content_type": 11, "codename": "view_vehicle"}}, {"model": "auth.permission", "pk": 45, "fields": {"name": "Can add Photos des véhicule", "content_type": 12, "codename": "add_vehiclepicture"}}, {"model": "auth.permission", "pk": 46, "fields": {"name": "Can change Photos des véhicule", "content_type": 12, "codename": "change_vehiclepicture"}}, {"model": "auth.permission", "pk": 47, "fields": {"name": "Can delete Photos des véhicule", "content_type": 12, "codename": "delete_vehiclepicture"}}, {"model": "auth.permission", "pk": 48, "fields": {"name": "Can view Photos des véhicule", "content_type": 12, "codename": "view_vehiclepicture"}}, {"model": "auth.permission", "pk": 49, "fields": {"name": "Can add Témoignages client", "content_type": 13, "codename": "add_customerreview"}}, {"model": "auth.permission", "pk": 50, "fields": {"name": "Can change Témoignages client", "content_type": 13, "codename": "change_customerreview"}}, {"model": "auth.permission", "pk": 51, "fields": {"name": "Can delete Témoignages client", "content_type": 13, "codename": "delete_customerreview"}}, {"model": "auth.permission", "pk": 52, "fields": {"name": "Can view Témoignages client", "content_type": 13, "codename": "view_customerreview"}}, {"model": "auth.permission", "pk": 53, "fields": {"name": "Can add Messages client", "content_type": 14, "codename": "add_customermessage"}}, {"model": "auth.permission", "pk": 54, "fields": {"name": "Can change Messages client", "content_type": 14, "codename": "change_customermessage"}}, {"model": "auth.permission", "pk": 55, "fields": {"name": "Can delete Messages client", "content_type": 14, "codename": "delete_customermessage"}}, {"model": "auth.permission", "pk": 56, "fields": {"name": "Can view Messages client", "content_type": 14, "codename": "view_customermessage"}}, {"model": "auth.group", "pk": 1, "fields": {"name": "propriétaire", "permissions": [12, 5, 6, 7, 8, 13, 14, 15, 16, 53, 54, 55, 56, 49, 50, 51, 52, 28, 29, 30, 31, 32, 37, 38, 39, 40, 33, 34, 35, 36, 41, 42, 43, 44, 45, 46, 47, 48]}}, {"model": "auth.group", "pk": 2, "fields": {"name": "employé", "permissions": [53, 54, 55, 56, 49, 50, 51, 52, 41, 42, 43, 44, 45, 46, 47, 48]}}, {"model": "auth.user", "pk": 1, "fields": {"password": "pbkdf2_sha256$600000$SN02EFPPNPC27aKvo2jm4o$P+rxiaHhguKdlX2a7htDX8Jspligl82GxT+qe9pvLnA=", "last_login": "2023-07-16T17:06:22.771Z", "is_superuser": true, "username": "floretcl", "first_name": "", "last_name": "", "email": "floretcl@outlook.com", "is_staff": true, "is_active": true, "date_joined": "2023-07-16T17:05:52.995Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 2, "fields": {"password": "pbkdf2_sha256$600000$IriDG6dZ05obIfaKFdilOw$7/MEyjfpcwbRWS0pSZCTfXz8EM5CEAmG8VgS0NgS0Ys=", "last_login": null, "is_superuser": false, "username": "vincent_parrot", "first_name": "Vincent", "last_name": "Parrot", "email": "vparrot@garage-vparrot.clementfloret.fr", "is_staff": true, "is_active": true, "date_joined": "2023-07-16T17:23:18Z", "groups": [2], "user_permissions": []}}, {"model": "auth.user", "pk": 3, "fields": {"password": "pbkdf2_sha256$600000$QlU91UfoBeJbIx6ORviqj4$h4aj5r/C+hsZiYjlgj5MjMCBYgTlX3gW8gZXoTE8H80=", "last_login": null, "is_superuser": false, "username": "employe_test", "first_name": "", "last_name": "", "email": "", "is_staff": true, "is_active": true, "date_joined": "2023-07-16T17:25:04Z", "groups": [2], "user_permissions": []}}, {"model": "contenttypes.contenttype", "pk": 1, "fields": {"app_label": "admin", "model": "logentry"}}, {"model": "contenttypes.contenttype", "pk": 2, "fields": {"app_label": "auth", "model": "permission"}}, {"model": "contenttypes.contenttype", "pk": 3, "fields": {"app_label": "auth", "model": "group"}}, {"model": "contenttypes.contenttype", "pk": 4, "fields": {"app_label": "auth", "model": "user"}}, {"model": "contenttypes.contenttype", "pk": 5, "fields": {"app_label": "contenttypes", "model": "contenttype"}}, {"model": "contenttypes.contenttype", "pk": 6, "fields": {"app_label": "sessions", "model": "session"}}, {"model": "contenttypes.contenttype", "pk": 7, "fields": {"app_label": "garage", "model": "garage"}}, {"model": "contenttypes.contenttype", "pk": 8, "fields": {"app_label": "garage", "model": "openingtime"}}, {"model": "contenttypes.contenttype", "pk": 9, "fields": {"app_label": "garage", "model": "servicetype"}}, {"model": "contenttypes.contenttype", "pk": 10, "fields": {"app_label": "garage", "model": "service"}}, {"model": "contenttypes.contenttype", "pk": 11, "fields": {"app_label": "garage", "model": "vehicle"}}, {"model": "contenttypes.contenttype", "pk": 12, "fields": {"app_label": "garage", "model": "vehiclepicture"}}, {"model": "contenttypes.contenttype", "pk": 13, "fields": {"app_label": "garage", "model": "customerreview"}}, {"model": "contenttypes.contenttype", "pk": 14, "fields": {"app_label": "garage", "model": "customermessage"}}, {"model": "sessions.session", "pk": "ndf7gcf3r9swvuxjlgy0dkiewem1r2qh", "fields": {"session_data": ".eJxVjMEOwiAQBf-FsyHAQgGP3v0GsiwgVQNJaU_Gf9cmPej1zcx7sYDbWsM28hLmxM5MstPvFpEeue0g3bHdOqfe1mWOfFf4QQe_9pSfl8P9O6g46rfGYoU2XoJw4IyDoqZIwluEJEgppYuXGQsUA2gykZXCoJYuuanERIq9P8LKN5g:1qL5CQ:WwYjbYK8N0RvFJ7DgF_JLHVIkFSBDZ7HXj-KcXbEJt4", "expire_date": "2023-07-30T17:06:22.786Z"}}, {"model": "garage.garage", "pk": "Garage V.Parrot", "fields": {"adress": "11 Rue Léon Jouhaux", "postal_code": "31500", "city": "Toulouse", "phone_number": "0561234567", "contact_email": "contact@garage-vparrot.clementfloret.fr"}}, {"model": "garage.openingtime", "pk": "Dim.", "fields": {"garage": "Garage V.Parrot", "opening_hours": "Fermé"}}, {"model": "garage.openingtime", "pk": "Jeu.", "fields": {"garage": "Garage V.Parrot", "opening_hours": "08h30-12h00, 14h00 - 18h30"}}, {"model": "garage.openingtime", "pk": "Lun.", "fields": {"garage": "Garage V.Parrot", "opening_hours": "08h30-12h00, 14h00 - 18h30"}}, {"model": "garage.openingtime", "pk": "Mar.", "fields": {"garage": "Garage V.Parrot", "opening_hours": "08h30-12h00, 14h00 - 18h30"}}, {"model": "garage.openingtime", "pk": "Mer.", "fields": {"garage": "Garage V.Parrot", "opening_hours": "09h00-12h00, 14h00 - 17h00"}}, {"model": "garage.openingtime", "pk": "Sam.", "fields": {"garage": "Garage V.Parrot", "opening_hours": "08h30-12h00"}}, {"model": "garage.openingtime", "pk": "Ven.", "fields": {"garage": "Garage V.Parrot", "opening_hours": "08h30-12h00, 14h00 - 18h30"}}, {"model": "garage.servicetype", "pk": 1, "fields": {"garage": "Garage V.Parrot", "name": "Mécanique", "image": "uploads/2023/07/img-17.jpg"}}, {"model": "garage.servicetype", "pk": 2, "fields": {"garage": "Garage V.Parrot", "name": "Carrosserie", "image": "uploads/2023/07/img-7.jpg"}}, {"model": "garage.servicetype", "pk": 3, "fields": {"garage": "Garage V.Parrot", "name": "Entretien", "image": "uploads/2023/07/img-23.jpg"}}, {"model": "garage.service", "pk": 1, "fields": {"type": 1, "name": "Motorisation"}}, {"model": "garage.service", "pk": 2, "fields": {"type": 1, "name": "Système de freinage"}}, {"model": "garage.service", "pk": 3, "fields": {"type": 1, "name": "Direction et Suspension"}}, {"model": "garage.service", "pk": 4, "fields": {"type": 1, "name": "Échappement"}}, {"model": "garage.service", "pk": 5, "fields": {"type": 1, "name": "Démarrage"}}, {"model": "garage.service", "pk": 6, "fields": {"type": 1, "name": "Pneumatique"}}, {"model": "garage.service", "pk": 7, "fields": {"type": 2, "name": "Débosselage"}}, {"model": "garage.service", "pk": 8, "fields": {"type": 2, "name": "Peinture"}}, {"model": "garage.service", "pk": 9, "fields": {"type": 2, "name": "Vitrage"}}, {"model": "garage.service", "pk": 10, "fields": {"type": 2, "name": "Remplacements de pièces de carrosserie"}}, {"model": "garage.service", "pk": 11, "fields": {"type": 2, "name": "Dévoilage des jantes"}}, {"model": "garage.service", "pk": 12, "fields": {"type": 3, "name": "Révision périodique"}}, {"model": "garage.service", "pk": 13, "fields": {"type": 3, "name": "Pré-contrôle technique"}}, {"model": "garage.service", "pk": 14, "fields": {"type": 3, "name": "Vidange et filtres"}}, {"model": "garage.service", "pk": 15, "fields": {"type": 3, "name": "Courroie de distribution"}}, {"model": "garage.service", "pk": 16, "fields": {"type": 3, "name": "Climatisation"}}, {"model": "garage.service", "pk": 17, "fields": {"type": 3, "name": "Décontamination"}}, {"model": "garage.vehicle", "pk": 1, "fields": {"garage": "Garage V.Parrot", "name": "BMW 5 Series", "price": 25000, "year": 2018, "km": 12400}}, {"model": "garage.vehicle", "pk": 2, "fields": {"garage": "Garage V.Parrot", "name": "Mercedes C Class", "price": 22000, "year": 2012, "km": 231000}}, {"model": "garage.vehicle", "pk": 3, "fields": {"garage": "Garage V.Parrot", "name": "BMW X1", "price": 25000, "year": 2015, "km": 33700}}, {"model": "garage.vehicle", "pk": 4, "fields": {"garage": "Garage V.Parrot", "name": "Acura MDX", "price": 14000, "year": 2010, "km": 180000}}, {"model": "garage.vehicle", "pk": 5, "fields": {"garage": "Garage V.Parrot", "name": "Ford Explorer", "price": 11000, "year": 2009, "km": 320000}}, {"model": "garage.vehicle", "pk": 6, "fields": {"garage": "Garage V.Parrot", "name": "Ford Kuga", "price": 16400, "year": 2016, "km": 7000}}, {"model": "garage.vehicle", "pk": 7, "fields": {"garage": "Garage V.Parrot", "name": "Land Rover Range Rover", "price": 28900, "year": 2022, "km": 21500}}, {"model": "garage.vehicle", "pk": 8, "fields": {"garage": "Garage V.Parrot", "name": "Lexus ES", "price": 38600, "year": 2021, "km": 11800}}, {"model": "garage.vehicle", "pk": 9, "fields": {"garage": "Garage V.Parrot", "name": "Mercedes A Class", "price": 31300, "year": 2019, "km": 43500}}, {"model": "garage.vehicle", "pk": 10, "fields": {"garage": "Garage V.Parrot", "name": "Mercedes GLA Class", "price": 34300, "year": 2020, "km": 6500}}, {"model": "garage.vehicle", "pk": 11, "fields": {"garage": "Garage V.Parrot", "name": "Skoda Fabia", "price": 8600, "year": 2011, "km": 264900}}, {"model": "garage.vehicle", "pk": 12, "fields": {"garage": "Garage V.Parrot", "name": "Skoda Felicia", "price": 11800, "year": 2014, "km": 194800}}, {"model": "garage.vehicle", "pk": 13, "fields": {"garage": "Garage V.Parrot", "name": "Skoda Octavia", "price": 15700, "year": 2016, "km": 137700}}, {"model": "garage.vehicle", "pk": 14, "fields": {"garage": "Garage V.Parrot", "name": "Tesla Model X", "price": 21000, "year": 2020, "km": 43000}}, {"model": "garage.vehicle", "pk": 15, "fields": {"garage": "Garage V.Parrot", "name": "Toyota Avensis", "price": 8400, "year": 2010, "km": 291000}}, {"model": "garage.vehicle", "pk": 16, "fields": {"garage": "Garage V.Parrot", "name": "Toyota Highlander", "price": 22800, "year": 2018, "km": 112000}}, {"model": "garage.vehicle", "pk": 17, "fields": {"garage": "Garage V.Parrot", "name": "Toyota Tundra", "price": 20000, "year": 2022, "km": 64800}}, {"model": "garage.vehiclepicture", "pk": 1, "fields": {"vehicle": 1, "picture": "uploads/2023/07/bmw-5-series.webp"}}, {"model": "garage.vehiclepicture", "pk": 2, "fields": {"vehicle": 2, "picture": "uploads/2023/07/mercedes-c-class.webp"}}, {"model": "garage.vehiclepicture", "pk": 3, "fields": {"vehicle": 3, "picture": "uploads/2023/07/bmw-x1.webp"}}, {"model": "garage.vehiclepicture", "pk": 4, "fields": {"vehicle": 4, "picture": "uploads/2023/07/acura-mdx.webp"}}, {"model": "garage.vehiclepicture", "pk": 5, "fields": {"vehicle": 5, "picture": "uploads/2023/07/ford-explorer.webp"}}, {"model": "garage.vehiclepicture", "pk": 6, "fields": {"vehicle": 6, "picture": "uploads/2023/07/ford-kuga.webp"}}, {"model": "garage.vehiclepicture", "pk": 7, "fields": {"vehicle": 7, "picture": "uploads/2023/07/land-rover-range-rover.webp"}}, {"model": "garage.vehiclepicture", "pk": 8, "fields": {"vehicle": 8, "picture": "uploads/2023/07/lexus-es.webp"}}, {"model": "garage.vehiclepicture", "pk": 9, "fields": {"vehicle": 9, "picture": "uploads/2023/07/mercedes-a-class.webp"}}, {"model": "garage.vehiclepicture", "pk": 10, "fields": {"vehicle": 10, "picture": "uploads/2023/07/mercedes-benz-gla-class.webp"}}, {"model": "garage.vehiclepicture", "pk": 11, "fields": {"vehicle": 11, "picture": "uploads/2023/07/skoda-fabia.webp"}}, {"model": "garage.vehiclepicture", "pk": 12, "fields": {"vehicle": 12, "picture": "uploads/2023/07/skoda-felicia.webp"}}, {"model": "garage.vehiclepicture", "pk": 13, "fields": {"vehicle": 13, "picture": "uploads/2023/07/skoda-octavia.webp"}}, {"model": "garage.vehiclepicture", "pk": 14, "fields": {"vehicle": 14, "picture": "uploads/2023/07/tesla-model-x.webp"}}, {"model": "garage.vehiclepicture", "pk": 15, "fields": {"vehicle": 15, "picture": "uploads/2023/07/toyota-avensis.webp"}}, {"model": "garage.vehiclepicture", "pk": 16, "fields": {"vehicle": 16, "picture": "uploads/2023/07/toyota-highlander.webp"}}, {"model": "garage.vehiclepicture", "pk": 17, "fields": {"vehicle": 17, "picture": "uploads/2023/07/toyota-tundra.webp"}}, {"model": "garage.customerreview", "pk": 9, "fields": {"name": "Raphaël J", "message": "Je suis un client régulier de Garage V.Parrot depuis deux ans maintenant et je dois dire que la qualité de leurs services ne m’a jamais déçu. \r\nDe l'entretien de routine aux réparations plus complexes, l'équipe du garage a toujours été efficace dans son travail. Ils utilisent uniquement des pièces de qualité, garantissant la longévité et la sécurité de mon véhicule.", "rating": 4, "verified": true, "valid": true, "date": "2023-07-15T16:08:12.721Z"}}, {"model": "garage.customerreview", "pk": 10, "fields": {"name": "Valéry Kaplan", "message": "Ce qui distingue le Garage V.Parrot des autres garages, c'est leur engagement à fournir le meilleur niveau de service possible. Ils apprécient vraiment leurs clients et prennent le temps d'expliquer les problèmes et les solutions de manière claire et concise. \r\nJe recommande vivement le Garage V.Parrot pour sa qualité, ses services et sa fiabilité.", "rating": 5, "verified": false, "valid": null, "date": "2023-07-15T16:08:56.638Z"}}, {"model": "garage.customerreview", "pk": 11, "fields": {"name": "Rémi Chapuis", "message": "L'équipe du Garage V.Parrot est vraiment compétente et qualifiée. \r\nJ’ai eu le sentiment que mon véhicule était entre de bonnes mains. \r\nJe recommande vivement Garage V.Parrot à tous ceux qui recherchent un service de qualité, fiable et rapide pour leur véhicule.\r\n Merci au Garage V.Parrot, pour le travail bien fait !", "rating": 4, "verified": true, "valid": true, "date": "2023-07-15T16:09:59.994Z"}}, {"model": "garage.customerreview", "pk": 12, "fields": {"name": "Marie Dupont", "message": "Je tiens à exprimer ma grande satisfaction envers le Garage V.Parrot. J'ai récemment fait réparer mon véhicule chez eux et le service était impeccable. L'équipe était professionnelle, efficace et aimable. Ils ont résolu le problème rapidement et à un prix raisonnable. \r\nJe recommande ce garage à tous ceux qui ont besoin d'un service de qualité et fiable.", "rating": 2, "verified": true, "valid": null, "date": "2023-07-15T16:10:39.754Z"}}, {"model": "garage.customerreview", "pk": 13, "fields": {"name": "fphppog\"hzaefghz", "message": "rabhtn,jrytk,terrbre", "rating": 1, "verified": true, "valid": false, "date": "2023-07-15T16:10:58.120Z"}}, {"model": "garage.customerreview", "pk": 14, "fields": {"name": "Julien Martin", "message": "Je suis extrêmement satisfait des services offerts par le Garage V.Parrot. \r\n\r\nJ'ai amené ma voiture pour une révision et j'ai été impressionné par l'accueil chaleureux du personnel et leur expertise. Ils ont fait un excellent travail et m'ont expliqué en détail toutes les réparations effectuées. Le prix était également très compétitif. \r\n\r\nJe recommande vivement ce garage à tous ceux qui recherchent un service de confiance.", "rating": 3, "verified": false, "valid": null, "date": "2023-07-15T16:11:49.738Z"}}, {"model": "garage.customerreview", "pk": 15, "fields": {"name": "Isabelle Leclerc", "message": "Je suis très contente d'avoir choisi le Garage V.Parrot pour la réparation de ma voiture. Ils ont résolu le problème rapidement et efficacement. Leur équipe est compétente, professionnelle et sympathique. \r\nDe plus, le prix était raisonnable et transparent, sans surprises. Je suis entièrement satisfaite du service et je les recommande à tous ceux qui ont besoin d'un excellent garage.", "rating": 5, "verified": true, "valid": true, "date": "2023-07-15T16:13:48.601Z"}}, {"model": "garage.customerreview", "pk": 16, "fields": {"name": "Thomas Dubois", "message": "e tenais à remercier le Garage V.Parrot pour leur excellent travail. \r\nJ'ai fait réparer ma voiture chez eux et je suis très impressionné par leur professionnalisme et leur fiabilité. Leur équipe a résolu le problème rapidement avec des compétences remarquables. \r\nDe plus, le prix était très raisonnable pour les réparations effectuées. Je recommande vivement ce garage à tous ceux qui ont besoin d'un service de qualité supérieure.", "rating": 5, "verified": true, "valid": true, "date": "2023-07-15T16:14:22.165Z"}}, {"model": "garage.customerreview", "pk": 17, "fields": {"name": "Sergio", "message": "Nul, que des incompétents. J'ai dû ramener ma voiture 3 fois parce que le problème revenait encore.\r\nJe ne reviendrais plus.", "rating": 1, "verified": true, "valid": true, "date": "2023-07-15T16:15:52.283Z"}}, {"model": "garage.customermessage", "pk": 14, "fields": {"firstname": "Manon", "lastname": "Petit", "email": "marion-petit@yahoo.fr", "phone_number": "0655428910", "subject": "Volvo Xc40", "message": "Bonjour,\r\nje suis intéressée par une voiture d'occasion que j'ai vue sur votre site web, une Volvo Xc40. Pouvez-vous me donner plus d'informations sur les caractéristiques du véhicule ?\r\nManon Petit", "date": "2023-07-15T16:00:09.043Z"}}, {"model": "garage.customermessage", "pk": 15, "fields": {"firstname": "Nicolas", "lastname": "Durand", "email": "nico.durand@outlook.fr", "phone_number": "0953886752", "subject": "Avancement des travaux sur ma voiture", "message": "Bonjour,\r\nje voulais savoir où en est la réparation de ma voiture que j'ai déposée chez vous la semaine dernière. Pouvez-vous me donner l'avancement des travaux ? Merci.\r\nBien cordialement,\r\nNicolas Lambert", "date": "2023-07-15T16:01:26.576Z"}}, {"model": "garage.customermessage", "pk": 16, "fields": {"firstname": "Sophie", "lastname": "Lambert", "email": "sophie.du@gmail.com", "phone_number": "0623894099", "subject": "Prise de rendez-vous", "message": "Bonjour, \r\nJe m'appelle Sophie Dubois et je souhaite prendre rendez-vous pour une révision de ma moto. Pouvez-vous me dire quand vous avez des disponibilités ? Vous pouvez me recontacter par email ou par téléphone en fin d'après-midi. \r\nCordialement, Sophie Dubois", "date": "2023-07-15T16:02:15.039Z"}}, {"model": "garage.customermessage", "pk": 19, "fields": {"firstname": "Martin", "lastname": "Duval", "email": "martindupont@gmail.com", "phone_number": "0189395641", "subject": null, "message": "Bonjour, \r\n\r\nj'ai besoin de faire réparer ma voiture qui a des problèmes de freins. Je ne sais pas d'où provient ce problème. J'aimerais vous amener ma voiture pour un diagnostique. Avez vous des disponibilités en semaine, fin de journée ? \r\nMerci d'avance, \r\nMartin Dupont", "date": "2023-07-15T16:04:42.155Z"}}, {"model": "garage.customermessage", "pk": 20, "fields": {"firstname": "Pierrre", "lastname": "Gonthier", "email": "pierre.gonthier@icloud.com", "phone_number": "0645982376", "subject": "Audi E-tron", "message": "Bonjour, je serais intéressé par un de vos véhicules d'occasion, une Audi E tron. \r\nMerci d'avance, Cordialement, \r\nPierre Durand", "date": "2023-07-15T16:07:13.103Z"}}]
+[
+  {
+    "model": "garage.garage",
+    "pk": 1,
+    "fields": {
+      "name": "Garage V.Parrot",
+      "address": "11 Rue Léon Jouhaux",
+      "postal_code": "31500",
+      "city": "Toulouse",
+      "phone_number": "0561234567",
+      "contact_email": "contact@garage-vparrot.clementfloret.fr"
+    }
+  },
+  {
+    "model": "garage.openingtime",
+    "pk": 1,
+    "fields": {
+      "day": "Lun.",
+      "opening_hours": "08h30-12h00, 14h00 - 18h30",
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.openingtime",
+    "pk": 2,
+    "fields": {
+      "day": "Mar.",
+      "opening_hours": "08h30-12h00, 14h00 - 18h30",
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.openingtime",
+    "pk": 3,
+    "fields": {
+      "day": "Mer.",
+      "opening_hours": "09h00-12h00, 14h00 - 17h00",
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.openingtime",
+    "pk": 4,
+    "fields": {
+      "day": "Jeu.",
+      "opening_hours": "08h30-12h00, 14h00 - 18h30",
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.openingtime",
+    "pk": 5,
+    "fields": {
+      "day": "Ven.",
+      "opening_hours": "08h30-12h00, 14h00 - 18h30",
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.openingtime",
+    "pk": 6,
+    "fields": {
+      "day": "Sam.",
+      "opening_hours": "08h30-12h00",
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.openingtime",
+    "pk": 7,
+    "fields": {
+      "day": "Dim.",
+      "opening_hours": "Fermé",
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.servicetype",
+    "pk": 1,
+    "fields": {
+      "name": "Mécanique",
+      "image": "uploads/2023/10/img-17.jpg"
+    }
+  },
+  {
+    "model": "garage.servicetype",
+    "pk": 2,
+    "fields": {
+      "name": "Carrosserie",
+      "image": "uploads/2023/10/img-7.jpg"
+    }
+  },
+  {
+    "model": "garage.servicetype",
+    "pk": 3,
+    "fields": {
+      "name": "Entretien",
+      "image": "uploads/2023/10/img-23.jpg"
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 1,
+    "fields": {
+      "name": "Motorisation",
+      "type": 1,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 2,
+    "fields": {
+      "name": "Système de freinage",
+      "type": 1,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 3,
+    "fields": {
+      "name": "Direction et Suspension",
+      "type": 1,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 4,
+    "fields": {
+      "name": "Échappement",
+      "type": 1,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 5,
+    "fields": {
+      "name": "Démarrage",
+      "type": 1,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 6,
+    "fields": {
+      "name": "Pneumatique",
+      "type": 1,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 7,
+    "fields": {
+      "name": "Débosselage",
+      "type": 2,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 8,
+    "fields": {
+      "name": "Peinture",
+      "type": 2,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 9,
+    "fields": {
+      "name": "Vitrage",
+      "type": 2,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 10,
+    "fields": {
+      "name": "Remplacements de pièces de carrosserie",
+      "type": 2,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 11,
+    "fields": {
+      "name": "Dé-voilage des jantes",
+      "type": 2,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 12,
+    "fields": {
+      "name": "Révision périodique",
+      "type": 3,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 13,
+    "fields": {
+      "name": "Pré-contrôle technique",
+      "type": 3,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 14,
+    "fields": {
+      "name": "Vidange et filtres",
+      "type": 3,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 15,
+    "fields": {
+      "name": "Courroie de distribution",
+      "type": 3,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 16,
+    "fields": {
+      "name": "Climatisation",
+      "type": 3,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.service",
+    "pk": 17,
+    "fields": {
+      "name": "Décontamination",
+      "type": 3,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 1,
+    "fields": {
+      "name": "BMW 5 Series",
+      "price": 25000,
+      "year": 2018,
+      "km": 12400,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 2,
+    "fields": {
+      "name": "Mercedes C Class",
+      "price": 22000,
+      "year": 2012,
+      "km": 231000,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 3,
+    "fields": {
+      "name": "BMW X1",
+      "price": 25000,
+      "year": 2015,
+      "km": 33700,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 4,
+    "fields": {
+      "name": "Acura MDX",
+      "price": 14000,
+      "year": 2010,
+      "km": 180000,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 5,
+    "fields": {
+      "name": "Ford Explorer",
+      "price": 11000,
+      "year": 2009,
+      "km": 320000,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 6,
+    "fields": {
+      "name": "Ford Kuga",
+      "price": 16400,
+      "year": 2016,
+      "km": 7000,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 7,
+    "fields": {
+      "name": "Range Rover",
+      "price": 28900,
+      "year": 2022,
+      "km": 21500,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 8,
+    "fields": {
+      "name": "Lexus ES",
+      "price": 38600,
+      "year": 2021,
+      "km": 11800,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 9,
+    "fields": {
+      "name": "Mercedes A Class",
+      "price": 31300,
+      "year": 2019,
+      "km": 43500,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 10,
+    "fields": {
+      "name": "Mercedes GLA Class",
+      "price": 34300,
+      "year": 2020,
+      "km": 6500,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 11,
+    "fields": {
+      "name": "Skoda Fabia",
+      "price": 8600,
+      "year": 2011,
+      "km": 264900,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 12,
+    "fields": {
+      "name": "Skodia Felicia",
+      "price": 11800,
+      "year": 2014,
+      "km": 194800,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 13,
+    "fields": {
+      "name": "Skoda Octavia",
+      "price": 15700,
+      "year": 2016,
+      "km": 137700,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 14,
+    "fields": {
+      "name": "Tesla Model X",
+      "price": 21000,
+      "year": 2020,
+      "km": 43000,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 15,
+    "fields": {
+      "name": "Toyota Avensis",
+      "price": 8400,
+      "year": 2010,
+      "km": 291000,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 16,
+    "fields": {
+      "name": "Toyota Highlander",
+      "price": 22800,
+      "year": 2018,
+      "km": 112000,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehicle",
+    "pk": 17,
+    "fields": {
+      "name": "Toyota Tundra",
+      "price": 20000,
+      "year": 2022,
+      "km": 64800,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 1,
+    "fields": {
+      "vehicle": 1,
+      "picture": "uploads/2023/10/bmw-5-series.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 2,
+    "fields": {
+      "vehicle": 2,
+      "picture": "uploads/2023/10/mercedes-c-class.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 3,
+    "fields": {
+      "vehicle": 3,
+      "picture": "uploads/2023/10/bmw-x1.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 4,
+    "fields": {
+      "vehicle": 4,
+      "picture": "uploads/2023/10/acura-mdx.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 5,
+    "fields": {
+      "vehicle": 5,
+      "picture": "uploads/2023/10/ford-explorer.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 6,
+    "fields": {
+      "vehicle": 6,
+      "picture": "uploads/2023/10/ford-kuga.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 7,
+    "fields": {
+      "vehicle": 7,
+      "picture": "uploads/2023/10/land-rover-range-rover.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 8,
+    "fields": {
+      "vehicle": 8,
+      "picture": "uploads/2023/10/lexus-es.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 9,
+    "fields": {
+      "vehicle": 9,
+      "picture": "uploads/2023/10/mercedes-a-class.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 10,
+    "fields": {
+      "vehicle": 10,
+      "picture": "uploads/2023/10/mercedes-benz-gla-class.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 11,
+    "fields": {
+      "vehicle": 11,
+      "picture": "uploads/2023/10/skoda-fabia.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 12,
+    "fields": {
+      "vehicle": 12,
+      "picture": "uploads/2023/10/skoda-felicia.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 13,
+    "fields": {
+      "vehicle": 13,
+      "picture": "uploads/2023/10/skoda-octavia.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 14,
+    "fields": {
+      "vehicle": 14,
+      "picture": "uploads/2023/10/tesla-model-x.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 15,
+    "fields": {
+      "vehicle": 15,
+      "picture": "uploads/2023/10/toyota-avensis.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 16,
+    "fields": {
+      "vehicle": 16,
+      "picture": "uploads/2023/10/toyota-highlander.webp"
+    }
+  },
+  {
+    "model": "garage.vehiclepicture",
+    "pk": 17,
+    "fields": {
+      "vehicle": 17,
+      "picture": "uploads/2023/10/toyota-tundra.webp"
+    }
+  },
+  {
+    "model": "garage.customerreview",
+    "pk": 1,
+    "fields": {
+      "name": "Raphaël J",
+      "message": "Je suis un client régulier de Garage V.Parrot depuis deux ans maintenant et je dois dire que la qualité de leurs services ne m’a jamais déçu. \r\nDe l'entretien de routine aux réparations plus complexes, l'équipe du garage a toujours été efficace dans son travail. Ils utilisent uniquement des pièces de qualité, garantissant la longévité et la sécurité de mon véhicule.",
+      "rating": 4,
+      "valid": true,
+      "date": "2023-10-05T14:10:58.480Z",
+      "validator": 2,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.customerreview",
+    "pk": 2,
+    "fields": {
+      "name": "Valéry Kaplan",
+      "message": "Ce qui distingue le Garage V.Parrot des autres garages, c'est leur engagement à fournir le meilleur niveau de service possible. Ils apprécient vraiment leurs clients et prennent le temps d'expliquer les problèmes et les solutions de manière claire et concise. \r\nJe recommande vivement le Garage V.Parrot pour sa qualité, ses services et sa fiabilité.",
+      "rating": 5,
+      "valid": null,
+      "date": "2023-10-05T14:18:22.945Z",
+      "validator": null,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.customerreview",
+    "pk": 3,
+    "fields": {
+      "name": "Rémi Chapuis",
+      "message": "L'équipe du Garage V.Parrot est vraiment compétente et qualifiée. \r\nJ’ai eu le sentiment que mon véhicule était entre de bonnes mains. \r\nJe recommande vivement Garage V.Parrot à tous ceux qui recherchent un service de qualité, fiable et rapide pour leur véhicule.\r\nMerci au Garage V.Parrot, pour le travail bien fait !",
+      "rating": 4,
+      "valid": true,
+      "date": "2023-10-05T14:19:21.614Z",
+      "validator": 2,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.customerreview",
+    "pk": 4,
+    "fields": {
+      "name": "Marie Dupont",
+      "message": "Je tiens à exprimer ma grande satisfaction envers le Garage V.Parrot. J'ai récemment fait réparer mon véhicule chez eux et le service était impeccable. L'équipe était professionnelle, efficace et aimable. Ils ont résolu le problème rapidement et à un prix raisonnable. \r\nJe recommande ce garage à tous ceux qui ont besoin d'un service de qualité et fiable.",
+      "rating": 3,
+      "valid": true,
+      "date": "2023-10-05T14:20:13.069Z",
+      "validator": 3,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.customerreview",
+    "pk": 5,
+    "fields": {
+      "name": "vnskjbvdjkohizabhiogfn",
+      "message": "zfaoiebuzebgoiehgioahtubiugbjzerabg",
+      "rating": 0,
+      "valid": false,
+      "date": "2023-10-05T14:21:39.886Z",
+      "validator": 3,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.customerreview",
+    "pk": 6,
+    "fields": {
+      "name": "Julien Martin",
+      "message": "Je suis extrêmement satisfait des services offerts par le Garage V.Parrot. \r\n\r\nJ'ai amené ma voiture pour une révision et j'ai été impressionné par l'accueil chaleureux du personnel et leur expertise. Ils ont fait un excellent travail et m'ont expliqué en détail toutes les réparations effectuées. Le prix était également très compétitif. \r\n\r\nJe recommande vivement ce garage à tous ceux qui recherchent un service de confiance.",
+      "rating": 3,
+      "valid": null,
+      "date": "2023-10-05T14:22:20.848Z",
+      "validator": null,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.customerreview",
+    "pk": 7,
+    "fields": {
+      "name": "Isabelle Leclerc",
+      "message": "Je suis très contente d'avoir choisi le Garage V.Parrot pour la réparation de ma voiture. Ils ont résolu le problème rapidement et efficacement. Leur équipe est compétente, professionnelle et sympathique. \r\nDe plus, le prix était raisonnable et transparent, sans surprises. Je suis entièrement satisfaite du service et je les recommande à tous ceux qui ont besoin d'un excellent garage.",
+      "rating": 5,
+      "valid": true,
+      "date": "2023-10-05T14:23:11.635Z",
+      "validator": 3,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.customerreview",
+    "pk": 8,
+    "fields": {
+      "name": "Thomas Dubois",
+      "message": "Je tenais à remercier le Garage V.Parrot pour leur excellent travail. \r\nJ'ai fait réparer ma voiture chez eux et je suis très impressionné par leur professionnalisme et leur fiabilité. Leur équipe a résolu le problème rapidement avec des compétences remarquables. \r\nDe plus, le prix était très raisonnable pour les réparations effectuées. Je recommande vivement ce garage à tous ceux qui ont besoin d'un service de qualité supérieure.",
+      "rating": 2,
+      "valid": true,
+      "date": "2023-10-05T14:23:52.387Z",
+      "validator": 2,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.customerreview",
+    "pk": 9,
+    "fields": {
+      "name": "Sergio",
+      "message": "Bof, que des incompétents.\r\nJe ne reviendrais plus.",
+      "rating": 1,
+      "valid": false,
+      "date": "2023-10-05T14:25:00.377Z",
+      "validator": 3,
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.customermessage",
+    "pk": 1,
+    "fields": {
+      "first_name": "Marion",
+      "last_name": "Petit",
+      "email": "marion-petit@yahoo.fr",
+      "phone_number": "0655428910",
+      "subject": "Volvo Xc40",
+      "message": "Bonjour,\r\nje suis intéressée par une voiture d'occasion que j'ai vue sur votre site web, une Volvo Xc40. Pouvez-vous me donner plus d'informations sur les caractéristiques du véhicule ?\r\nManon Petit",
+      "date": "2023-10-05T14:27:00.632Z",
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.customermessage",
+    "pk": 2,
+    "fields": {
+      "first_name": "Nicolas",
+      "last_name": "Durand",
+      "email": "nico.durand@outlook.fr",
+      "phone_number": "0953886752",
+      "subject": "Avancement des travaux sur ma voiture",
+      "message": "Bonjour,\r\nje voulais savoir où en est la réparation de ma voiture que j'ai déposée chez vous la semaine dernière. Pouvez-vous me donner l'avancement des travaux ? Merci.\r\nBien cordialement,\r\nNicolas Lambert",
+      "date": "2023-10-05T14:28:02.549Z",
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.customermessage",
+    "pk": 3,
+    "fields": {
+      "first_name": "Sophie",
+      "last_name": "Lambert",
+      "email": "sophie.lb@gmail.com",
+      "phone_number": "0623894099",
+      "subject": "Prise de rendez-vous",
+      "message": "Bonjour, \r\nJe m'appelle Sophie Dubois et je souhaite prendre rendez-vous pour une révision de ma moto. Pouvez-vous me dire quand vous avez des disponibilités ? Vous pouvez me recontacter par email ou par téléphone en fin d'après-midi. \r\nCordialement, Sophie Dubois",
+      "date": "2023-10-05T14:29:43.056Z",
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.customermessage",
+    "pk": 4,
+    "fields": {
+      "first_name": "Martin",
+      "last_name": "Duval",
+      "email": "martinduval@gmail.com",
+      "phone_number": "0189395641",
+      "subject": null,
+      "message": "Bonjour, \r\n\r\nj'ai besoin de faire réparer ma voiture qui a des problèmes de freins. Je ne sais pas d'où provient ce problème. J'aimerais vous amener ma voiture pour un diagnostique. Avez vous des disponibilités en semaine, en fin de journée ? \r\nMerci d'avance, \r\nMartin Dupont",
+      "date": "2023-10-05T14:30:24.085Z",
+      "garage": 1
+    }
+  },
+  {
+    "model": "garage.customermessage",
+    "pk": 5,
+    "fields": {
+      "first_name": "Pierre",
+      "last_name": "Gonthier",
+      "email": "pierre.gonthier@icloud.com",
+      "phone_number": "0645982376",
+      "subject": "Audi E-tron",
+      "message": "Bonjour, je serais intéressé par un de vos véhicules d'occasion, une Audi E tron. \r\nMerci d'avance, Cordialement, \r\nPierre Durand",
+      "date": "2023-10-05T14:31:07.746Z",
+      "garage": 1
+    }
+  }
+]
