@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import models as auth_models
 from django.utils import timezone
 from django.core import validators
 
@@ -50,7 +51,7 @@ class OpeningTime(models.Model):
     opening_hours = models.CharField("horaires d'ouverture", max_length=80)
     garage = models.ForeignKey(
         Garage,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         default="Garage.objects.first()",
         verbose_name="garage",
     )
@@ -78,13 +79,14 @@ class Service(models.Model):
     name = models.CharField("nom", max_length=80)
     type = models.ForeignKey(
         ServiceType,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         related_name="service_name"
     )
     garage = models.ForeignKey(
         Garage,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         default="Garage.objects.first()",
+        verbose_name="garage",
     )
 
     def __str__(self) -> str:
@@ -101,8 +103,9 @@ class Vehicle(models.Model):
     km = models.PositiveIntegerField("kilométrage")
     garage = models.ForeignKey(
         Garage,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         default="Garage.objects.first()",
+        verbose_name="garage",
     )
 
     def __str__(self) -> str:
@@ -115,7 +118,7 @@ class Vehicle(models.Model):
 class VehiclePicture(models.Model):
     vehicle = models.ForeignKey(
         Vehicle,
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
         related_name="pictures",
     )
     picture = models.ImageField("photos", upload_to="uploads/%Y/%m/")
@@ -124,7 +127,7 @@ class VehiclePicture(models.Model):
         return self.picture.name
 
     class Meta:
-        verbose_name = "photos des véhicules"
+        verbose_name = "photo d'un véhicule"
         verbose_name_plural = "photos des véhicules"
 
 
@@ -134,15 +137,27 @@ class CustomerReview(models.Model):
     rating = models.PositiveSmallIntegerField(
         "note",
         validators=[
-            validators.MaxValueValidator(5, message="La note maximale ne peut dépasser 5 étoiles."),
-            validators.MinValueValidator(1, message="La note minimale ne peut dépasser 1 étoile."),
+            validators.MaxValueValidator(5, message="La note maximale est 5 étoiles."),
+            validators.MinValueValidator(0, message="La note minimale est 0 étoile."),
         ]
     )
     valid = models.BooleanField("valide", null=True)
     date = models.DateTimeField("date de réception", auto_now_add=True)
 
+    validator = models.ForeignKey(
+        auth_models.User,
+        on_delete=models.PROTECT,
+        verbose_name="modérateur",
+        null=True,
+        blank=True,
+    )
     # verification_date = models.DateTimeField("date de modération", auto_now=True)
-    # validator = models.CharField("modérateur", max_length=150, null=True)
+    garage = models.ForeignKey(
+        Garage,
+        on_delete=models.PROTECT,
+        default="Garage.objects.first()",
+        verbose_name="garage",
+    )
 
     def __str__(self) -> str:
         local_date = timezone.localtime(self.date)
@@ -187,6 +202,12 @@ class CustomerMessage(models.Model):
     subject = models.CharField("sujet", max_length=255, blank=True, null=True)
     message = models.TextField("message", max_length=5000)
     date = models.DateTimeField("date de réception", auto_now_add=True)
+    garage = models.ForeignKey(
+        Garage,
+        on_delete=models.PROTECT,
+        default="Garage.objects.first()",
+        verbose_name="garage",
+    )
 
     def __str__(self) -> str:
         local_date = timezone.localtime(self.date)
