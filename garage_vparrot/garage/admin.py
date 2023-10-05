@@ -41,7 +41,7 @@ class OpeningTimeAdmin(admin.ModelAdmin):
 
 class ServiceTypeAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['garage', 'name']}),
+        (None, {'fields': ['name']}),
         ("IMAGE", {'fields': ['image']}),
     ]
     inlines = [Services]
@@ -89,9 +89,9 @@ class CustomerMessageAdmin(admin.ModelAdmin):
 
 
 class CustomerReviewAdmin(admin.ModelAdmin):
-    list_display = ['name', 'rating', 'message', 'valid', 'date']
+    list_display = ['name', 'rating', 'message', 'valid', 'validator', 'date']
     list_per_page = 20
-    list_filter = ['date', 'rating']
+    list_filter = ['date', 'rating', 'valid', 'validator']
     ordering = ['-date']
     search_fields = ['name']
     search_help_text = "Recherche par nom"
