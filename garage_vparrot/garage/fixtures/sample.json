@@ -683,7 +683,7 @@
     "pk": 9,
     "fields": {
       "name": "Sergio",
-      "message": "Bof, que des incompétents.\r\nJe ne reviendrais plus.",
+      "message": "Bof, que des incompétents.\r\nJe ne reviendrai plus.",
       "rating": 1,
       "valid": false,
       "date": "2023-10-05T14:25:00.377Z",
