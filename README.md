@@ -36,10 +36,14 @@
 - Install Django and other packages :
   - `pip install -r requirements.txt`
 
+- Install tailwindcss with npm :
+  - Install [Nodejs and npm](https://nodejs.org/) 
+  - `npm install`
+
 - Create and set .env file
-  - create .env file in garage_vparrot app folder (with a file named settings.py)
-  - copy and replace with your mariadb user password and secret_key. 
-  - create and copy a secret_key with at least 50 characters :
+  - `cd garage_vparrot` (dir : ECF-TP-DWWM-Garage-02-06-2023/garage_vparrot/garage_vparrot)
+  - create an .env file 
+  - copy and replace with your mariadb user password and secret_key (create a secret_key with at least 50 characters) :
 
     ```
     DEBUG=True
@@ -54,17 +58,16 @@
     ```
 
 - Migrate and load data :
-  - In garage_vparrot root folder (with manage.py) :
+  - In garage_vparrot root folder (with manage.py file) :
     - `python manage.py migrate`
-    - `python manage.py sqlflush | ./manage.py dbshell`
-    - `python manage.py loaddata contenttype.json`
-    - `python manage.py loaddata dumpdata.json`
+    - `python manage.py loaddata contenttypes.json`
+    - `python manage.py loaddata sample.json`
 
 - Add admin privileges to database : 
   - `GRANT ALL PRIVILEGES ON garage_vparrot.* TO 'admin'@'localhost';`
   - `FLUSH PRIVILEGES;`
 
-- Check install with : `python manage.py check`
+- Check project with : `python manage.py check`
 
 - Run Django server:
   - `python manage.py runserver`
