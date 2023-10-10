@@ -148,8 +148,8 @@ const setFilters = () => {
 
 // -------------------- CREATE VEHICLE LIST ---------------------------//
 
-const vehiclesDiv = document.getElementById("vehicles-list");
-const modalFormInputSubject = document.getElementById("id_subject");
+const vehiclesDiv = document.querySelector("#vehicles-list");
+const modalFormInputSubject = document.querySelector("#id_subject");
 
 const createVehicleCard = (vehicle, vehicleId, vehiclesPicsObj) => {
   const vehicleName = vehicle.name;
@@ -357,7 +357,7 @@ const manageFilters = () => {
 
 //--------------------- BUTTON RESET FILTER ---------------------------//
 
-const buttonResetFilter = document.getElementById("button-reset-filter");
+const buttonResetFilter = document.querySelector("#button-reset-filter");
 
 const resetFilter = (
   rangeMin,
@@ -422,9 +422,9 @@ const removeAllVehicleCard = () => {
 // -------------------- PAGINATION ---------------------------//
 
 let maxPages = undefined;
-let currentPageText = document.getElementById('vehicles-current-page');
-let nextPageLink = document.getElementById('vehicles-next-page');
-let previousPageLink = document.getElementById('vehicles-previous-page');
+let currentPageText = document.querySelector('#vehicles-current-page');
+let nextPageLink = document.querySelector('#vehicles-next-page');
+let previousPageLink = document.querySelector('#vehicles-previous-page');
 nextPageLink.addEventListener('click', () => {
   setNextPage();
 });
@@ -518,8 +518,8 @@ fetchVehicles = (picsObj) => {
     .then((response) => {
       if (response.ok) {
         return response.json();
-      }  
-    })  
+      }
+    })
     .then((data) => {
       vehiclesObj = JSON.parse(data);
       initView(JSON.parse(data), picsObj);
