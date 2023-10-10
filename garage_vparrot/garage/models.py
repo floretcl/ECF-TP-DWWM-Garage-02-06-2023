@@ -155,7 +155,7 @@ class CustomerReview(models.Model):
     garage = models.ForeignKey(
         Garage,
         on_delete=models.PROTECT,
-        default="Garage.objects.first()",
+        default=Garage.objects.first(),
         verbose_name="garage",
     )
 
@@ -205,7 +205,7 @@ class CustomerMessage(models.Model):
     garage = models.ForeignKey(
         Garage,
         on_delete=models.PROTECT,
-        default="Garage.objects.first()",
+        default=Garage.objects.first(),
         verbose_name="garage",
     )
 
