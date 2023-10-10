@@ -13,6 +13,9 @@ import os
 import environ
 from pathlib import Path
 
+# Django-environ
+# environment variables
+
 env = environ.Env()
 environ.Env.read_env()
 
@@ -143,6 +146,8 @@ INTERNAL_IPS = [
     '127.0.0.1',
 ]
 
+# Security
+
 if env('ENV') == 'PROD':
     CSRF_TRUSTED_ORIGINS = ['https://garage-vparrot.clementfloret.fr']
     CSRF_COOKIE_SECURE = True
@@ -152,3 +157,12 @@ if env('ENV') == 'PROD':
     # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 else:
     CSRF_TRUSTED_ORIGINS = ['https://*.127.0.0.1']
+
+# Email
+
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+EMAIL_USE_LOCALTIME = env('EMAIL_USE_LOCALTIME')

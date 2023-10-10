@@ -110,13 +110,13 @@ class VehiclePicturesJsonResponse(ListView):
         return VehiclePicture.objects.order_by('vehicle')
 
 
-class VehicleContactFormView(MultipleObjectMixin, FormView):
+class VehicleContactFormView(FormView):
     template_name = 'garage/vehicles.html'
     form_class = VehicleContactForm
-    model = Vehicle
     success_url = '/vehicles/'
 
     def form_valid(self, form):
+        form.send_email()
         form.save()
         return super().form_valid(form)
 
@@ -127,8 +127,9 @@ class ContactView(FormView):
     success_url = '/'
 
     def form_valid(self, form):
+        form.send_email()
         form.save()
-        return super(ContactView, self).form_valid(form)
+        return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
