@@ -39,7 +39,7 @@ class VehicleContactForm(ModelForm):
         fields = ['first_name', 'last_name', 'email', 'phone_number', 'subject', 'message']
         widgets = {
             "subject": TextInput(attrs={
-                "disabled": True,
+                "readonly": True,
             }),
             "phone_number": TextInput(attrs={
                 "type": "tel",
