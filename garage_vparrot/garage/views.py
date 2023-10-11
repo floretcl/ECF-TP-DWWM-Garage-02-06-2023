@@ -1,28 +1,31 @@
 from django.core import serializers
 from django.http import JsonResponse
 from django.views.generic.list import MultipleObjectMixin
+from django.contrib import messages
 from .modelforms import ContactForm, VehicleContactForm, ReviewForm
 from django.views.generic import (
     View,
     TemplateView,
     FormView,
-    ListView
+    ListView,
 )
 from .models import (
     OpeningTime,
     Service,
     Vehicle,
     VehiclePicture,
-    CustomerReview
+    CustomerReview,
 )
 
 
 class IndexView(View):
-    def get(self, request, *args, **kwargs):
+    @staticmethod
+    def get(request, *args, **kwargs):
         view = IndexListsView.as_view()
         return view(request, *args, **kwargs)
 
-    def post(self, request, *args, **kwargs):
+    @staticmethod
+    def post(request, *args, **kwargs):
         view = IndexReviewFormView.as_view()
         return view(request, *args, **kwargs)
 
@@ -57,11 +60,13 @@ class IndexReviewFormView(MultipleObjectMixin, FormView):
 
 
 class VehiclesView(View):
-    def get(self, request, *args, **kwargs):
+    @staticmethod
+    def get(request, *args, **kwargs):
         view = VehiclesListView.as_view()
         return view(request, *args, **kwargs)
 
-    def post(self, request, *args, **kwargs):
+    @staticmethod
+    def post(request, *args, **kwargs):
         view = VehicleContactFormView.as_view()
         return view(request, *args, **kwargs)
 
@@ -82,6 +87,20 @@ class VehiclesListView(ListView):
 
     def get_queryset(self):
         return Vehicle.objects.order_by('id')
+
+
+class VehicleContactFormView(FormView):
+    template_name = 'garage/vehicles.html'
+    form_class = VehicleContactForm
+    success_url = '/vehicles/'
+    success_message = ("Bonjour {first_name}, merci de nous avoir contactés à propos de ce véhicule. Nous revenons "
+                       "vers vous au plus vite.")
+
+    def form_valid(self, form):
+        form.save()
+        form.send_email()
+        messages.success(self.request, self.success_message.format(first_name=form.cleaned_data.get("first_name")))
+        return super().form_valid(form)
 
 
 class VehicleListJsonResponse(ListView):
@@ -110,25 +129,16 @@ class VehiclePicturesJsonResponse(ListView):
         return VehiclePicture.objects.order_by('vehicle')
 
 
-class VehicleContactFormView(FormView):
-    template_name = 'garage/vehicles.html'
-    form_class = VehicleContactForm
-    success_url = '/vehicles/'
-
-    def form_valid(self, form):
-        form.send_email()
-        form.save()
-        return super().form_valid(form)
-
-
 class ContactView(FormView):
     template_name = 'garage/contact.html'
     form_class = ContactForm
-    success_url = '/'
+    success_url = '/contact/'
+    success_message = "Bonjour {first_name}, merci de nous avoir contactés. Nous revenons vers vous au plus vite."
 
     def form_valid(self, form):
-        form.send_email()
         form.save()
+        form.send_email()
+        messages.success(self.request, self.success_message.format(first_name=form.cleaned_data.get("first_name")))
         return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
@@ -140,6 +150,16 @@ class ContactView(FormView):
 class LegalNoticeView(TemplateView):
     template_name = 'garage/legal-notice.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["opening_time"] = OpeningTime.objects.all()
+        return context
+
 
 class PrivacyPolicyView(TemplateView):
     template_name = 'garage/privacy-policy.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["opening_time"] = OpeningTime.objects.all()
+        return context
