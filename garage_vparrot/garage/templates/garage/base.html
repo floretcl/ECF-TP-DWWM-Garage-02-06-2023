@@ -48,8 +48,11 @@
             <div>
                 <a class="flex flex-row justify-center items-center ms-3 sm:ms-6 md:ms-8"
                    href="{% url 'garage:index' %}">
-                    <img class="w-auto h-16" src="{% static 'garage/images/logos/Logo-icon-black.png' %}"
+                    <picture>
+                        <source srcset="{% static 'garage/images/logos/Logo-icon-black.webp' %}" type="image/webp">
+                        <img class="w-auto h-16" src="{% static 'garage/images/logos/Logo-icon-black.png' %}"
                          alt="Logo du Garage V.Parrot"/>
+                    </picture>
                     <span class="font-bold text-whiteTeal text-lg pt-1">V.Parrot</span>
                 </a>
             </div>
@@ -145,8 +148,8 @@
                     Adresse et informations
                 </h2>
                 <picture>
-                    <source srcset="{% static 'garage/images/logos/Logo-black.png' %}" media="all" width="200px"/>
-                    <img src="{% static 'garage/images/logos/Logo-black.png' %}" alt="#"/>
+                    <source srcset="{% static 'garage/images/logos/Logo-black.webp' %}" type="image/webp" />
+                    <img class="w-48 h-auto" src="{% static 'garage/images/logos/Logo-black.png' %}" alt="Logo du Garage V.Parrot"/>
                 </picture>
                 <div class="w-12 sm:hidden">
                     <hr class="rounded">
