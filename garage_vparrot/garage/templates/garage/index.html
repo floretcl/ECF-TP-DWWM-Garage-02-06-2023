@@ -1,5 +1,6 @@
 {% extends "garage/base.html" %}
 {% load static %}
+{% load pictures %}
 {% load garage_extras %}
 
 {% block title %}Garage V.Parrot à Toulouse{% endblock %}
@@ -56,8 +57,11 @@
                     À propos
                 </h2>
                 <div class="flex flex-row flex-nowrap justify-center lg:justify-around items-center">
-                    <img class="hidden object-cover lg:block h-72 w-2/5 mx-4 rounded-sm"
-                         src="{% static 'garage/images/pictures/img-18.jpg' %}" alt="" srcset=""/>
+                    <picture class="hidden lg:block w-2/5 mx-4">
+                        <source srcset="{% static 'garage/images/pictures/img-18.webp' %}" type="image/webp">
+                        <img class="object-cover h-72 w-full rounded-sm"
+                         src="{% static 'garage/images/pictures/img-18.jpg' %}" alt=""/>
+                    </picture>
                     <div class="text-whiteTeal text-center lg:text-left mb-4 max-w-lg sm:max-w-xl lg:ms-8">
                         <div class="flex flex-row flex-nowrap justify-center items-center mb-3 sm:mb-6">
                             <svg class="w-16 h-16 fill-whiteTeal lg:hidden" xmlns="http://www.w3.org/2000/svg"
@@ -105,8 +109,7 @@
                         <div class="my-6 sm:my-8 lg:mx-4 max-w-md sm:max-w-lg md:max-w-xl">
                             <div class="flex flex-col flex-nowrap justify-center items-center group bg-celestialBlue rounded mb-3 sm:mb-6 p-0 overflow-hidden">
                                 <div class="overflow-hidden h-auto max-h-72">
-                                    <img class="group-hover:scale-110 group-hover:brightness-95 transition"
-                                         src="{{ type.grouper.image }}" alt=""/>
+                                    {% picture type.grouper.image type.grouper.name img_class="group-hover:scale-110 group-hover:brightness-95 transition" img_loading="lazy" sm=6 md=5 lg=3 %}
                                 </div>
                                 <h3 class="font-rasa text-whiteTeal uppercase text-xl my-3">
                                     {{ type.grouper.name }}
@@ -131,8 +134,11 @@
                 <h2 class="hidden font-rokkitt font-semibold text-celestialBlue text-2xl uppercase mb-4 px-1">
                     Nos véhicules
                 </h2>
-                <img class="mx-4 mb-6 md:mb-8 lg:mb-0 h-auto max-h-64 sm:max-h-80 object-contain rounded-sm"
-                     src="{% static 'garage/images/pictures/img-10.jpg' %}" alt=""/>
+                <picture class="mx-4 mb-6 md:mb-8 lg:mb-0">
+                    <source srcset="{% static 'garage/images/pictures/img-10.webp' %}" type="image/webp">
+                    <img class="object-contain h-auto max-h-64 sm:max-h-80 rounded-sm"
+                         src="{% static 'garage/images/pictures/img-10.jpg' %}" alt=""/>
+                </picture>
                 <div class="lg:flex lg:flex-col lg:flex-nowrap lg:items-start">
                     <div class="text-lg text-whiteTeal text-center lg:text-start mb-4 sm:mb-6">
                         <p class="mb-3">Vous recherchez un véhicule d’occasion ?</p>
