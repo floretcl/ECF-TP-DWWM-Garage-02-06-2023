@@ -22,6 +22,10 @@
 - Create an admin with privileges (replace password by yours) :
   - `CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';`
 
+- Add admin privileges to database : 
+  - `GRANT ALL ON garage_vparrot.* TO 'admin'@'localhost';`
+  - `FLUSH PRIVILEGES;`
+
 - Clone the repository :
   - `git clone https://github.com/floretcl/ECF-TP-DWWM-Garage-02-06-2023.git`
 
@@ -62,10 +66,6 @@
     - `python manage.py migrate`
     - `python manage.py loaddata contenttypes.json`
     - `python manage.py loaddata sample.json`
-
-- Add admin privileges to database : 
-  - `GRANT ALL PRIVILEGES ON garage_vparrot.* TO 'admin'@'localhost';`
-  - `FLUSH PRIVILEGES;`
 
 - Check project with : `python manage.py check`
 
