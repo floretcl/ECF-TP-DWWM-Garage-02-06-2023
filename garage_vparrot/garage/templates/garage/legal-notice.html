@@ -1,6 +1,14 @@
 {% extends "garage/base.html" %}
 {% load static %}
 
+{% block scripts %}
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin="" defer></script>
+    <script src="{% static 'garage/javascript/main.js' %}" defer></script>
+    <script src="{% static 'garage/javascript/leaflet.js' %}" defer></script>
+{% endblock %}
+
 {% block title %} Mentions légales | Garage V.Parrot à Toulouse{% endblock %}
 {% block meta-description %}Ce site est édité par le Garage V.Parrot, 11 Rue Léon Jouhaux, 31500 Toulouse. Tél :
     0561234567. E-mail : contact@garage-vparrot.clementfloret.fr. SARL Garage V.Parrot au capital de 400000€. Directeur
@@ -218,10 +226,4 @@
         </section>
         <!-- END SECTION LEGAL NOTICE-->
     </main>
-{% endblock main %} {% block scripts %}
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin=""></script>
-    <script src="{% static 'garage/javascript/main.js' %}"></script>
-    <script src="{% static 'garage/javascript/leaflet.js' %}"></script>
-{% endblock %}
+{% endblock main %}

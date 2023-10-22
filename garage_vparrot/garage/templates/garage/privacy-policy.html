@@ -1,6 +1,13 @@
 {% extends "garage/base.html" %}
 {% load static %}
 
+{% block scripts %}
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+    <script src="{% static 'garage/javascript/main.js' %}" defer></script>
+    <script src="{% static 'garage/javascript/leaflet.js' %}" defer></script>
+{% endblock %}
+
 {% block title %}Politique de confidentialité | Garage V.Parrot à Toulouse{% endblock %}
 {% block meta-description %}
     Politique de confidentialité.
@@ -525,9 +532,4 @@
         </section>
         <!-- END SECTION PRIVACY POLICY-->
     </main>
-{% endblock main %} {% block scripts %}
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="{% static 'garage/javascript/main.js' %}"></script>
-    <script src="{% static 'garage/javascript/leaflet.js' %}"></script>
-{% endblock %}
+{% endblock main %}

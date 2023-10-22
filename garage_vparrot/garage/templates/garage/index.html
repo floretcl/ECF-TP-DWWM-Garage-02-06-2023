@@ -3,6 +3,15 @@
 {% load pictures %}
 {% load garage_extras %}
 
+{% block scripts %}
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+    <script src="{% static 'garage/javascript/main.js' %}" defer></script>
+    <script src="{% static 'garage/javascript/leaflet.js' %}" defer></script>
+    <script src="{% static 'garage/javascript/rating-stars.js' %}" defer></script>
+    <script src="{% static 'garage/javascript/review-modal.js' %}" defer></script>
+{% endblock %}
+
 {% block title %}Garage V.Parrot à Toulouse{% endblock %}
 {% block meta-description %}
     Le garage V.parrot vous propose ses services de mécanique, carrosserie et ses forfaits d'entretien. Confiez la santé
@@ -323,12 +332,3 @@
         <!-- END SECTION MODAL REVIEW-->
     </main>
 {% endblock main %}
-
-{% block scripts %}
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="{% static 'garage/javascript/main.js' %}"></script>
-    <script src="{% static 'garage/javascript/leaflet.js' %}"></script>
-    <script src="{% static 'garage/javascript/rating-stars.js' %}"></script>
-    <script src="{% static 'garage/javascript/review-modal.js' %}"></script>
-{% endblock %}

@@ -2,6 +2,19 @@
 {% load static %}
 {% load garage_extras %}
 
+{% block scripts %}
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin="" defer>
+    </script>
+    <script src="{% static 'garage/javascript/main.js' %}" defer></script>
+    <script src="{% static 'garage/javascript/leaflet.js' %}" defer></script>
+    <!--<script src="{% static 'garage/javascript/vehicles-list.js' %}" defer></script>-->
+    <script src="{% static 'garage/javascript/vehicle-modal.js' %}" defer></script>
+    <script src="{% static 'garage/javascript/messages-modal.js' %}" defer></script>
+{% endblock %}
+
 {% block title %}Véhicules d'occasion | Garage V.Parrot à Toulouse{% endblock %}
 {% block meta-description %}
     Véhicules d'occasion toutes marques révisés,
@@ -120,8 +133,9 @@
                 <div id="vehicles-list"
                      class="grid gap-14 md:gap-x-16 md:gap-y-20 lg:gap-x-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-2 mb-8">
                     <!-- VEHICLES CARD -->
+                    {% for vehicle in vehicles %}
                     <!-- CARD VEHICLE-->
-                    <div class="hidden shadow-lg rounded-md">
+                    <div class="shadow-lg rounded-md">
                         <div>
                             <a href="#">
                                 <img class="rounded-t-md h-[240px] object-cover hover:contrast-125 transition"
@@ -151,7 +165,9 @@
                         </div>
                     </div>
                     <!-- END CARD VEHICLE-->
+                    {% endfor %}
                 </div>
+                <!-- VEHICLE LIST PAGINATION-->
                 <div class="flex flex-row flex-nowrap justify-center items-center mt-6 mb-10">
                     <span class="">
                         <button id="vehicles-previous-page"
@@ -164,6 +180,7 @@
                                 class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-105 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg mx-1">&raquo;</button>
                     </span>
                 </div>
+                <!-- END VEHICLE LIST PAGINATION-->
             </div>
         </section>
         <!-- END SECTION VEHICLES LIST-->
@@ -355,15 +372,3 @@
         <!-- END SECTION MODAL MESSAGES-->
     </main>
 {% endblock main %}
-{% block scripts %}
-    <script
-        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin="">
-    </script>
-    <script src="{% static 'garage/javascript/main.js' %}"></script>
-    <script src="{% static 'garage/javascript/leaflet.js' %}"></script>
-    <script src="{% static 'garage/javascript/vehicles-list.js' %}"></script>
-    <script src="{% static 'garage/javascript/vehicle-modal.js' %}"></script>
-    <script src="{% static 'garage/javascript/messages-modal.js' %}"></script>
-{% endblock %}
