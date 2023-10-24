@@ -40,7 +40,7 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
-    'garage',
+    'garage.apps.GarageConfig',
     'garage_vparrot.apps.GarageAdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
