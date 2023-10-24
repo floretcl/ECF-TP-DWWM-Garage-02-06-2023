@@ -60,14 +60,20 @@
     DB_HOST=localhost
     DB_PORT=3306
     ```
-
-- Migrate and load data :
+- Initialize Database and create admin superuser :
   - In garage_vparrot root folder (with manage.py file) :
     - `python manage.py migrate`
-    - `python manage.py loaddata contenttypes.json`
-    - `python manage.py loaddata sample.json`
+
+- Migrate and load data :
+  - `python manage.py loaddata contenttypes.json`
+  - `python manage.py makemigrations`
+  - `python manage.py migrate`
+  - `python manage.py loaddata sample.json`
 
 - Check project with : `python manage.py check`
+
+- Create an admin superuser :
+  - `python manage.py createsuperuser`
 
 - Run Django server:
   - `python manage.py runserver`
