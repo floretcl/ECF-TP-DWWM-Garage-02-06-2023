@@ -443,7 +443,7 @@
     "pk": 1,
     "fields": {
       "vehicle": 1,
-      "picture": "uploads/2023/10/bmw-5-series.webp"
+      "picture": "uploads/2023/10/bmw-5-series.jpg"
     }
   },
   {
@@ -451,7 +451,7 @@
     "pk": 2,
     "fields": {
       "vehicle": 2,
-      "picture": "uploads/2023/10/mercedes-c-class.webp"
+      "picture": "uploads/2023/10/mercedes-c-class.jpg"
     }
   },
   {
@@ -459,7 +459,7 @@
     "pk": 3,
     "fields": {
       "vehicle": 3,
-      "picture": "uploads/2023/10/bmw-x1.webp"
+      "picture": "uploads/2023/10/bmw-x1.jpg"
     }
   },
   {
@@ -467,7 +467,7 @@
     "pk": 4,
     "fields": {
       "vehicle": 4,
-      "picture": "uploads/2023/10/acura-mdx.webp"
+      "picture": "uploads/2023/10/acura-mdx.jpg"
     }
   },
   {
@@ -475,7 +475,7 @@
     "pk": 5,
     "fields": {
       "vehicle": 5,
-      "picture": "uploads/2023/10/ford-explorer.webp"
+      "picture": "uploads/2023/10/ford-explorer.jpg"
     }
   },
   {
@@ -483,7 +483,7 @@
     "pk": 6,
     "fields": {
       "vehicle": 6,
-      "picture": "uploads/2023/10/ford-kuga.webp"
+      "picture": "uploads/2023/10/ford-kuga.jpg"
     }
   },
   {
@@ -491,7 +491,7 @@
     "pk": 7,
     "fields": {
       "vehicle": 7,
-      "picture": "uploads/2023/10/land-rover-range-rover.webp"
+      "picture": "uploads/2023/10/land-rover-range-rover.jpg"
     }
   },
   {
@@ -499,7 +499,7 @@
     "pk": 8,
     "fields": {
       "vehicle": 8,
-      "picture": "uploads/2023/10/lexus-es.webp"
+      "picture": "uploads/2023/10/lexus-es.jpg"
     }
   },
   {
@@ -507,7 +507,7 @@
     "pk": 9,
     "fields": {
       "vehicle": 9,
-      "picture": "uploads/2023/10/mercedes-a-class.webp"
+      "picture": "uploads/2023/10/mercedes-a-class.jpg"
     }
   },
   {
@@ -515,7 +515,7 @@
     "pk": 10,
     "fields": {
       "vehicle": 10,
-      "picture": "uploads/2023/10/mercedes-benz-gla-class.webp"
+      "picture": "uploads/2023/10/mercedes-benz-gla-class.jpg"
     }
   },
   {
@@ -523,7 +523,7 @@
     "pk": 11,
     "fields": {
       "vehicle": 11,
-      "picture": "uploads/2023/10/skoda-fabia.webp"
+      "picture": "uploads/2023/10/skoda-fabia.jpg"
     }
   },
   {
@@ -531,7 +531,7 @@
     "pk": 12,
     "fields": {
       "vehicle": 12,
-      "picture": "uploads/2023/10/skoda-felicia.webp"
+      "picture": "uploads/2023/10/skoda-felicia.jpg"
     }
   },
   {
@@ -539,7 +539,7 @@
     "pk": 13,
     "fields": {
       "vehicle": 13,
-      "picture": "uploads/2023/10/skoda-octavia.webp"
+      "picture": "uploads/2023/10/skoda-octavia.jpg"
     }
   },
   {
@@ -547,7 +547,7 @@
     "pk": 14,
     "fields": {
       "vehicle": 14,
-      "picture": "uploads/2023/10/tesla-model-x.webp"
+      "picture": "uploads/2023/10/tesla-model-x.jpg"
     }
   },
   {
@@ -555,7 +555,7 @@
     "pk": 15,
     "fields": {
       "vehicle": 15,
-      "picture": "uploads/2023/10/toyota-avensis.webp"
+      "picture": "uploads/2023/10/toyota-avensis.jpg"
     }
   },
   {
@@ -563,7 +563,7 @@
     "pk": 16,
     "fields": {
       "vehicle": 16,
-      "picture": "uploads/2023/10/toyota-highlander.webp"
+      "picture": "uploads/2023/10/toyota-highlander.jpg"
     }
   },
   {
@@ -571,7 +571,7 @@
     "pk": 17,
     "fields": {
       "vehicle": 17,
-      "picture": "uploads/2023/10/toyota-tundra.webp"
+      "picture": "uploads/2023/10/toyota-tundra.jpg"
     }
   },
   {
@@ -692,6 +692,19 @@
     }
   },
   {
+    "model": "garage.customerreview",
+    "pk": 10,
+    "fields": {
+      "name": "hello",
+      "message": "world !",
+      "rating": 4,
+      "valid": null,
+      "date": "2023-10-23T15:55:09.815Z",
+      "validator": null,
+      "garage": 1
+    }
+  },
+  {
     "model": "garage.customermessage",
     "pk": 1,
     "fields": {
@@ -759,6 +772,415 @@
       "message": "Bonjour, je serais intéressé par un de vos véhicules d'occasion, une Audi E tron. \r\nMerci d'avance, Cordialement, \r\nPierre Durand",
       "date": "2023-10-05T14:31:07.746Z",
       "garage": 1
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2023-10-23T15:58:35.386Z",
+      "user": 1,
+      "content_type": 2,
+      "object_id": "3",
+      "object_repr": "Entretien",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2023-10-23T15:59:23.684Z",
+      "user": 1,
+      "content_type": 2,
+      "object_id": "2",
+      "object_repr": "Carrosserie",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2023-10-23T15:59:38.039Z",
+      "user": 1,
+      "content_type": 2,
+      "object_id": "1",
+      "object_repr": "Mécanique",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2023-10-23T16:46:59.758Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "1",
+      "object_repr": "BMW 5 Series",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/bmw-5-series.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2023-10-23T16:47:56.817Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "2",
+      "object_repr": "Mercedes C Class",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/mercedes-c-class.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2023-10-23T16:48:39.888Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "3",
+      "object_repr": "BMW X1",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/bmw-x1.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+      "action_time": "2023-10-23T16:52:04.164Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "4",
+      "object_repr": "Acura MDX",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/acura-mdx.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+      "action_time": "2023-10-23T16:54:37.135Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "5",
+      "object_repr": "Ford Explorer",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/ford-explorer.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+      "action_time": "2023-10-23T16:55:03.651Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "6",
+      "object_repr": "Ford Kuga",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/ford-kuga.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+      "action_time": "2023-10-23T16:55:34.239Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "7",
+      "object_repr": "Range Rover",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/land-rover-range-rover.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+      "action_time": "2023-10-23T16:55:55.654Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "8",
+      "object_repr": "Lexus ES",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/lexus-es.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2023-10-23T16:56:17.933Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "9",
+      "object_repr": "Mercedes A Class",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/mercedes-a-class.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+      "action_time": "2023-10-23T16:56:31.789Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "10",
+      "object_repr": "Mercedes GLA Class",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/mercedes-benz-gla-class.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+      "action_time": "2023-10-23T16:59:05.031Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "11",
+      "object_repr": "Skoda Fabia",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/skoda-fabia.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+      "action_time": "2023-10-23T16:59:19.617Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "12",
+      "object_repr": "Skodia Felicia",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/skoda-felicia.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+      "action_time": "2023-10-23T16:59:35.623Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "13",
+      "object_repr": "Skoda Octavia",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/skoda-octavia.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+      "action_time": "2023-10-23T16:59:54.275Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "14",
+      "object_repr": "Tesla Model X",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/tesla-model-x.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+      "action_time": "2023-10-23T17:00:13.148Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "15",
+      "object_repr": "Toyota Avensis",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/toyota-avensis.webp\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+      "action_time": "2023-10-23T17:00:24.712Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "16",
+      "object_repr": "Toyota Highlander",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/toyota-highlander.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+      "action_time": "2023-10-23T17:00:35.567Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "17",
+      "object_repr": "Toyota Tundra",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/toyota-tundra.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+      "action_time": "2023-10-23T17:02:09.180Z",
+      "user": 1,
+      "content_type": 3,
+      "object_id": "15",
+      "object_repr": "Toyota Avensis",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"photo d'un v\\u00e9hicule\", \"object\": \"uploads/2023/10/toyota-avensis.jpg\", \"fields\": [\"Photos\"]}}]"
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "administrateur",
+      "permissions": [
+        36,
+        44,
+        40,
+        45,
+        46,
+        47,
+        48,
+        52,
+        29,
+        30,
+        31,
+        32,
+        25,
+        26,
+        27,
+        28,
+        1,
+        2,
+        3,
+        4,
+        21,
+        22,
+        23,
+        24,
+        17,
+        18,
+        19,
+        20,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        56
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+      "name": "employé",
+      "permissions": [
+        32,
+        26,
+        28,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$u9N0gGnU9e8qtuTARM4TQD$q7oinGsXAsiNe95Hp6Y4FcYRsX1/h7ty81q6oC/oA3c=",
+      "last_login": "2023-10-23T15:55:52.005Z",
+      "is_superuser": true,
+      "username": "floretcl",
+      "first_name": "Clément",
+      "last_name": "Floret",
+      "email": "floretcl@outlook.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-06T18:04:35Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$RXh1HUoMdHGomUA1dwopPk$BIkF0j9iocNgsXfbdZ7TxnqNJR8Yot342rVv4rZTxNc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "vincent_parrot",
+      "first_name": "Vincent",
+      "last_name": "Parrot",
+      "email": "vparrot@garage-vparrot.clementfloret.fr",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-06T18:05:51Z",
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$2t7sAXlqmwLtGy91gs3xKL$XOU0AEWXJotDW65Ua3Sdfp2jtaV1qKVv9RfQTB6lNYI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "employe_test",
+      "first_name": "",
+      "last_name": "",
+      "email": "employetest@garage-vparrot.clementfloret.fr",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-06T18:06:49Z",
+      "groups": [
+        2
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "zx4qgvtmtpqvk1q04o4glkxssoromwpg",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hAdoBSX7nsGMjOMUjWQlHZlvLuSdKHb997_LxVxW3PcmixxTuqsTurwywj5IaWLdMdyq5prWZeZdE_0bpueapLnZW__DjK2_F3TaJBMuNJgg6eRrcMgnUBgJGBwFBi8sBfvvQUjZIeECR2YIxCp9wf91TiQ:1quxHU:Sky5oYLcMvfPHBAW6L56kUItN5urreNvGTvvu6H8knM",
+      "expire_date": "2023-11-06T15:55:52.015Z"
     }
   }
 ]

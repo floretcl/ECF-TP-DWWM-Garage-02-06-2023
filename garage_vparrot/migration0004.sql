@@ -1,8 +1,0 @@
---
--- Alter field image on servicetype
---
--- (no-op)
---
--- Alter field picture on vehiclepicture
---
--- (no-op)

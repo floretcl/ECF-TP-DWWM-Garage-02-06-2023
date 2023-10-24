@@ -53,7 +53,7 @@ class OpeningTime(models.Model):
     garage = models.ForeignKey(
         Garage,
         on_delete=models.PROTECT,
-        default="Garage.objects.first()",
+        default=1,
         verbose_name="garage",
     )
 
@@ -86,7 +86,7 @@ class Service(models.Model):
     garage = models.ForeignKey(
         Garage,
         on_delete=models.PROTECT,
-        default="Garage.objects.first()",
+        default=1,
         verbose_name="garage",
     )
 
@@ -105,7 +105,7 @@ class Vehicle(models.Model):
     garage = models.ForeignKey(
         Garage,
         on_delete=models.PROTECT,
-        default="Garage.objects.first()",
+        default=1,
         verbose_name="garage",
     )
 
@@ -114,6 +114,9 @@ class Vehicle(models.Model):
 
     class Meta:
         verbose_name = "véhicule"
+
+    def natural_key(self):
+        return self.name, self.price, self.year, self.km
 
 
 class VehiclePicture(models.Model):
@@ -156,7 +159,7 @@ class CustomerReview(models.Model):
     garage = models.ForeignKey(
         Garage,
         on_delete=models.PROTECT,
-        default="Garage.objects.first()",
+        default=1,
         verbose_name="garage",
     )
 
@@ -206,7 +209,7 @@ class CustomerMessage(models.Model):
     garage = models.ForeignKey(
         Garage,
         on_delete=models.PROTECT,
-        default="Garage.objects.first()",
+        default=1,
         verbose_name="garage",
     )
 

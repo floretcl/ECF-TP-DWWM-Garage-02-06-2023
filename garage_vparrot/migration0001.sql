@@ -25,7 +25,7 @@ CREATE TABLE `garage_openingtime` (`id` bigint AUTO_INCREMENT NOT NULL PRIMARY K
 --
 -- Create model CustomerReview
 --
-CREATE TABLE `garage_customerreview` (`id` bigint AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(50) NOT NULL, `message` longtext NOT NULL, `rating` smallint UNSIGNED NOT NULL CHECK (`rating` >= 0), `valid` bool NULL, `date` datetime(6) NOT NULL, `garage_id` bigint NOT NULL, `validator_id` integer NOT NULL);
+CREATE TABLE `garage_customerreview` (`id` bigint AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(50) NOT NULL, `message` longtext NOT NULL, `rating` smallint UNSIGNED NOT NULL CHECK (`rating` >= 0), `valid` bool NULL, `date` datetime(6) NOT NULL, `garage_id` bigint NOT NULL, `validator_id` integer NULL);
 --
 -- Create model CustomerMessage
 --
