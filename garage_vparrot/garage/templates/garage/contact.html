@@ -3,204 +3,150 @@
 {% load garage_extras %}
 
 {% block scripts %}
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
-    <script src="{% static 'garage/javascript/main.js' %}" defer></script>
-    <script src="{% static 'garage/javascript/leaflet.js' %}" defer></script>
-    <script src="{% static 'garage/javascript/messages-modal.js' %}" defer></script>
+    <script src="{% static 'garage/javascript/modal-messages.js' %}" defer></script>
 {% endblock %}
 
 {% block title %}Contact | Garage V.Parrot à Toulouse{% endblock %}
-{% block meta-description %} Contactez nous par téléphone au 05 61 23 45 67, en remplissant notre formulaire de contact
-    en ligne ou en nous envoyant un email à l'adresse contact@garage-vparrot.clementfloret.fr. {% endblock %}
+{% block meta-description %}
+    Contactez nous par téléphone au 05 61 23 45 67, en remplissant notre formulaire de contact
+    en ligne ou en nous envoyant un email à l'adresse contact@garage-vparrot.clementfloret.fr.
+{% endblock %}
 
 <!-- MAIN -->
 {% block main %}
-    <main>
-        <!-- SECTION HEADING-->
-        <section class="bg-contactHeadingImg bg-cover bg-center">
-            <div class="flex flex-col flex-nowrap justify-center items-center px-6 sm:px-8 md:px-14 py-8 sm:py-10 md:py-12 xl:container mx-auto">
-                <div class="self-start mb-6 sm:mb-8 max-w-xl sm:max-w-2xl md:max-w-none md:w-10/12">
-                    <h1 class="font-rokkitt font-bold text-2xl lg:text-4xl text-whiteTeal uppercase mb-3 lg:mt-32 drop-shadow-md">
-                        Demande de contact
-                    </h1>
-                </div>
+    <!-- SECTION HEADING-->
+    <section class="bg-contactHeadingImg bg-cover bg-center">
+        <div class="flex flex-col flex-nowrap justify-center items-center px-6 sm:px-8 md:px-14 py-8 sm:py-10 md:py-12 xl:container mx-auto">
+            <div class="self-start mb-6 sm:mb-8 max-w-xl sm:max-w-2xl md:max-w-none md:w-10/12">
+                <h1 class="font-rokkitt font-bold text-2xl lg:text-4xl text-whiteTeal uppercase mb-3 lg:mt-32 drop-shadow-md">
+                    Demande de contact
+                </h1>
             </div>
-        </section>
-        <!-- END SECTION HEADING-->
+        </div>
+    </section>
+    <!-- END SECTION HEADING-->
 
-        <!-- SECTION CONTACT-->
-        <section id="contact">
-            <div class="flex flex-col flex-nowrap justify-center items-center px-8 pt-12 pb-4 xl:mx-2 bg-whiteTeal">
-                <h2 class="font-rasa text-celestialBlue uppercase mb-4 hidden">
-                    Contact
-                </h2>
-                <div class="mt-2 mb-8">
-                    <p class="text-onyx">
-                        Contacter nous par téléphone au
-                        <a class="font-medium" href="tel:+33561234567">05 61 23 45 67</a>
-                        ou en remplissant notre
-                        <span class="font-medium">
+    <!-- SECTION CONTACT-->
+    <section id="contact">
+        <div class="flex flex-col flex-nowrap justify-center items-center px-8 pt-12 pb-4 xl:mx-2 bg-whiteTeal">
+            <h2 class="font-rasa text-celestialBlue uppercase mb-4 hidden">
+                Contact
+            </h2>
+            <div class="mt-2 mb-8">
+                <p class="text-onyx">
+                    Contacter nous par téléphone au
+                    <a class="font-medium" href="tel:+33561234567">05 61 23 45 67</a>
+                    ou en remplissant notre
+                    <span class="font-medium">
                             formulaire de contact
                         </span>
-                        en ligne :
-                    </p>
-                </div>
-                <form id="form-contact"
-                      class="flex flex-col flex-nowrap justify-center w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
-                      action="" method="post">
-                    {% csrf_token %}
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4 mb-4">
-                        <div class="flex flex-col flex-nowrap">
-                            {{ form.first_name|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
-                            {{ form.first_name|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
-                            {% if form.first_name.errors %}
-                                <ul>Form
-                                    {% for error in form.first_name.errors %}
-                                        <li class="text-red-700 mt-2">{{ error }}</li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-                        </div>
-                        <div class="flex flex-col flex-nowrap">
-                            {{ form.last_name|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
-                            {{ form.last_name|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
-                            {% if form.last_name.errors %}
-                                <ul>
-                                    {% for error in form.last_name.errors %}
-                                        <li class="text-red-700 mt-2">{{ error }}</li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4 mb-4">
-                        <div class="flex flex-col flex-nowrap">
-                            {{ form.email|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
-                            {{ form.email|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
-                            {% if form.email.errors %}
-                                <ul>
-                                    {% for error in form.email.errors %}
-                                        <li class="text-red-700 mt-2">
-                                            {{ error }}
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-                        </div>
-                        <div class="flex flex-col flex-nowrap">
-                            {{ form.phone_number|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
-                            {{ form.phone_number|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
-                            {% if form.phone_number.errors %}
-                                <ul>
-                                    {% for error in form.phone_number.errors %}
-                                        <li class="text-red-700 mt-2">
-                                            {{ error }}
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <div class="flex flex-col flex-nowrap justify-center container my-6">
-                        <div class="flex flex-col flex-nowrap mb-4">
-                            {{ form.subject|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
-                            {{ form.subject|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
-                            {% if form.subject.errors %}
-                                <ul>
-                                    {% for error in form.subject.errors %}
-                                        <li class="text-red-700 mt-2">
-                                            {{ error }}
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-                        </div>
-                        <div class="flex flex-col flex-nowrap mb-4">
-                            {{ form.message|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
-                            {{ form.message|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md min-h-[120px] h-9 px-2' }}
-                            {% if form.message.errors %}
-                                <ul>
-                                    {% for error in form.message.errors %}
-                                        <li class="text-red-700 mt-2">
-                                            {{ error }}
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-                        </div>
-                        {% if form.non_field_errors %}
-                            <div class="flex flex-col flex_nowrap mb-4">
-                                <ul>
-                                    {% for error in form.non_field_errors %}
-                                        <li class="text-red_700">
-                                            {{ error }}
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
+                    en ligne :
+                </p>
+            </div>
+            <form id="form-contact"
+                  class="flex flex-col flex-nowrap justify-center w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl"
+                  action="" method="post">
+                {% csrf_token %}
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4 mb-4">
+                    <div class="flex flex-col flex-nowrap">
+                        {{ form.first_name|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
+                        {{ form.first_name|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
+                        {% if form.first_name.errors %}
+                            <ul>Form
+                                {% for error in form.first_name.errors %}
+                                    <li class="text-red-700 mt-2">{{ error }}</li>
+                                {% endfor %}
+                            </ul>
                         {% endif %}
                     </div>
-                    <div class="flex flex-row flex-nowrap justify-center items-center">
-                        <input type="submit" value="Envoyer" id="form-contact-submit"
-                               class="font-regular text-whiteTeal text-center uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation hover:btn-gradient-animation-active pt-3 pb-2 px-4 m-8 drop-shadow-md rounded"/>
-                    </div>
-                </form>
-            </div>
-        </section>
-        <!-- END SECTION CONTACT-->
-        <!-- SECTION MODAL MESSAGES-->
-        {% if messages %}
-            <section id="modal-messages">
-                <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-                    <div class="fixed inset-0 bg-slate-600 bg-opacity-75 transition-opacity"></div>
-                    <div class="fixed inset-0 z-10 overflow-y-auto">
-                        <div class="flex justify-center items-end sm:items-center min-h-full p-4 sm:p-0">
-                            <div class="relative transform overflow-hidden rounded-lg bg-whiteTeal shadow-xl transition-all sm:my-8 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl">
-                                <div class="flex flex-row flex-nowrap justify-end">
-                                    <button id="modal-messages-close-btn"
-                                            class="font-regular text-slate-600 pt-3 pb-2 px-4 sm:pt-4 sm:px-5 drop-shadow-md rounded"
-                                            type="button">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                             stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                  d="M6 18L18 6M6 6l12 12"></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div class="px-4 sm:px-8 sm:pb-2 md:px-12 lg:px-16">
-                                    <div class="w-full">
-                                        <div class="mb-10">
-                                            <div class="flex flex-row items-center flex-nowrap mb-3">
-                                                <div class="flex justify-center items-center h-10 w-10 sm:h-12 sm:w-12">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                         fill="currentColor"
-                                                         class="w-8 h-8 sm:w-10 sm:h-10 text-green-600 drop-shadow-md">
-                                                        <path fill-rule="evenodd"
-                                                              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                                                              clip-rule="evenodd"></path>
-                                                    </svg>
-                                                </div>
-                                                <h3 class="font-semibold text-onyx ml-1" id="modal-title">Demande de
-                                                    contact</h3>
-                                            </div>
-                                            <div class="ml-2 mr-1 sm:mr-2">
-                                                <ul class="messages text-gray-400">
-                                                    {% for message in messages %}
-                                                        <li{% if message.tags %}
-                                                            class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                                                    {% endfor %}
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="flex flex-col flex-nowrap">
+                        {{ form.last_name|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
+                        {{ form.last_name|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
+                        {% if form.last_name.errors %}
+                            <ul>
+                                {% for error in form.last_name.errors %}
+                                    <li class="text-red-700 mt-2">{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
                     </div>
                 </div>
-            </section>
-        {% endif %}
-        <!-- END SECTION MODAL MESSAGES-->
-    </main>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4 mb-4">
+                    <div class="flex flex-col flex-nowrap">
+                        {{ form.email|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
+                        {{ form.email|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
+                        {% if form.email.errors %}
+                            <ul>
+                                {% for error in form.email.errors %}
+                                    <li class="text-red-700 mt-2">
+                                        {{ error }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class="flex flex-col flex-nowrap">
+                        {{ form.phone_number|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
+                        {{ form.phone_number|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
+                        {% if form.phone_number.errors %}
+                            <ul>
+                                {% for error in form.phone_number.errors %}
+                                    <li class="text-red-700 mt-2">
+                                        {{ error }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="flex flex-col flex-nowrap justify-center container my-6">
+                    <div class="flex flex-col flex-nowrap mb-4">
+                        {{ form.subject|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
+                        {{ form.subject|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
+                        {% if form.subject.errors %}
+                            <ul>
+                                {% for error in form.subject.errors %}
+                                    <li class="text-red-700 mt-2">
+                                        {{ error }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class="flex flex-col flex-nowrap mb-4">
+                        {{ form.message|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
+                        {{ form.message|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md min-h-[120px] h-9 px-2' }}
+                        {% if form.message.errors %}
+                            <ul>
+                                {% for error in form.message.errors %}
+                                    <li class="text-red-700 mt-2">
+                                        {{ error }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    {% if form.non_field_errors %}
+                        <div class="flex flex-col flex_nowrap mb-4">
+                            <ul>
+                                {% for error in form.non_field_errors %}
+                                    <li class="text-red_700">
+                                        {{ error }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="flex flex-row flex-nowrap justify-center items-center">
+                    <input type="submit" value="Envoyer" id="form-contact-submit"
+                           class="font-regular text-whiteTeal text-center uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation hover:btn-gradient-animation-active pt-3 pb-2 px-4 m-8 drop-shadow-md rounded"/>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- END SECTION CONTACT-->
+
+    <!-- SECTION MODAL MESSAGES-->
+    {% include 'garage/modal/modal-messages.html' %}
 {% endblock main %}
