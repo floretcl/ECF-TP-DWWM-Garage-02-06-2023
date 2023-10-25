@@ -1,13 +1,17 @@
-//--------------------- MODAL : REVIEWS/TESIMONIES FORM ---------------------------//
+//--------------------- MODAL : REVIEW FORM ---------------------------//
 
 const modalReview = document.querySelector('#modal-review');
 const modalReviewOpenBtn = document.querySelector('#modal-review-open-btn');
 const modalReviewCloseBtn = document.querySelector('#modal-review-close-btn');
 
+const toggleModalReview = () => {
+  modalReview.classList.toggle('hidden');
+}
+
 modalReviewOpenBtn.addEventListener('click', () => {
-  modalReview.className = '';
+  toggleModalReview()
 });
 
 modalReviewCloseBtn.addEventListener('click', () => {
-  modalReview.className = 'hidden';
+  toggleModalReview()
 });
