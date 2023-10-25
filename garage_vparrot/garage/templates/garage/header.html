@@ -1,0 +1,75 @@
+{% load static %}
+
+<header class="bg-onyx border-b border-celestialBlue">
+    <nav class="flex flex-row flex-nowrap justify-between items-center h-16 xl:container mx-auto">
+        <div>
+            <a class="flex flex-row justify-center items-center ms-3 sm:ms-6 md:ms-8"
+               href="{% url 'garage:index' %}">
+                <picture>
+                    <source srcset="{% static 'garage/images/logos/Logo-icon-black.webp' %}" type="image/webp">
+                    <img class="w-auto h-16" src="{% static 'garage/images/logos/Logo-icon-black.png' %}"
+                         alt="Logo du Garage V.Parrot"/>
+                </picture>
+                <span class="font-bold text-whiteTeal text-lg pt-1">V.Parrot</span>
+            </a>
+        </div>
+        <ul class="lg:flex flex-row flex-nowrap hidden text-md uppercase me-8 pt-1">
+            <li class="mx-3">
+                <a class="text-whiteTeal transition hover:text-celestialBlue active:text-darkBlue"
+                   href="{% url 'garage:index' %}">Accueil</a>
+            </li>
+            <li class="mx-3">
+                <a class="text-whiteTeal transition hover:text-celestialBlue active:text-darkBlue"
+                   href="{% url 'garage:index' %}#services">Services</a>
+            </li>
+            <li class="mx-3">
+                <a class="text-whiteTeal transition hover:text-celestialBlue active:text-darkBlue"
+                   href="{% url 'garage:vehicles' %}">Véhicules d'occasion</a>
+            </li>
+            <li class="mx-3">
+                <a class="text-whiteTeal transition hover:text-celestialBlue active:text-darkBlue"
+                   href="{% url 'garage:contact' %}">Contact</a>
+            </li>
+            <li class="mx-3 ps-6 border-s-2">
+                <a class="text-whiteTeal transition hover:text-celestialBlue active:text-darkBlue"
+                   href="{% url 'admin:login' %}">Connexion</a>
+            </li>
+        </ul>
+        <button type="button" id="btn-mobile-menu" class="lg:hidden">
+            <div class="flex flex-col flex-nowrap justify-center items-center p-2 me-3 sm:me-6 md:me-8">
+                <div id="btn-mobile-menu-line1"
+                     class="h-0.75 w-7 my-0.75 rounded bg-whiteTeal transition ease-in transform duration-300"></div>
+                <div id="btn-mobile-menu-line2"
+                     class="h-0.75 w-7 my-0.75 rounded bg-whiteTeal transition ease-in transform duration-300"></div>
+                <div id="btn-mobile-menu-line3"
+                     class="h-0.75 w-7 my-0.75 rounded bg-whiteTeal transition ease-in transform duration-300"></div>
+            </div>
+        </button>
+    </nav>
+    <div id="mobile-menu"
+         class="flex flex-col flex-nowrap px-6 sm:px-8 md:px-12 bg-celestialBlue border-b-2 border-whiteTeal h-0 overflow-hidden transition-height duration-200 ease-in">
+        <ul class="font-medium text-lg uppercase">
+            <li class="mt-6 mb-1">
+                <a href="{% url 'garage:index' %}"
+                   class="text-whiteTeal transition hover:text-onyx active:text-darkBlue hover:underline hover:underline-offset-4 hover:decoration-1">Accueil</a>
+            </li>
+            <li class="mt-2 mb-1">
+                <a href="{% url 'garage:index' %}#services"
+                   class="text-whiteTeal transition hover:text-onyx active:text-darkBlue hover:underline hover:underline-offset-4 hover:decoration-1">Services</a>
+            </li>
+            <li class="mt-2 mb-1">
+                <a href="{% url 'garage:vehicles' %}"
+                   class="text-whiteTeal transition hover:text-onyx active:text-darkBlue hover:underline hover:underline-offset-4 hover:decoration-1">Véhicules
+                    d'occasion</a>
+            </li>
+            <li class="mt-2 mb-1">
+                <a href="{% url 'garage:contact' %}"
+                   class="text-whiteTeal transition hover:text-onyx active:text-darkBlue hover:underline hover:underline-offset-4 hover:decoration-1">Contact</a
+                ></li>
+            <li class="mt-2 mb-1">
+                <a href="{% url 'admin:login' %}"
+                   class="text-whiteTeal transition hover:text-onyx active:text-darkBlue hover:underline hover:underline-offset-4 hover:decoration-1">Connexion</a>
+            </li>
+        </ul>
+    </div>
+</header>

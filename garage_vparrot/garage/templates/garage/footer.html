@@ -1,0 +1,87 @@
+{% load static %}
+
+<footer>
+    <section id="opening-time" class="bg-celestialBlue">
+        <div class="flex flex-row justify-evenly items-center lg:container mx-auto">
+            <div class="flex flex-col flex-nowrap justify-center items-center md:items-start px-4 sm:px-6 md:px-4 py-10 sm:py-12">
+                <h2 class="font-rasa text-whiteTeal text-xl uppercase mb-4 sm:mb-6">
+                    Horaires d'ouverture
+                </h2>
+                <div class="grid grid-cols-5 grid-rows-7 gap-y-2 text-whiteTeal">
+                    {% for opening in opening_time %}
+                        <div>{{ opening.day }}</div>
+                        <div class="col-span-4">: {{ opening.opening_hours }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div id="leaflet-map"
+                 class="hidden md:block md:h-56 md:w-80 lg:h-64 lg:w-96 xl:h-72 xl:w-128 px-4 z-0 rounded-sm"></div>
+        </div>
+    </section>
+
+    <section id="address-infos" class="bg-onyx">
+        <div class="flex flex-col md:flex-row flex-nowrap justify-center md:justify-evenly items-center text-center md:text-left px-4 sm:px-6 md:px-8 py-4 sm:py-6 text-whiteTeal md:container mx-auto">
+            <h2 class="font-rasa text-xl uppercase mb-4 hidden">
+                Adresse et informations
+            </h2>
+            <picture>
+                <source srcset="{% static 'garage/images/logos/Logo-black.webp' %}" type="image/webp"/>
+                <img class="w-48 h-auto" src="{% static 'garage/images/logos/Logo-black.png' %}"
+                     alt="Logo du Garage V.Parrot"/>
+            </picture>
+            <div class="w-12 md:hidden">
+                <hr class="rounded">
+            </div>
+            <nav class="my-4 md:my-0 sm:mx-2 md:me-4 md:mx-6 md:me-8">
+                <ul>
+                    <li class="mb-1">
+                        <a class="transition hover:text-celestialBlue active:text-darkBlue"
+                           href="{% url 'garage:index' %}#about">Présentation</a>
+                    </li>
+                    <li class="mb-1">
+                        <a class="transition hover:text-celestialBlue active:text-darkBlue"
+                           href="{% url 'garage:index' %}#services">Nos Services</a>
+                    </li>
+                    <li class="mb-1">
+                        <a class="transition hover:text-celestialBlue active:text-darkBlue"
+                           href="{% url 'garage:index' %}#reviews">Témoignages</a>
+                    </li>
+                    <li class="mb-1">
+                        <a class="transition hover:text-celestialBlue active:text-darkBlue"
+                           href="{% url 'garage:vehicles' %}">Véhicules d'occasion</a>
+                    </li>
+                    <li class="mb-1">
+                        <a class="transition hover:text-celestialBlue active:text-darkBlue"
+                           href="{% url 'garage:index' %}#opening-time">Nos horaires</a>
+                    </li>
+                    <li class="mb-1">
+                        <a class="transition hover:text-celestialBlue active:text-darkBlue"
+                           href="{% url 'garage:contact' %}">Nous contacter</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="w-12 md:hidden">
+                <hr class="rounded"/>
+            </div>
+            <div class="flex flex-col flex-nowrap md:mx-8">
+                <div class="text-sm mt-4 md:mt-0 mb-4 leading-relaxed">
+                    <p>Garage V.Parrot</p>
+                    <p>
+                        11 Rue Léon Jouhaux<br>
+                        31500 Toulouse
+                    </p>
+                    <p>Tel. : <a href="tel:+33561234567">05 61 23 45 67</a></p>
+                </div>
+                <p class="flex flex-col flex-nowrap text-xs leading-normal">
+                    <a class="transition hover:text-celestialBlue hover:underline active:text-darkBlue"
+                       href="{% url 'garage:legal-notice' %}">Mentions légales</a>
+
+                    <a class="transition hover:text-celestialBlue hover:underline active:text-darkBlue"
+                       href="{% url 'garage:privacy-policy' %}">Politique de confidentialité des données</a>
+
+                    Garage V.Parrot ©2023
+                </p>
+            </div>
+        </div>
+    </section>
+</footer>
