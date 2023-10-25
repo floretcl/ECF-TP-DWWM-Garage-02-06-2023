@@ -1,0 +1,30 @@
+<div class="flex flex-row flex-nowrap justify-center items-center mt-6 mb-10">
+    {% if page_obj.has_previous %}
+        <a id="vehicles-start-page"
+           class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-110 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg mx-1"
+           href="?page=1">
+            &laquo;
+        </a>
+        <a id="vehicles-previous-page"
+           class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-110 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg mx-1"
+           href="?page={{ page_obj.previous_page_number }}">
+            {{ page_obj.previous_page_number }}
+        </a>
+    {% endif %}
+    <span id="vehicles-current-page"
+          class="font-regular text-sm text-whiteTeal bg-rosyBrown border-rosyBrown border-2 h-10 py-2 px-4 mx-1 rounded-lg">
+        {{ page_obj.number }}
+    </span>
+    {% if page_obj.has_next %}
+        <a id="vehicles-next-page"
+           class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-105 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg mx-1"
+           href="?page={{ page_obj.next_page_number }}">
+            {{ page_obj.next_page_number }}
+        </a>
+        <a id="vehicles-end-page"
+           class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-105 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg mx-1"
+           href="?page={{ page_obj.paginator.num_pages }}">
+            &raquo;
+        </a>
+    {% endif %}
+</div>

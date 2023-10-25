@@ -1,18 +1,11 @@
 {% extends "garage/base.html" %}
 {% load static %}
-{% load garage_extras %}
+
 
 {% block scripts %}
-    <script
-        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin="" defer>
-    </script>
-    <script src="{% static 'garage/javascript/main.js' %}" defer></script>
-    <script src="{% static 'garage/javascript/leaflet.js' %}" defer></script>
-    <!--<script src="{% static 'garage/javascript/vehicles-list.js' %}" defer></script>-->
-    <script src="{% static 'garage/javascript/vehicle-modal.js' %}" defer></script>
-    <script src="{% static 'garage/javascript/messages-modal.js' %}" defer></script>
+    <script src="{% static 'garage/javascript/vehicles-list.js' %}" defer></script>
+    <script src="{% static 'garage/javascript/modal-vehicle-contact.js' %}" defer></script>
+    <script src="{% static 'garage/javascript/modal-messages.js' %}" defer></script>
 {% endblock %}
 
 {% block title %}Véhicules d'occasion | Garage V.Parrot à Toulouse{% endblock %}
@@ -24,351 +17,48 @@
 
 <!-- MAIN -->
 {% block main %}
-    <main>
-        <!-- SECTION HEADING-->
-        <section class="bg-vehiclesHeadingImg bg-cover bg-center min-h-[280px] md:min-h-[340px]">
-            <div class="flex flex-col flex-nowrap justify-center items-center px-6 sm:px-8 md:px-14 py-8 sm:py-10 md:py-12 lg:py-20 xl:container mx-auto">
-                <div class="self-start mb-6 sm:mb-8 max-w-xl sm:max-w-2xl md:max-w-none md:w-10/12">
-                    <h1 class="font-rokkitt font-bold text-2xl lg:text-4xl text-whiteTeal uppercase mb-3 lg:mt-32 drop-shadow-md">
-                        Découvrez notre sélection de véhicules d'occasion révisés par notre atelier
-                    </h1>
-                    <p class="font-rasa font-semibold text-xl lg:text-2xl text-whiteTeal uppercase drop-shadow-md">
-                        Tous nos véhicules sont garantie 12 mois pour réparations, dans notre
-                        garage
-                    </p>
-                </div>
+    <!-- SECTION HEADING-->
+    <section class="bg-vehiclesHeadingImg bg-cover bg-center min-h-[280px] md:min-h-[340px]">
+        <div class="flex flex-col flex-nowrap justify-center items-center px-6 sm:px-8 md:px-14 py-8 sm:py-10 md:py-12 lg:py-20 xl:container mx-auto">
+            <div class="self-start mb-6 sm:mb-8 max-w-xl sm:max-w-2xl md:max-w-none md:w-10/12">
+                <h1 class="font-rokkitt font-bold text-2xl lg:text-4xl text-whiteTeal uppercase mb-3 lg:mt-32 drop-shadow-md">
+                    Découvrez notre sélection de véhicules d'occasion révisés par notre atelier
+                </h1>
+                <p class="font-rasa font-semibold text-xl lg:text-2xl text-whiteTeal uppercase drop-shadow-md">
+                    Tous nos véhicules sont garantie 12 mois pour réparations, dans notre
+                    garage
+                </p>
             </div>
-        </section>
-        <!-- END SECTION HEADING-->
+        </div>
+    </section>
+    <!-- END SECTION HEADING-->
 
-        <!-- SECTION VEHICLES FILTER-->
-        <section id="vehicles-filters" class="xl:container mx-auto">
-            <div class="flex flex-col xl:flex-row flex-nowrap xl:justify-center items-center px-8 pt-12 pb-4 xl:mx-2">
-                <!-- RESET FILTER BUTTON -->
-                <div class="flex flex-row flex-nowrap justify-center items-center xl:mx-6">
-                    <button id="button-reset-filter"
-                            class="font-regular text-whiteTeal text-center uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded">
-                        Réinitialiser les filtres
-                    </button>
-                </div>
-                <!-- END RESET FILTER BUTTON-->
+    <!-- SECTION VEHICLES FILTER-->
+    {% include 'garage/vehicle/filters.html' %}
 
-                <div class="flex flex-col flex-nowrap lg:flex-row lg:justify-center items-center w-full my-8">
-                    <!-- PRICE FILTER-->
-                    <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
-                        <h3 class="font-semibold font-onyx mb-4">Prix</h3>
-                        <div class="relative h-6">
-                            <label for="range-min-price" hidden>Prix minimum</label>
-                            <input id="range-min-price" class="range-filters" type="range" value="0" min="0"
-                                   max="1000000" step="1000"/>
-                            <label for="range-max-price" hidden>Prix maximum</label>
-                            <input id="range-max-price" class="range-filters" type="range" value="1000000" min="0"
-                                   max="1000000" step="1000"/>
-                        </div>
-                        <div class="flex justify-between">
-                            <p class="onyx w-28 h-fit text-onyx text-sm text-left">
-                                <span id="text-min-price"></span> €
-                            </p>
-                            <p class="onyx w-28 h-fit text-onyx text-sm text-right">
-                                <span id="text-max-price"></span> €
-                            </p>
-                        </div>
-                    </div>
-                    <!-- END PRICE FILTER-->
-
-                    <!-- YEAR FILTER-->
-                    <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
-                        <h3 class="font-semibold font-onyx mb-4">Années</h3>
-                        <div class="relative h-6">
-                            <label for="range-min-year" hidden>Année minimum</label>
-                            <input id="range-min-year" class="range-filters" type="range" value="0" min="0" max="9999"
-                                   step="1"/>
-                            <label for="range-max-year" hidden>Année maximum</label>
-                            <input id="range-max-year" class="range-filters" type="range" value="0" min="0" max="9999"
-                                   step="1"/>
-                        </div>
-                        <div class="flex justify-between">
-                            <p class="onyx w-28 h-fit text-onyx text-sm text-left">
-                                <span id="text-min-year"></span>
-                            </p>
-                            <p class="onyx w-28 h-fit text-onyx text-sm text-right">
-                                <span id="text-max-year"></span>
-                            </p>
-                        </div>
-                    </div>
-                    <!-- END YEAR FILTER-->
-
-                    <!-- KMs FILTER-->
-                    <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
-                        <h3 class="font-semibold font-onyx mb-4">Kilométrage</h3>
-                        <div class="relative h-6">
-                            <label for="range-min-km" hidden>Kilométrage minimum</label>
-                            <input id="range-min-km" class="range-filters" type="range" value="0" min="0" max="1000000"
-                                   step="1000"/>
-                            <label for="range-max-km" hidden>Kilométrage maximum</label>
-                            <input id="range-max-km" class="range-filters" type="range" value="1000000" min="0"
-                                   max="1000000" step="1000"/>
-                        </div>
-                        <div class="flex justify-between">
-                            <p class="onyx w-28 h-fit text-onyx text-sm text-left">
-                                <span id="text-min-km"></span> Km
-                            </p>
-                            <p class="onyx w-28 h-fit text-onyx text-sm text-right">
-                                <span id="text-max-km"></span> Km
-                            </p>
-                        </div>
-                    </div>
-                    <!-- END KMs FILTER-->
-                </div>
+    <!-- SECTION VEHICLE LIST-->
+    <section id="vehicles">
+        <div class="lg:container mx-auto flex flex-col flex-nowrap justify-center items-center sm:px-14 pb-14 bg-whiteTeal">
+            <h2 class="font-rasa text-xl uppercase mb-4 hidden">
+                Liste des véhicules d'occasion
+            </h2>
+            <div id="vehicles-content"
+                 class="grid gap-14 md:gap-x-16 md:gap-y-20 lg:gap-x-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-2 mb-8">
+                <!-- VEHICLE LIST -->
+                {% for vehicle in page_obj %}
+                    <!-- VEHICLE -->
+                    {% include 'garage/vehicle/vehicle.html' %}
+                {% endfor %}
             </div>
-        </section>
-        <!-- END SECTION VEHICLES FILTER-->
+            <!-- VEHICLE LIST PAGINATION-->
+            {% include 'garage/vehicle/pagination.html' %}
+        </div>
+    </section>
+    <!-- END SECTION VEHICLE LIST-->
 
-        <!-- SECTION VEHICLES LIST-->
-        <section id="vehicles">
-            <div class="lg:container mx-auto flex flex-col flex-nowrap justify-center items-center sm:px-14 pb-14 bg-whiteTeal">
-                <h2 class="font-rasa text-xl uppercase mb-4 hidden">
-                    Liste des véhicules d'occasion
-                </h2>
-                <div id="vehicles-list"
-                     class="grid gap-14 md:gap-x-16 md:gap-y-20 lg:gap-x-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-2 mb-8">
-                    <!-- VEHICLES CARD -->
-                    {% for vehicle in vehicles %}
-                    <!-- CARD VEHICLE-->
-                    <div class="shadow-lg rounded-md">
-                        <div>
-                            <a href="#">
-                                <img class="rounded-t-md h-[240px] object-cover hover:contrast-125 transition"
-                                     src="../{{ vehicle.pictures.all|first }}" alt=""/>
-                            </a>
-                        </div>
-                        <div class="flex flex-col flex-nowrap justify-center items-start px-6 py-5">
-                            <h3 class="font-bold text-lg text-onyx uppercase mb-2">
-                                {{ vehicle.name }}
-                            </h3>
-                            <ul class="list-disc list-inside text-slate-500 mb-5 lg:mb-8 xl:mb-10">
-                                <li>Année: <span>{{ vehicle.year }}</span></li>
-                                <li>Kilométrage: <span>{{ vehicle.km }}</span> km</li>
-                            </ul>
-                            <p class="text-center font-bold text-lg text-onyx my-4">
-                                {{ vehicle.price }}<span> €</span>
-                            </p>
-                            <div class="self-center">
-                                <p>Ce véhicule vous intéresse ?</p>
-                                <div class="flex flex-row flex-nowrap justify-center items-center my-2">
-                                    <button id="{{ vehicle.id }}"
-                                            class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded">
-                                        Contactez nous
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END CARD VEHICLE-->
-                    {% endfor %}
-                </div>
-                <!-- VEHICLE LIST PAGINATION-->
-                <div class="flex flex-row flex-nowrap justify-center items-center mt-6 mb-10">
-                    <span class="">
-                        <button id="vehicles-previous-page"
-                                class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-110 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg mx-1">&laquo;</button>
-                    </span>
-                    <span id="vehicles-current-page"
-                          class="font-regular text-sm text-whiteTeal bg-rosyBrown border-rosyBrown border-2 h-10 py-2 px-4 mx-2 rounded-lg"></span>
-                    <span>
-                        <button id="vehicles-next-page"
-                                class="inline-block font-regular text-sm text-rosyBrown bg-white hover:brightness-110 border-rosyBrown border-2 hover:scale-105 transition-all active:scale-105 h-10 py-2 px-4 rounded-lg mx-1">&raquo;</button>
-                    </span>
-                </div>
-                <!-- END VEHICLE LIST PAGINATION-->
-            </div>
-        </section>
-        <!-- END SECTION VEHICLES LIST-->
-        <!-- SECTION MODAL VEHICLES-->
-        <section id="modal-vehicles" class="hidden">
-            <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-                <div class="fixed inset-0 bg-slate-600 bg-opacity-75 transition-opacity"></div>
-                <div class="fixed inset-0 z-10 overflow-y-auto">
-                    <div class="flex justify-center items-end sm:items-center min-h-full p-4 sm:p-0">
-                        <div class="relative transform overflow-hidden rounded-lg bg-whiteTeal shadow-xl transition-all sm:my-8 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl">
-                            <div class="flex flex-row flex-nowrap justify-end">
-                                <button id="modal-vehicles-close-btn"
-                                        class="font-regular text-slate-600 pt-3 pb-2 px-4 sm:pt-4 sm:px-5 drop-shadow-md rounded"
-                                        type="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                         stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                              d="M6 18L18 6M6 6l12 12"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="px-4 sm:px-8 sm:pb-2 md:px-12 lg:px-16">
-                                <div class="w-full">
-                                    <div>
-                                        <h3 class="font-semibold text-onyx mb-8" id="modal-title">
-                                            Demande de contact
-                                        </h3>
-                                        <form id="form-vehicle" class="flex flex-col flex-nowrap justify-center w-full"
-                                              action="" method="post">
-                                            {% csrf_token %}
-                                            <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
-                                                {{ form.first_name|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
-                                                {{ form.first_name|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
-                                                {% if form.first_name.errors %}
-                                                    <ul>
-                                                        {% for error in form.first_name.errors %}
-                                                            <li class="text-red-700 mt-2">{{ error }}</li>
-                                                        {% endfor %}
-                                                    </ul>
-                                                {% endif %}
-                                            </div>
-                                            <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
-                                                {{ form.last_name|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
-                                                {{ form.last_name|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
-                                                {% if form.last_name.errors %}
-                                                    <ul>
-                                                        {% for error in form.last_name.errors %}
-                                                            <li class="text-red-700 mt-2">{{ error }}</li>
-                                                        {% endfor %}
-                                                    </ul>
-                                                {% endif %}
-                                            </div>
-                                            <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
-                                                {{ form.email|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
-                                                {{ form.email|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
-                                                {% if form.email.errors %}
-                                                    <ul>
-                                                        {% for error in form.email.errors %}
-                                                            <li class="text-red-700 mt-2">
-                                                                {{ error }}
-                                                            </li>
-                                                        {% endfor %}
-                                                    </ul>
-                                                {% endif %}
-                                            </div>
-                                            <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
-                                                {{ form.phone_number|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
-                                                {{ form.phone_number|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
-                                                {% if form.phone_number.errors %}
-                                                    <ul>
-                                                        {% for error in form.phone_number.errors %}
-                                                            <li class="text-red-700 mt-2">
-                                                                {{ error }}
-                                                            </li>
-                                                        {% endfor %}
-                                                    </ul>
-                                                {% endif %}
-                                            </div>
-                                            <div class="flex flex-col flex-nowrap justify-center w-full my-6">
-                                                <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
-                                                    {{ form.subject|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
-                                                    {{ form.subject|add_class:'text-gray-400 border-2 active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-9 px-2' }}
-                                                    {% if form.subject.errors %}
-                                                        <ul>
-                                                            {% for error in form.subject.errors %}
-                                                                <li class="text-red-700 mt-2">
-                                                                    {{ error }}
-                                                                </li>
-                                                            {% endfor %}
-                                                        </ul>
-                                                    {% endif %}
-                                                </div>
-                                                <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
-                                                    {{ form.message|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
-                                                    {{ form.message|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus-visible:outline-0 focus-visible:outline focus-visible:outline-transparent rounded-md h-28 sm:h-32 md:h-40 px-2' }}
-                                                    {% if form.message.errors %}
-                                                        <ul>
-                                                            {% for error in form.message.errors %}
-                                                                <li class="text-red-700 mt-2">
-                                                                    {{ error }}
-                                                                </li>
-                                                            {% endfor %}
-                                                        </ul>
-                                                    {% endif %}
-                                                </div>
-                                                {% if form.non_field_errors %}
-                                                    <div class="flex flex-col flex_nowrap mb-4">
-                                                        <ul>
-                                                            {% for error in form.non_field_errors %}
-                                                                <li class="text-red-700">
-                                                                    {{ error }}
-                                                                </li>
-                                                            {% endfor %}
-                                                        </ul>
-                                                    </div>
-                                                {% endif %}
-                                            </div>
-                                            <div class="py-3 flex flex-row justify-center sm:justify-start">
-                                                <div class="flex flex-row flex-nowrap justify-center items-center">
-                                                    <button type="submit" value="Envoyer" id="form-vehicle-submit"
-                                                            class="font-regular text-whiteTeal text-center uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 mt-8 mb-4 drop-shadow-md rounded">
-                                                        Envoyer
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- END SECTION MODAL VEHICLES-->
-        <!-- SECTION MODAL MESSAGES-->
-        {% if messages %}
-            <section id="modal-messages">
-                <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-                    <div class="fixed inset-0 bg-slate-600 bg-opacity-75 transition-opacity"></div>
-                    <div class="fixed inset-0 z-10 overflow-y-auto">
-                        <div class="flex justify-center items-end sm:items-center min-h-full p-4 sm:p-0">
-                            <div class="relative transform overflow-hidden rounded-lg bg-whiteTeal shadow-xl transition-all sm:my-8 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl">
-                                <div class="flex flex-row flex-nowrap justify-end">
-                                    <button id="modal-messages-close-btn"
-                                            class="font-regular text-slate-600 pt-3 pb-2 px-4 sm:pt-4 sm:px-5 drop-shadow-md rounded"
-                                            type="button">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                             stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                  d="M6 18L18 6M6 6l12 12"></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div class="px-4 sm:px-8 sm:pb-2 md:px-12 lg:px-16">
-                                    <div class="w-full">
-                                        <div class="mb-10">
-                                            <div class="flex flex-row items-center flex-nowrap mb-3">
-                                                <div class="flex justify-center items-center h-10 w-10 sm:h-12 sm:w-12">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                                         fill="currentColor"
-                                                         class="w-8 h-8 sm:w-10 sm:h-10 text-green-600 drop-shadow-md">
-                                                        <path fill-rule="evenodd"
-                                                              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                                                              clip-rule="evenodd"></path>
-                                                    </svg>
-                                                </div>
-                                                <h3 class="font-semibold text-onyx ml-1" id="modal-title">
-                                                    Demande de contact
-                                                </h3>
-                                            </div>
-                                            <div class="ml-2 mr-1 sm:mr-2">
-                                                <ul class="messages text-gray-400">
-                                                    {% for message in messages %}
-                                                        <li{% if message.tags %}
-                                                            class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                                                    {% endfor %}
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        {% endif %}
-        <!-- END SECTION MODAL MESSAGES-->
-    </main>
+    <!-- SECTION MODAL VEHICLE CONTACT-->
+    {% include 'garage/modal/modal-vehicle-contact.html' %}
+
+    <!-- SECTION MODAL MESSAGES-->
+    {% include 'garage/modal/modal-messages.html' %}
 {% endblock main %}

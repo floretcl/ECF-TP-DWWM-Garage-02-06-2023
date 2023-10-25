@@ -1,0 +1,80 @@
+<section id="vehicles-filters" class="xl:container mx-auto">
+    <div class="flex flex-col xl:flex-row flex-nowrap xl:justify-center items-center px-8 pt-12 pb-4 xl:mx-2">
+        <!-- RESET FILTER BUTTON -->
+        <div class="flex flex-row flex-nowrap justify-center items-center xl:mx-6">
+            <button id="button-reset-filter"
+                    class="font-regular text-whiteTeal text-center uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded">
+                Réinitialiser les filtres
+            </button>
+        </div>
+        <!-- END RESET FILTER BUTTON-->
+
+        <div class="flex flex-col flex-nowrap lg:flex-row lg:justify-center items-center w-full my-8">
+            <!-- PRICE FILTER-->
+            <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
+                <h3 class="font-semibold font-onyx mb-4">Prix</h3>
+                <div class="relative h-6">
+                    <label for="range-min-price" hidden>Prix minimum</label>
+                    <input id="range-min-price" class="range-filters" type="range" value="0" min="0"
+                           max="1000000" step="1000"/>
+                    <label for="range-max-price" hidden>Prix maximum</label>
+                    <input id="range-max-price" class="range-filters" type="range" value="1000000" min="0"
+                           max="1000000" step="1000"/>
+                </div>
+                <div class="flex justify-between">
+                    <p class="onyx w-28 h-fit text-onyx text-sm text-left">
+                        <span id="text-min-price"></span> €
+                    </p>
+                    <p class="onyx w-28 h-fit text-onyx text-sm text-right">
+                        <span id="text-max-price"></span> €
+                    </p>
+                </div>
+            </div>
+            <!-- END PRICE FILTER-->
+
+            <!-- YEAR FILTER-->
+            <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
+                <h3 class="font-semibold font-onyx mb-4">Années</h3>
+                <div class="relative h-6">
+                    <label for="range-min-year" hidden>Année minimum</label>
+                    <input id="range-min-year" class="range-filters" type="range" value="0" min="0" max="9999"
+                           step="1"/>
+                    <label for="range-max-year" hidden>Année maximum</label>
+                    <input id="range-max-year" class="range-filters" type="range" value="0" min="0" max="9999"
+                           step="1"/>
+                </div>
+                <div class="flex justify-between">
+                    <p class="onyx w-28 h-fit text-onyx text-sm text-left">
+                        <span id="text-min-year"></span>
+                    </p>
+                    <p class="onyx w-28 h-fit text-onyx text-sm text-right">
+                        <span id="text-max-year"></span>
+                    </p>
+                </div>
+            </div>
+            <!-- END YEAR FILTER-->
+
+            <!-- KMs FILTER-->
+            <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
+                <h3 class="font-semibold font-onyx mb-4">Kilométrage</h3>
+                <div class="relative h-6">
+                    <label for="range-min-km" hidden>Kilométrage minimum</label>
+                    <input id="range-min-km" class="range-filters" type="range" value="0" min="0" max="1000000"
+                           step="1000"/>
+                    <label for="range-max-km" hidden>Kilométrage maximum</label>
+                    <input id="range-max-km" class="range-filters" type="range" value="1000000" min="0"
+                           max="1000000" step="1000"/>
+                </div>
+                <div class="flex justify-between">
+                    <p class="onyx w-28 h-fit text-onyx text-sm text-left">
+                        <span id="text-min-km"></span> Km
+                    </p>
+                    <p class="onyx w-28 h-fit text-onyx text-sm text-right">
+                        <span id="text-max-km"></span> Km
+                    </p>
+                </div>
+            </div>
+            <!-- END KMs FILTER-->
+        </div>
+    </div>
+</section>
