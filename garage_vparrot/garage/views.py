@@ -1,5 +1,5 @@
-from django.core import serializers
 from django.http import JsonResponse
+from django.core.paginator import Paginator
 from django.contrib import messages
 from django.forms.models import model_to_dict
 from django.views.generic import (View, TemplateView, FormView, ListView)
@@ -58,6 +58,7 @@ class VehiclesListView(ListView):
     model = Vehicle
     context_object_name = 'vehicles'
     paginate_by = 6
+    ordering = 'id'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -65,9 +66,6 @@ class VehiclesListView(ListView):
         context["vehicles_pictures"] = VehiclePicture.objects.all()
         context["form"] = VehicleContactForm()
         return context
-
-    def get_queryset(self):
-        return Vehicle.objects.order_by('id')
 
 
 class VehicleContactFormView(FormView):
@@ -85,15 +83,59 @@ class VehicleContactFormView(FormView):
 
 
 class VehiclesJsonResponse(View):
+    paginate_by = 6
+    ordering = 'id'
 
-    @staticmethod
-    def get(*args, **kwargs):
-        vehicles = Vehicle.objects.order_by('id')
+    def get(self, request, *args, **kwargs):
+        # GET REQUEST PARAMS
+        page = self.request.GET.get('page')
+        sort_by = self.request.GET.get('sort_by')
+        price_min = self.request.GET.get('price_min')
+        price_max = self.request.GET.get('price_max')
+        year_min = self.request.GET.get('year_min')
+        year_max = self.request.GET.get('year_max')
+        km_min = self.request.GET.get('km_min')
+        km_max = self.request.GET.get('km_max')
+
+        # GET ALL VEHICLES
+        vehicles = Vehicle.objects.all()
+
+        # FILTERING VEHICLES
+        if price_min:
+            vehicles = vehicles.filter(price__gte=price_min)
+        if price_max:
+            vehicles = vehicles.filter(price__lte=price_max)
+        if year_min:
+            vehicles = vehicles.filter(year__gte=year_min)
+        if year_max:
+            vehicles = vehicles.filter(year__lte=year_max)
+        if km_min:
+            vehicles = vehicles.filter(km__gte=km_min)
+        if km_max:
+            vehicles = vehicles.filter(km__lte=km_max)
+
+        # SORTING VEHICLES
+        if sort_by:
+            vehicles = vehicles.order_by(sort_by)
+        else:
+            vehicles = vehicles.order_by(self.ordering)
+
+        # PAGINATION OF VEHICLES
+        if page:
+            num_page = page
+        else:
+            num_page = 1
+        paginator = Paginator(vehicles, self.paginate_by)
+        page_obj = paginator.get_page(num_page)
+
+        # CREATE DICT OF VEHICLES
+        vehicles_obj = page_obj
         vehicle_dict = {}
-        for vehicle in vehicles:
+        for vehicle in vehicles_obj:
             vehicle_dict[vehicle.id] = model_to_dict(vehicle)
             pictures = VehiclePicture.objects.filter(vehicle=vehicle)
             vehicle_dict[vehicle.id]['pictures'] = [picture.picture.url for picture in pictures]
+
         return JsonResponse(vehicle_dict)
 
 
