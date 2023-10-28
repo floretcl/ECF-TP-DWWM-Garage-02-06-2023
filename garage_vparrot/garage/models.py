@@ -115,9 +115,6 @@ class Vehicle(models.Model):
     class Meta:
         verbose_name = "véhicule"
 
-    def natural_key(self):
-        return self.name, self.price, self.year, self.km
-
 
 class VehiclePicture(models.Model):
     vehicle = models.ForeignKey(
