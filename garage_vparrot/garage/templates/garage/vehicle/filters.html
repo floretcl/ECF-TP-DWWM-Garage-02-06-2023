@@ -14,19 +14,21 @@
             <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
                 <h3 class="font-semibold font-onyx mb-4">Prix</h3>
                 <div class="relative h-6">
-                    <label for="range-min-price" hidden>Prix minimum</label>
-                    <input id="range-min-price" class="range-filters" type="range" value="0" min="0"
-                           max="1000000" step="1000"/>
-                    <label for="range-max-price" hidden>Prix maximum</label>
-                    <input id="range-max-price" class="range-filters" type="range" value="1000000" min="0"
-                           max="1000000" step="1000"/>
+                    <label for="range-price-min" hidden>Prix minimum</label>
+                    <input id="range-price-min" class="range-filters" type="range"
+                           value="{{ filter_price_min }}" min="{{ filter_price_min }}"
+                           max="{{ filter_price_max }}" step="1000"/>
+                    <label for="range-price-max" hidden>Prix maximum</label>
+                    <input id="range-price-max" class="range-filters" type="range"
+                           value="{{ filter_price_max }}" min="{{ filter_price_min }}"
+                           max="{{ filter_price_max }}" step="1000"/>
                 </div>
                 <div class="flex justify-between">
                     <p class="onyx w-28 h-fit text-onyx text-sm text-left">
-                        <span id="text-min-price"></span> €
+                        <span id="text-price-min"></span> €
                     </p>
                     <p class="onyx w-28 h-fit text-onyx text-sm text-right">
-                        <span id="text-max-price"></span> €
+                        <span id="text-price-max"></span> €
                     </p>
                 </div>
             </div>
@@ -36,19 +38,21 @@
             <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
                 <h3 class="font-semibold font-onyx mb-4">Années</h3>
                 <div class="relative h-6">
-                    <label for="range-min-year" hidden>Année minimum</label>
-                    <input id="range-min-year" class="range-filters" type="range" value="0" min="0" max="9999"
-                           step="1"/>
-                    <label for="range-max-year" hidden>Année maximum</label>
-                    <input id="range-max-year" class="range-filters" type="range" value="0" min="0" max="9999"
-                           step="1"/>
+                    <label for="range-year-min" hidden>Année minimum</label>
+                    <input id="range-year-min" class="range-filters" type="range"
+                           value="{{ filter_year_min }}" min="{{ filter_year_min }}"
+                           max="{{ filter_year_max }}" step="1"/>
+                    <label for="range-year-max" hidden>Année maximum</label>
+                    <input id="range-year-max" class="range-filters" type="range"
+                           value="{{ filter_year_max }}" min="{{ filter_year_min }}"
+                           max="{{ filter_year_max }}" step="1"/>
                 </div>
                 <div class="flex justify-between">
                     <p class="onyx w-28 h-fit text-onyx text-sm text-left">
-                        <span id="text-min-year"></span>
+                        <span id="text-year-min"></span>
                     </p>
                     <p class="onyx w-28 h-fit text-onyx text-sm text-right">
-                        <span id="text-max-year"></span>
+                        <span id="text-year-max"></span>
                     </p>
                 </div>
             </div>
@@ -58,19 +62,21 @@
             <div class="flex flex-col my-2 lg:mx-4 max-w-md w-full">
                 <h3 class="font-semibold font-onyx mb-4">Kilométrage</h3>
                 <div class="relative h-6">
-                    <label for="range-min-km" hidden>Kilométrage minimum</label>
-                    <input id="range-min-km" class="range-filters" type="range" value="0" min="0" max="1000000"
-                           step="1000"/>
-                    <label for="range-max-km" hidden>Kilométrage maximum</label>
-                    <input id="range-max-km" class="range-filters" type="range" value="1000000" min="0"
-                           max="1000000" step="1000"/>
+                    <label for="range-km-min" hidden>Kilométrage minimum</label>
+                    <input id="range-km-min" class="range-filters" type="range"
+                           value="{{ filter_km_min }}" min="{{ filter_km_min }}"
+                           max="{{ filter_km_max }}" step="1000"/>
+                    <label for="range-km-max" hidden>Kilométrage maximum</label>
+                    <input id="range-km-max" class="range-filters" type="range"
+                           value="{{ filter_km_max }}" min="{{ filter_km_min }}"
+                           max="{{ filter_km_max }}" step="1000"/>
                 </div>
                 <div class="flex justify-between">
                     <p class="onyx w-28 h-fit text-onyx text-sm text-left">
-                        <span id="text-min-km"></span> Km
+                        <span id="text-km-min"></span> Km
                     </p>
                     <p class="onyx w-28 h-fit text-onyx text-sm text-right">
-                        <span id="text-max-km"></span> Km
+                        <span id="text-km-max"></span> Km
                     </p>
                 </div>
             </div>
