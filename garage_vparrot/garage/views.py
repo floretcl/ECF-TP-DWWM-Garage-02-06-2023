@@ -65,6 +65,20 @@ class VehiclesListView(ListView):
         context["opening_time"] = OpeningTime.objects.all()
         context["vehicles_pictures"] = VehiclePicture.objects.all()
         context["form"] = VehicleContactForm()
+
+        # GET VEHICLE PRICE MIN AND MAX
+        vehicles_sorted_by_price = Vehicle.objects.order_by('price')
+        context["filter_price_min"] = vehicles_sorted_by_price.first().price
+        context["filter_price_max"] = vehicles_sorted_by_price.last().price
+        # GET VEHICLE YEAR MIN AND MAX
+        vehicles_sorted_by_year = Vehicle.objects.order_by('year')
+        context["filter_year_min"] = vehicles_sorted_by_year.first().year
+        context["filter_year_max"] = vehicles_sorted_by_year.last().year
+        # GET VEHICLE KM MIN AND MAX
+        vehicles_sorted_by_km = Vehicle.objects.order_by('km')
+        context["filter_km_min"] = vehicles_sorted_by_km.first().km
+        context["filter_km_max"] = vehicles_sorted_by_km.last().km
+
         return context
 
 
@@ -83,12 +97,14 @@ class VehicleContactFormView(FormView):
 
 
 class VehiclesJsonResponse(View):
+    default_page = 1
     paginate_by = 6
     ordering = 'id'
 
     def get(self, request, *args, **kwargs):
         # GET REQUEST PARAMS
         page = self.request.GET.get('page')
+        limit = self.request.GET.get('limit')
         sort_by = self.request.GET.get('sort_by')
         price_min = self.request.GET.get('price_min')
         price_max = self.request.GET.get('price_max')
@@ -124,8 +140,16 @@ class VehiclesJsonResponse(View):
         if page:
             num_page = page
         else:
-            num_page = 1
-        paginator = Paginator(vehicles, self.paginate_by)
+            num_page = self.default_page
+
+        # PAGINATE BY
+        if limit:
+            vehicle_per_page = limit
+        else:
+            vehicle_per_page = self.paginate_by
+
+        # PAGINATION
+        paginator = Paginator(vehicles, vehicle_per_page)
         page_obj = paginator.get_page(num_page)
 
         # CREATE DICT OF VEHICLES
@@ -136,7 +160,18 @@ class VehiclesJsonResponse(View):
             pictures = VehiclePicture.objects.filter(vehicle=vehicle)
             vehicle_dict[vehicle.id]['pictures'] = [picture.picture.url for picture in pictures]
 
-        return JsonResponse(vehicle_dict)
+        # CREATE RESPONSE DICT
+        response = {
+            "vehicles": vehicle_dict,
+            "pagination": {
+                "page": num_page,
+                "has_previous": page_obj.has_previous(),
+                "has_next": page_obj.has_next(),
+                "paginate_by": paginator.per_page,
+                "num_pages": paginator.num_pages
+            }
+        }
+        return JsonResponse(response)
 
 
 class ContactView(FormView):
