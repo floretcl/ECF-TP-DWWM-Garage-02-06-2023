@@ -58,9 +58,10 @@ class ServiceAdmin(admin.ModelAdmin):
 class VehicleAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['garage', 'name']}),
-        ("CARACTÉRISTIQUES", {'fields': ['price', 'year', 'km']}),
+        ("MODÈLE", {'fields': ['brand', 'model']}),
+        ("CARACTÉRISTIQUES", {'fields': ['price', 'year', 'km', 'energy']}),
     ]
-    list_display = ['name', 'price', 'year', 'km']
+    list_display = ['name', 'price', 'year', 'km', 'energy']
     list_per_page = 50
     ordering = ['pk']
     search_fields = ['name']

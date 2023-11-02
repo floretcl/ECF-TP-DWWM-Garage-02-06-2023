@@ -98,7 +98,10 @@ class Service(models.Model):
 
 
 class Vehicle(models.Model):
-    name = models.CharField("nom", max_length=80)
+    name = models.CharField("nom", max_length=24)
+    brand = models.CharField("marque", max_length=50)
+    model = models.CharField("modèle", max_length=80)
+    energy = models.CharField("énergie", max_length=50)
     price = models.PositiveIntegerField("prix")
     year = models.PositiveSmallIntegerField("année")
     km = models.PositiveIntegerField("kilométrage")
