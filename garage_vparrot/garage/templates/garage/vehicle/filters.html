@@ -1,8 +1,8 @@
 <section id="vehicles-filters" class="xl:container mx-auto">
     <div class="flex flex-col xl:flex-row flex-nowrap xl:justify-center items-center px-8 pt-12 pb-4 xl:mx-2">
-        <!-- RESET FILTER BUTTON -->
+        <!-- RESET FILTERS BUTTON -->
         <div class="flex flex-row flex-nowrap justify-center items-center xl:mx-6">
-            <button id="button-reset-filter"
+            <button id="button-reset-filters"
                     class="font-regular text-whiteTeal text-center uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded">
                 Réinitialiser les filtres
             </button>
@@ -17,11 +17,11 @@
                     <label for="range-price-min" hidden>Prix minimum</label>
                     <input id="range-price-min" class="range-filters" type="range"
                            value="{{ filter_price_min }}" min="{{ filter_price_min }}"
-                           max="{{ filter_price_max }}" step="1000"/>
+                           max="{{ filter_price_max }}" step="{{ filter_price_step }}"/>
                     <label for="range-price-max" hidden>Prix maximum</label>
                     <input id="range-price-max" class="range-filters" type="range"
                            value="{{ filter_price_max }}" min="{{ filter_price_min }}"
-                           max="{{ filter_price_max }}" step="1000"/>
+                           max="{{ filter_price_max }}" step="{{ filter_price_step }}"/>
                 </div>
                 <div class="flex justify-between">
                     <p class="onyx w-28 h-fit text-onyx text-sm text-left">
@@ -41,11 +41,11 @@
                     <label for="range-year-min" hidden>Année minimum</label>
                     <input id="range-year-min" class="range-filters" type="range"
                            value="{{ filter_year_min }}" min="{{ filter_year_min }}"
-                           max="{{ filter_year_max }}" step="1"/>
+                           max="{{ filter_year_max }}" step="{{ filter_year_step }}"/>
                     <label for="range-year-max" hidden>Année maximum</label>
                     <input id="range-year-max" class="range-filters" type="range"
                            value="{{ filter_year_max }}" min="{{ filter_year_min }}"
-                           max="{{ filter_year_max }}" step="1"/>
+                           max="{{ filter_year_max }}" step="{{ filter_year_step }}"/>
                 </div>
                 <div class="flex justify-between">
                     <p class="onyx w-28 h-fit text-onyx text-sm text-left">
@@ -65,11 +65,11 @@
                     <label for="range-km-min" hidden>Kilométrage minimum</label>
                     <input id="range-km-min" class="range-filters" type="range"
                            value="{{ filter_km_min }}" min="{{ filter_km_min }}"
-                           max="{{ filter_km_max }}" step="1000"/>
+                           max="{{ filter_km_max }}" step="{{ filter_km_step }}"/>
                     <label for="range-km-max" hidden>Kilométrage maximum</label>
                     <input id="range-km-max" class="range-filters" type="range"
                            value="{{ filter_km_max }}" min="{{ filter_km_min }}"
-                           max="{{ filter_km_max }}" step="1000"/>
+                           max="{{ filter_km_max }}" step="{{ filter_km_step }}"/>
                 </div>
                 <div class="flex justify-between">
                     <p class="onyx w-28 h-fit text-onyx text-sm text-left">

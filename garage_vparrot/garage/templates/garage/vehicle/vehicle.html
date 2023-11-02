@@ -1,17 +1,20 @@
 <div class="shadow-lg rounded-md">
     <div>
         <a href="#">
-            <img class="rounded-t-md h-[240px] object-cover hover:contrast-125 transition"
-                 src="../{{ vehicle.pictures.first }}" alt=""/>
+            <div class="overflow-hidden h-auto rounded-t-md">
+                <img class="object-cover max-h-64 hover:scale-105 hover:brightness-110 transition"
+                     src="../{{ vehicle.pictures.first }}" alt=""/>
+            </div>
         </a>
     </div>
-    <div class="flex flex-col flex-nowrap justify-center items-start px-6 py-5">
-        <h3 class="font-bold text-lg text-onyx uppercase mb-2">
+    <div class="flex flex-col flex-nowrap justify-center items-start px-4 sm:px-5 xl:px-6 py-2 sm:py-3 xl:py-4">
+        <h3 title="{{ vehicle.name }}" class="w-full font-bold text-lg text-onyx uppercase truncate mb-2">
             {{ vehicle.name }}
         </h3>
-        <ul class="list-disc list-inside text-slate-500 mb-5 lg:mb-8 xl:mb-10">
+        <ul class="list-disc list-inside text-slate-500 mb-3 lg:mb-4 xl:mb-5">
             <li>Année: <span>{{ vehicle.year }}</span></li>
             <li>Kilométrage: <span>{{ vehicle.km }}</span> km</li>
+            <li>Énergie: <span>{{ vehicle.energy }}</span></li>
         </ul>
         <p class="text-center font-bold text-lg text-onyx my-4">
             {{ vehicle.price }}<span> €</span>
