@@ -243,7 +243,7 @@ const addVehicleCard = (vehicle) => {
                 <a href="#">
                     <div class="overflow-hidden h-auto rounded-t-md">
                         <img class="object-cover max-h-64 hover:scale-105 hover:brightness-110 transition"
-                             src="../${vehiclePictures[0]}" alt=""/>
+                             src="../${vehiclePictures[0]}" alt="${vehicleName}"/>
                     </div>
                 </a>
             </div>

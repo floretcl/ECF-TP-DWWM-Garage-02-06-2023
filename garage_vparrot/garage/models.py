@@ -15,7 +15,7 @@ class Garage(models.Model):
         max_length=20,
         validators=[
             validators.RegexValidator(
-                regex=r'^0[1-9](\d{8})$',
+                regex=r"^0[1-9](\d{8})$",
                 message="Entrez un numéro de téléphone français valide, ex: 0123456789.")
         ]
     )
@@ -199,7 +199,7 @@ class CustomerMessage(models.Model):
         max_length=20,
         validators=[
             validators.RegexValidator(
-                regex=r'^0[1-9](\d{8})$',
+                regex=r"^0[1-9](\d{8})$",
                 message="Entrez un numéro de téléphone français valide, ex: 0123456789.")
         ]
     )

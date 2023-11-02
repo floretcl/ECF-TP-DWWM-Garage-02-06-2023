@@ -4,6 +4,7 @@
 {% block scripts %}
     <script src="{% static 'garage/javascript/rating-stars.js' %}" defer></script>
     <script src="{% static 'garage/javascript/modal-review.js' %}" defer></script>
+    <script src="{% static 'garage/javascript/modal-messages.js' %}" defer></script>
 {% endblock %}
 
 {% block title %}Garage V.Parrot à Toulouse{% endblock %}
@@ -166,4 +167,6 @@
 
     <!-- SECTION MODAL REVIEW-->
     {% include 'garage/modal/modal-review.html' %}
+    <!-- SECTION MODAL MESSAGES-->
+    {% include 'garage/modal/modal-messages.html' %}
 {% endblock main %}

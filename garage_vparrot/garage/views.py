@@ -22,13 +22,15 @@ class IndexView(View):
 
 class IndexTemplateView(TemplateView):
     template_name = 'garage/index.html'
+    review_form_success_msg_title = "Témoignage reçu"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["services"] = Service.objects.all()
         context["reviews"] = CustomerReview.objects.filter(valid=True).order_by("-date")[:3]
         context["opening_time"] = OpeningTime.objects.all()
-        context["form"] = ReviewForm()
+        context["review_form"] = ReviewForm()
+        context["messages_title"] = self.review_form_success_msg_title
         return context
 
 
@@ -36,9 +38,11 @@ class IndexReviewFormView(FormView):
     template_name = 'garage/index.html'
     form_class = ReviewForm
     success_url = '/'
+    success_message = "Bonjour {name}, merci pour votre témoignage !"
 
     def form_valid(self, form):
         form.save()
+        messages.success(self.request, self.success_message.format(name=form.cleaned_data.get("name")))
         return super().form_valid(form)
 
 
@@ -60,12 +64,14 @@ class VehiclesListView(ListView):
     context_object_name = 'vehicles'
     paginate_by = 6
     ordering = 'id'
+    contact_form_success_msg_title = "Demande de contact reçu"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["opening_time"] = OpeningTime.objects.all()
         context["vehicles_pictures"] = VehiclePicture.objects.all()
         context["form"] = VehicleContactForm()
+        context["messages_title"] = self.contact_form_success_msg_title
 
         # SET FILTER VEHICLE PRICE MIN AND MAX
         vehicles_sorted_by_price = Vehicle.objects.order_by('price')
@@ -185,6 +191,7 @@ class ContactView(FormView):
     template_name = 'garage/contact.html'
     form_class = ContactForm
     success_url = '/contact/'
+    contact_form_success_msg_title = "Demande de contact reçu"
     success_message = "Bonjour {first_name}, merci de nous avoir contactés. Nous revenons vers vous au plus vite."
 
     def form_valid(self, form):
@@ -196,6 +203,7 @@ class ContactView(FormView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["opening_time"] = OpeningTime.objects.all()
+        context["messages_title"] = self.contact_form_success_msg_title
         return context
 
 

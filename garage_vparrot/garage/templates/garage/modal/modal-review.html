@@ -27,11 +27,11 @@
                                       action="" method="post">
                                     {% csrf_token %}
                                     <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
-                                        {{ form.name|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
-                                        {{ form.name|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2' }}
-                                        {% if form.name.errors %}
+                                        {{ review_form.name|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
+                                        {{ review_form.name|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 px-2' }}
+                                        {% if review_form.name.errors %}
                                             <ul>
-                                                {% for error in form.name.errors %}
+                                                {% for error in review_form.name.errors %}
                                                     <li class="text-red-700 mt-2">{{ error }}</li>
                                                 {% endfor %}
                                             </ul>
@@ -39,11 +39,11 @@
                                     </div>
 
                                     <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
-                                        {{ form.message|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
-                                        {{ form.message|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 h-28 sm:h-32 md:h-40 px-2' }}
-                                        {% if form.message.errors %}
+                                        {{ review_form.message|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
+                                        {{ review_form.message|add_class:'text-onyx border-2 active:border-4 focus:border-4 active:border-celestialBlue focus:border-celestialBlue active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9 h-28 sm:h-32 md:h-40 px-2' }}
+                                        {% if review_form.message.errors %}
                                             <ul>
-                                                {% for error in form.message.errors %}
+                                                {% for error in review_form.message.errors %}
                                                     <li class="text-red-700 mt-2">{{ error }}</li>
                                                 {% endfor %}
                                             </ul>
@@ -51,9 +51,9 @@
                                     </div>
 
                                     <div class="flex flex-col flex-nowrap mb-6">
-                                        {{ form.rating|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
+                                        {{ review_form.rating|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
                                         <div class="flex flex-row flex-nowrap justify-start items-center">
-                                            {{ form.rating|add_class:'range-stars active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9' }}
+                                            {{ review_form.rating|add_class:'range-stars active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9' }}
                                             <!--
                                               <input
                                                 class="range-stars active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9"
@@ -69,19 +69,19 @@
                                               -->
                                         </div>
 
-                                        {% if form.rating.errors %}
+                                        {% if review_form.rating.errors %}
                                             <ul>
-                                                {% for error in form.rating.errors %}
+                                                {% for error in review_form.rating.errors %}
                                                     <li class="text-red-700 mt-2">{{ error }}</li>
                                                 {% endfor %}
                                             </ul>
                                         {% endif %}
                                     </div>
 
-                                    {% if form.non_field_errors %}
+                                    {% if review_form.non_field_errors %}
                                         <div class="flex flex-col flex-nowrap mb-4 sm:mb-5 md:mb-6">
                                             <ul>
-                                                {% for error in form.non_field_errors %}
+                                                {% for error in review_form.non_field_errors %}
                                                     <li class="text-red_700">
                                                         {{ error }}
                                                     </li>
