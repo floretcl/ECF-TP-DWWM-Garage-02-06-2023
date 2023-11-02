@@ -1,6 +1,5 @@
 *.css
 !input.css
-!output.css
 *.bak
 *.log
 *.pot
