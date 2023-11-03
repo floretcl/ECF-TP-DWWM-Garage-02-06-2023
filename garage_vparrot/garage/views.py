@@ -70,7 +70,7 @@ class VehiclesListView(ListView):
         context = super().get_context_data(**kwargs)
         context["opening_time"] = OpeningTime.objects.all()
         context["vehicles_pictures"] = VehiclePicture.objects.all()
-        context["form"] = VehicleContactForm()
+        context["contact_form"] = VehicleContactForm()
         context["messages_title"] = self.contact_form_success_msg_title
 
         # SET FILTER VEHICLE PRICE MIN AND MAX
