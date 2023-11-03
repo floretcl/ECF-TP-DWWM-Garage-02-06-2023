@@ -54,19 +54,6 @@
                                         {{ review_form.rating|label_tag_with_classes:'text-celestialBlue font-medium text-sm my-1' }}
                                         <div class="flex flex-row flex-nowrap justify-start items-center">
                                             {{ review_form.rating|add_class:'range-stars active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9' }}
-                                            <!--
-                                              <input
-                                                class="range-stars active:outline-0 focus:outline-0 focus:outline focus:outline-transparent rounded-md h-9"
-                                                type="range"
-                                                name="form-review-rating"
-                                                id="form-review-rating"
-                                                max="5"
-                                                min="0"
-                                                step="1"
-                                                value="0"
-                                                required
-                                              />
-                                              -->
                                         </div>
 
                                         {% if review_form.rating.errors %}
