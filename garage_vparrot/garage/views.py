@@ -76,20 +76,22 @@ class VehiclesListView(ListView):
         # SET FILTER VEHICLE PRICE MIN AND MAX
         vehicles_sorted_by_price = Vehicle.objects.order_by('price')
         filter_price_step = 1000
-        context["filter_price_min"] = floor(vehicles_sorted_by_price.first().price/filter_price_step)*filter_price_step
-        context["filter_price_max"] = ceil(vehicles_sorted_by_price.last().price/filter_price_step)*filter_price_step
+        context["filter_price_min"] = floor(
+            vehicles_sorted_by_price.first().price / filter_price_step) * filter_price_step
+        context["filter_price_max"] = ceil(
+            vehicles_sorted_by_price.last().price / filter_price_step) * filter_price_step
         context["filter_price_step"] = filter_price_step
         # SET FILTER VEHICLE YEAR MIN AND MAX
         vehicles_sorted_by_year = Vehicle.objects.order_by('year')
         filter_year_step = 1
-        context["filter_year_min"] = floor(vehicles_sorted_by_year.first().year/filter_year_step)*filter_year_step
-        context["filter_year_max"] = ceil(vehicles_sorted_by_year.last().year/filter_year_step)*filter_year_step
+        context["filter_year_min"] = floor(vehicles_sorted_by_year.first().year / filter_year_step) * filter_year_step
+        context["filter_year_max"] = ceil(vehicles_sorted_by_year.last().year / filter_year_step) * filter_year_step
         context["filter_year_step"] = filter_year_step
         # SET FILTER VEHICLE KM MIN AND MAX
         vehicles_sorted_by_km = Vehicle.objects.order_by('km')
         filter_km_step = 1000
-        context["filter_km_min"] = floor(vehicles_sorted_by_km.first().km/filter_km_step)*filter_km_step
-        context["filter_km_max"] = ceil(vehicles_sorted_by_km.last().km/filter_km_step)*filter_km_step
+        context["filter_km_min"] = floor(vehicles_sorted_by_km.first().km / filter_km_step) * filter_km_step
+        context["filter_km_max"] = ceil(vehicles_sorted_by_km.last().km / filter_km_step) * filter_km_step
         context["filter_km_step"] = filter_km_step
 
         return context

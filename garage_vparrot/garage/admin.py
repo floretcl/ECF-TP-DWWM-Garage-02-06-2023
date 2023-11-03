@@ -30,7 +30,7 @@ class Pictures(admin.TabularInline):
 class GarageAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['name', 'address', 'postal_code', 'city', 'phone_number', 'contact_email']}),
-        ]
+    ]
     inlines = [OpeningDays]
 
 
