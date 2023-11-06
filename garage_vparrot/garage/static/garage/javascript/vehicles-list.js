@@ -21,7 +21,6 @@ const spanKmMin = document.querySelector("#text-km-min");
 const spanKmMax = document.querySelector("#text-km-max");
 
 const divVehicles = document.querySelector("#vehicles-content");
-const modalFormInputSubject = document.querySelector("#id_subject");
 
 const buttonResetFilters = document.querySelector("#button-reset-filters");
 
@@ -240,7 +239,7 @@ const addVehicleCard = (vehicle) => {
     vehicleCard.innerHTML = `
         <div class="shadow-lg rounded-md">
             <div>
-                <a href="#">
+                <a href="/vehicles/${vehicleId}/">
                     <div class="overflow-hidden h-auto rounded-t-md">
                         <img class="object-cover max-h-64 hover:scale-105 hover:brightness-110 transition"
                              src="../${vehiclePictures[0]}" alt="${vehicleName}"/>
@@ -248,7 +247,7 @@ const addVehicleCard = (vehicle) => {
                 </a>
             </div>
             <div class="flex flex-col flex-nowrap justify-center items-start px-4 sm:px-5 xl:px-6 py-2 sm:py-3 xl:py-4">
-                <h3 title="${vehicleName}" class="w-full font-bold text-lg text-onyx uppercase truncate mb-2">
+                <h3 title="${vehicleName}" class="w-full font-rokkitt font-bold text-2xl text-onyx uppercase truncate mb-2">
                     ${vehicleName}
                 </h3>
                 <ul class="list-disc list-inside text-slate-500 mb-3 lg:mb-4 xl:mb-5">
@@ -256,16 +255,15 @@ const addVehicleCard = (vehicle) => {
                     <li>Kilométrage: <span>${withThousandsSpace(vehicleKm)}</span> km</li>
                     <li>Énergie: <span>${vehicleEnergy}</span></li>
                 </ul>
-                <p class="text-center font-bold text-lg text-onyx my-4">
+                <p class="font-bold text-lg text-onyx my-4">
                     ${withThousandsSpace(vehiclePrice)}<span> €</span>
                 </p>
                 <div class="self-center">
-                    <p>Ce véhicule vous intéresse ?</p>
                     <div class="flex flex-row flex-nowrap justify-center items-center my-2">
-                        <button id="${vehicleId}"
-                                class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded">
-                            Contactez nous
-                        </button>
+                        <a href="/vehicles/${vehicleId}/"
+                            class="font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded">
+                            Voir la fiche
+                        </a>
                     </div>
                 </div>
             </div>

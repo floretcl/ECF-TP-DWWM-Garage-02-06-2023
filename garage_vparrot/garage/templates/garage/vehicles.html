@@ -4,8 +4,6 @@
 
 {% block scripts %}
     <script src="{% static 'garage/javascript/vehicles-list.js' %}" defer></script>
-    <script src="{% static 'garage/javascript/modal-vehicle-contact.js' %}" defer></script>
-    <script src="{% static 'garage/javascript/modal-messages.js' %}" defer></script>
 {% endblock %}
 
 {% block title %}Véhicules d'occasion | Garage V.Parrot à Toulouse{% endblock %}
@@ -58,9 +56,4 @@
     </section>
     <!-- END SECTION VEHICLE LIST-->
 
-    <!-- SECTION MODAL VEHICLE CONTACT-->
-    {% include 'garage/modal/modal-vehicle-contact.html' %}
-
-    <!-- SECTION MODAL MESSAGES-->
-    {% include 'garage/modal/modal-messages.html' %}
 {% endblock main %}

@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.forms.models import model_to_dict
-from django.views.generic import (View, TemplateView, FormView, ListView)
+from django.views.generic import (View, TemplateView, FormView, ListView, DetailView)
 from .modelforms import ContactForm, VehicleContactForm, ReviewForm
 from .models import (OpeningTime, Service, Vehicle, VehiclePicture, CustomerReview)
 
@@ -46,32 +46,16 @@ class IndexReviewFormView(FormView):
         return super().form_valid(form)
 
 
-class VehiclesView(View):
-    @staticmethod
-    def get(request, *args, **kwargs):
-        view = VehiclesListView.as_view()
-        return view(request, *args, **kwargs)
-
-    @staticmethod
-    def post(request, *args, **kwargs):
-        view = VehicleContactFormView.as_view()
-        return view(request, *args, **kwargs)
-
-
 class VehiclesListView(ListView):
     template_name = 'garage/vehicles.html'
     model = Vehicle
     context_object_name = 'vehicles'
     paginate_by = 6
     ordering = 'id'
-    contact_form_success_msg_title = "Demande de contact reçu"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["opening_time"] = OpeningTime.objects.all()
-        context["vehicles_pictures"] = VehiclePicture.objects.all()
-        context["contact_form"] = VehicleContactForm()
-        context["messages_title"] = self.contact_form_success_msg_title
 
         # SET FILTER VEHICLE PRICE MIN AND MAX
         vehicles_sorted_by_price = Vehicle.objects.order_by('price')
@@ -95,20 +79,6 @@ class VehiclesListView(ListView):
         context["filter_km_step"] = filter_km_step
 
         return context
-
-
-class VehicleContactFormView(FormView):
-    template_name = 'garage/vehicles.html'
-    form_class = VehicleContactForm
-    success_url = '/vehicles/'
-    success_message = ("Bonjour {first_name}, merci de nous avoir contactés à propos de ce véhicule. Nous revenons "
-                       "vers vous au plus vite.")
-
-    def form_valid(self, form):
-        form.save()
-        form.send_email()
-        messages.success(self.request, self.success_message.format(first_name=form.cleaned_data.get("first_name")))
-        return super().form_valid(form)
 
 
 class VehiclesJsonResponse(View):
@@ -187,6 +157,47 @@ class VehiclesJsonResponse(View):
             }
         }
         return JsonResponse(response)
+
+
+class VehicleView(View):
+    @staticmethod
+    def get(request, *args, **kwargs):
+        view = VehicleDetailView.as_view()
+        return view(request, *args, **kwargs)
+
+    @staticmethod
+    def post(request, *args, **kwargs):
+        view = VehicleContactFormView.as_view()
+        return view(request, *args, **kwargs)
+
+
+class VehicleDetailView(DetailView):
+    template_name = 'garage/vehicle-detail.html'
+    model = Vehicle
+    context_object_name = 'vehicle'
+    contact_form_success_msg_title = "Demande de contact reçu"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["opening_time"] = OpeningTime.objects.all()
+        context["contact_form"] = VehicleContactForm()
+        context["messages_title"] = self.contact_form_success_msg_title
+
+        return context
+
+
+class VehicleContactFormView(FormView):
+    template_name = 'garage/vehicle-detail.html'
+    form_class = VehicleContactForm
+    success_url = ''
+    success_message = ("Bonjour {first_name}, merci de nous avoir contactés à propos de ce véhicule. Nous revenons "
+                       "vers vous au plus vite.")
+
+    def form_valid(self, form):
+        form.save()
+        form.send_email()
+        messages.success(self.request, self.success_message.format(first_name=form.cleaned_data.get("first_name")))
+        return super().form_valid(form)
 
 
 class ContactView(FormView):
