@@ -1,0 +1,134 @@
+{% extends "garage/base.html" %}
+{% load static %}
+{% load pictures %}
+
+
+{% block scripts %}
+    <script src="{% static 'garage/javascript/modal-vehicle-contact.js' %}" defer></script>
+    <script src="{% static 'garage/javascript/modal-messages.js' %}" defer></script>
+{% endblock %}
+
+{% block title %}Véhicules d'occasion | Garage V.Parrot à Toulouse{% endblock %}
+{% block meta-description %}
+    Véhicules d'occasion toutes marques révisés,
+    le Garage V.Parrot garantie tous ses véhicules 12 mois pour vous apporter
+    l'assurance de repartir avec la voiture de vos rêves en toute sécurité.
+{% endblock %}
+
+<!-- MAIN -->
+{% block main %}
+    <!-- SECTION HEADING-->
+    <section class="bg-vehiclesHeadingImg bg-cover bg-center min-h-[280px] md:min-h-[340px]">
+        <div class="flex flex-col flex-nowrap justify-center items-center px-6 sm:px-8 md:px-14 py-8 sm:py-10 md:py-12 lg:py-20 xl:container mx-auto">
+            <div class="self-start mb-6 sm:mb-8 max-w-xl sm:max-w-2xl md:max-w-none md:w-10/12">
+                <h1 class="font-rokkitt font-bold text-2xl lg:text-4xl text-whiteTeal uppercase mb-3 lg:mt-32 drop-shadow-md">
+                    Découvrez notre sélection de véhicules d'occasion révisés par notre atelier
+                </h1>
+                <p class="font-rasa font-semibold text-xl lg:text-2xl text-whiteTeal uppercase drop-shadow-md">
+                    Tous nos véhicules sont garantie 12 mois pour réparations, dans notre
+                    garage
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- END SECTION HEADING-->
+
+    <!-- SECTION VEHICLE LIST-->
+    <section id="vehicles">
+        <div class="lg:container mx-auto flex flex-col flex-nowrap justify-center items-center sm:px-14 pb-14 bg-whiteTeal">
+            <h2 class="font-rasa text-xl uppercase mb-4 hidden">
+                Fiche du véhicule d'occasion: {{ vehicle.name }}
+            </h2>
+            <div id="vehicle-detail" class="flex flex-col flex-nowrap mt-12 mb-4">
+                <div class="flex flex-col flex-nowrap">
+                    <div>
+                        <div class="bg-amber-800 my-2">
+                            {% picture vehicle.pictures.first.picture vehicle.name picture_class="" img_class="" img_loading="lazy" %}
+                        </div>
+                        <div class="bg-amber-900">
+                            <ul class="flex flex-row flex-nowrap overflow-x-scroll w-screen">
+                                {% for picture in vehicle.pictures.all %}
+                                    <li class="w-32">
+                                        {% picture picture.picture vehicle.name picture_class="" img_class="" img_loading="lazy" %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="py-8 px-6">
+                        <h3 id="vehicle-title" title="{{ vehicle.name }}" class="font-rokkitt font-bold text-2xl text-onyx uppercase mb-4">{{ vehicle.name }}</h3>
+                        <ul class="list-disc list-inside text-slate-500 my-2">
+                            <li class="my-1">Année: <span>{{ vehicle.year }}</span></li>
+                            <li class="my-1">Kilométrage: <span>{{ vehicle.km }}</span> km</li>
+                            <li class="my-1">Énergie: <span>{{ vehicle.energy }}</span></li>
+                        </ul>
+                        <p class="font-bold text-2xl text-onyx my-6">
+                            {{ vehicle.price }}<span> €</span>
+                        </p>
+                        <div class="self-center">
+                            <p class="text-center text-celestialBlue">Un besoin d'information ?</p>
+                            <div class="flex flex-row flex-nowrap justify-center items-center my-2">
+                                <button id="modal-vehicles-open-btn"
+                                        class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded">
+                                    Contactez nous
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-onyx rounded-lg px-4 pt-6 pb-8">
+                    <h4 class="font-rokkitt text-lg text-whiteTeal uppercase mb-4">Informations générales</h4>
+                    <div class="grid grid-cols-1">
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                            <span>Marque:</span>
+                            <span class="font-semibold">{{ vehicle.brand }}</span>
+                        </div>
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                            <span>Modèle:</span>
+                            <span class="font-semibold">{{ vehicle.model }}</span>
+                        </div>
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                            <span>Énergie:</span>
+                            <span class="font-semibold">{{ vehicle.energy }}</span>
+                        </div>
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                            <span>Année:</span>
+                            <span class="font-semibold">{{ vehicle.year }}</span>
+                        </div>
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                            <span>Kilométrage:</span>
+                            <span class="font-semibold">{{ vehicle.km }}</span>
+                        </div>
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                            <span>Boîte de vitesse:</span>
+                            <span class="font-semibold">{{ vehicle.gearbox }}</span>
+                        </div>
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                            <span>Puissance (cv):</span>
+                            <span class="font-semibold">{{ vehicle.power }}</span>
+                        </div>
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                            <span>Vignette crit'air:</span>
+                            <span class="font-semibold">{{ vehicle.critair }}</span>
+                        </div>
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                            <span>Couleur:</span>
+                            <span class="font-semibold">{{ vehicle.color }}</span>
+                        </div>
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                            <span>Nombre de sièges:</span>
+                            <span class="font-semibold">{{ vehicle.seats }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END SECTION VEHICLE LIST-->
+
+    <!-- SECTION MODAL VEHICLE CONTACT-->
+    {% include 'garage/modal/modal-vehicle-contact.html' %}
+
+    <!-- SECTION MODAL MESSAGES-->
+    {% include 'garage/modal/modal-messages.html' %}
+{% endblock main %}
