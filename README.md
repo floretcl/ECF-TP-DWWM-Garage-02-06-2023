@@ -59,6 +59,13 @@
     DB_PASSWORD=password
     DB_HOST=localhost
     DB_PORT=3306
+    
+    EMAIL_HOST=email_host
+    EMAIL_PORT=587
+    EMAIL_HOST_USER=email_user
+    EMAIL_HOST_PASSWORD=email_password
+    EMAIL_USE_TLS=True
+    EMAIL_USE_LOCALTIME=True
     ```
 - Initialize Database and create admin superuser :
   - In garage_vparrot root folder (with manage.py file) :
