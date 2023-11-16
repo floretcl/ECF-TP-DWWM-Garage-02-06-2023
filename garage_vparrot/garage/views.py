@@ -1,5 +1,6 @@
 from math import floor, ceil
 from django.http import JsonResponse
+from django.urls import reverse_lazy
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.forms.models import model_to_dict
@@ -188,8 +189,8 @@ class VehicleDetailView(DetailView):
 
 class VehicleContactFormView(FormView):
     template_name = 'garage/vehicle-detail.html'
+    model = Vehicle
     form_class = VehicleContactForm
-    success_url = ''
     success_message = ("Bonjour {first_name}, merci de nous avoir contactés à propos de ce véhicule. Nous revenons "
                        "vers vous au plus vite.")
 
@@ -198,6 +199,9 @@ class VehicleContactFormView(FormView):
         form.send_email()
         messages.success(self.request, self.success_message.format(first_name=form.cleaned_data.get("first_name")))
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('garage:vehicle-detail', kwargs={'pk': self.kwargs['pk']})
 
 
 class ContactView(FormView):
