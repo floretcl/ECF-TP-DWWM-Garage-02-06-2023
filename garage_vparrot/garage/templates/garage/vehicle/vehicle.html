@@ -1,7 +1,9 @@
+{% load pictures %}
 <div class="shadow-lg rounded-md">
     <div>
         <a href="{% url 'garage:vehicle-detail' vehicle.id %}">
             <div class="overflow-hidden h-auto rounded-t-md">
+                <!--{% picture vehicle.pictures.first.picture vehicle.name img_class="object-cover max-h-64 hover:scale-105 hover:brightness-110 transition" img_loading="lazy" %}-->
                 <img class="object-cover max-h-64 hover:scale-105 hover:brightness-110 transition"
                      src="../{{ vehicle.pictures.first }}" alt="{{ vehicle.name }}"/>
             </div>
