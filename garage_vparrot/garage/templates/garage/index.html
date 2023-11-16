@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block scripts %}
+    <script src="{% static 'garage/javascript/review.js' %}" defer></script>
     <script src="{% static 'garage/javascript/rating-stars.js' %}" defer></script>
     <script src="{% static 'garage/javascript/modal-review.js' %}" defer></script>
     <script src="{% static 'garage/javascript/modal-messages.js' %}" defer></script>
@@ -152,7 +153,9 @@
             <ul class="flex flex-col lg:flex-row flex-nowrap justify-center items-center mt-6 mb-10">
                 {% for review in reviews %}
                     <!-- CUSTOMER REVIEW-->
-                    {% include 'garage/review/review.html' %}
+                    <li>
+                        {% include 'garage/review/review.html' %}
+                    </li>
                 {% endfor %}
             </ul>
             <div class="flex flex-row flex-nowrap justify-center items-center">
