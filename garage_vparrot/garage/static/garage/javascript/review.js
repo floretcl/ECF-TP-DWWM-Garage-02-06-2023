@@ -1,17 +1,25 @@
 const reviews = document.querySelectorAll('.review');
-const reviewFull = document.querySelector('#review-full');
-const reviewFullCloseBtn = document.querySelector('#review-full-close-btn');
+const reviewFullCloseButtons = document.querySelectorAll('.review-full-close-btn');
 
-const toggleReviewCard = () => {
-    reviewFull.classList.toggle('hidden');
+const getElementReviewFull = (element) => {
+    const id = element.getAttribute('id');
+    return document.querySelector(`#review-full-${id}`);
+}
+
+const toggleReviewFull = (review) => {
+    review.classList.toggle('hidden');
 }
 
 reviews.forEach((review) => {
     review.addEventListener('click', () => {
-        toggleReviewCard();
+        const reviewFull = getElementReviewFull(review);
+        toggleReviewFull(reviewFull);
     });
 });
 
-reviewFullCloseBtn.addEventListener('click', () => {
-    toggleReviewCard();
-});
+reviewFullCloseButtons.forEach((closeBtn) => {
+    closeBtn.addEventListener('click', () => {
+        const reviewFull = getElementReviewFull(closeBtn);
+        toggleReviewFull(reviewFull);
+    })
+})

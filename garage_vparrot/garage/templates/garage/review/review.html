@@ -1,4 +1,4 @@
-<div class="review flex flex-col flex-nowrap justify-center items-center rounded w-auto max-w-md md:max-w-xl lg:mx-4 my-6 sm:my-8 p-6 sm:p-8 md:p-10 bg-slate-200 shadow-lg h-full hover:cursor-pointer hover:shadow-xl transition">
+<div id="{{ review.id }}" class="review flex flex-col flex-nowrap justify-center items-center rounded w-auto max-w-md md:max-w-xl lg:mx-4 my-6 sm:my-8 p-6 sm:p-8 md:p-10 bg-slate-200 shadow-lg h-full hover:cursor-pointer hover:shadow-xl transition">
     <div>
         <ul class="flex flex-row flex-nowrap mb-4">
             {% for value in review.list_to_display_stars %}
@@ -29,5 +29,3 @@
     </p>
     <p class="font-medium text-onyx">{{ review.name }}</p>
 </div>
-<!-- FULL REVIEW -->
-{% include 'garage/review/review-full.html' %}
