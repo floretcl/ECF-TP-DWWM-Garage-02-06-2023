@@ -1,4 +1,6 @@
 {% load pictures %}
+{% load humanize %}
+
 <div class="shadow-lg rounded-md">
     <div>
         <a href="{% url 'garage:vehicle-detail' vehicle.id %}">
@@ -15,11 +17,11 @@
         </h3>
         <ul class="list-disc list-inside text-slate-500 mb-3 lg:mb-4 xl:mb-5">
             <li>Année: <span>{{ vehicle.year }}</span></li>
-            <li>Kilométrage: <span>{{ vehicle.km }}</span> km</li>
+            <li>Kilométrage: <span>{{ vehicle.km|intcomma }}</span> km</li>
             <li>Énergie: <span>{{ vehicle.energy }}</span></li>
         </ul>
         <p class="font-bold text-lg text-onyx my-4">
-            {{ vehicle.price }}<span> €</span>
+            {{ vehicle.price|intcomma }}<span> €</span>
         </p>
         <div class="self-center">
             <div class="flex flex-row flex-nowrap justify-center items-center my-2">

@@ -1,6 +1,7 @@
 {% extends "garage/base.html" %}
 {% load static %}
 {% load pictures %}
+{% load humanize %}
 
 
 {% block scripts %}
@@ -62,11 +63,11 @@
                         <h3 id="vehicle-title" title="{{ vehicle.name }}" class="font-rokkitt font-bold text-2xl text-onyx uppercase mb-4">{{ vehicle.name }}</h3>
                         <ul class="list-disc list-inside text-slate-500 my-2">
                             <li class="my-1">Année: <span>{{ vehicle.year }}</span></li>
-                            <li class="my-1">Kilométrage: <span>{{ vehicle.km }}</span> km</li>
+                            <li class="my-1">Kilométrage: <span>{{ vehicle.km|intcomma }}</span> km</li>
                             <li class="my-1">Énergie: <span>{{ vehicle.energy }}</span></li>
                         </ul>
                         <p class="font-bold text-2xl text-onyx my-6">
-                            {{ vehicle.price }}<span> €</span>
+                            {{ vehicle.price|intcomma }}<span> €</span>
                         </p>
                         <div class="self-center">
                             <p class="text-center lg:text-left text-celestialBlue">Besoin de plus d'informations ?</p>
@@ -100,7 +101,7 @@
                         </div>
                         <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 lg:py-2">
                             <span>Kilométrage:</span>
-                            <span class="font-semibold">{{ vehicle.km }}</span>
+                            <span class="font-semibold">{{ vehicle.km|intcomma }}</span>
                         </div>
                         <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 lg:py-2">
                             <span>Boîte de vitesse:</span>
