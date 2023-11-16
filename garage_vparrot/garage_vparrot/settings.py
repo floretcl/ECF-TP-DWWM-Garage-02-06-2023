@@ -37,6 +37,10 @@ if env('ENV') == 'PROD':
 else:
     ALLOWED_HOSTS = ['*']
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'debug_toolbar',
     'pictures'
 ]
@@ -125,8 +130,11 @@ LANGUAGE_CODE = 'fr'
 TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
+USE_L10N = True
 
 USE_TZ = True
+
+THOUSAND_SEPARATOR = ' '
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -139,13 +147,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#
-#
-# Custom
-
-INTERNAL_IPS = [
-    '127.0.0.1',
-]
 
 # Security
 
