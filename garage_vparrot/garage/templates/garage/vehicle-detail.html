@@ -6,6 +6,7 @@
 {% block scripts %}
     <script src="{% static 'garage/javascript/modal-vehicle-contact.js' %}" defer></script>
     <script src="{% static 'garage/javascript/modal-messages.js' %}" defer></script>
+    <script src="{% static 'garage/javascript/vehicle-detail.js' %}" defer></script>
 {% endblock %}
 
 {% block title %}Véhicules d'occasion | Garage V.Parrot à Toulouse{% endblock %}
@@ -35,27 +36,29 @@
 
     <!-- SECTION VEHICLE LIST-->
     <section id="vehicles">
-        <div class="lg:container mx-auto flex flex-col flex-nowrap justify-center items-center sm:px-14 pb-14 bg-whiteTeal">
+        <div class="xl:container mx-auto flex flex-col flex-nowrap justify-center items-center sm:px-14 pb-14 bg-whiteTeal">
             <h2 class="font-rasa text-xl uppercase mb-4 hidden">
                 Fiche du véhicule d'occasion: {{ vehicle.name }}
             </h2>
-            <div id="vehicle-detail" class="flex flex-col flex-nowrap mt-12 mb-4">
-                <div class="flex flex-col flex-nowrap">
-                    <div>
-                        <div class="bg-amber-800 my-2">
-                            {% picture vehicle.pictures.first.picture vehicle.name picture_class="" img_class="" img_loading="lazy" %}
+            <div id="vehicle-detail" class="flex flex-col flex-nowrap justify-center items-center max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-none mt-12 mb-4">
+                <div class="flex flex-col lg:flex-row flex-nowrap w-full lg:my-5 lg:pb-3 xl:pb-5">
+                    <div class="flex flex-col md:flex-row flex-nowrap md:max-h-96">
+                        <div id="vehicle-main-picture" class="md:h-96 my-2 md:my-0 md:me-2 lg:me-3 xl:me-4">
+                            <!--{% picture vehicle.pictures.first.picture vehicle.name img_class="object-cover md:h-96" img_loading="lazy" %}-->
+                            <img class="object-cover md:h-96 rounded-md" src="/{{ vehicle.pictures.first.picture }}" alt="{{ vehicle.name }}">
                         </div>
-                        <div class="bg-amber-900">
-                            <ul class="flex flex-row flex-nowrap overflow-x-scroll w-screen">
+                        <div id="vehicle-thumbnails">
+                            <ul class="flex flex-row md:flex-col flex-nowrap w-screen max-w-full sm:w-full md:max-h-96 overflow-scroll rounded-md">
                                 {% for picture in vehicle.pictures.all %}
-                                    <li class="w-32">
-                                        {% picture picture.picture vehicle.name picture_class="" img_class="" img_loading="lazy" %}
+                                    <li id="{{ picture.picture }}" class="vehicle-thumbnail-picture hover:cursor-pointer hover:brightness-125 transition mx-0.5 md:my-0.5">
+                                        <!--{% picture picture.picture vehicle.name img_class="max-w-none w-28 sm:w-32" img_loading="lazy" sm=2 md=2 lg=1 %}-->
+                                        <img class="max-w-none w-28 sm:w-32" src="/{{ picture.picture }}" alt="{{ vehicle.name }}">
                                     </li>
                                 {% endfor %}
                             </ul>
                         </div>
                     </div>
-                    <div class="py-8 px-6">
+                    <div class="flex flex-col flex-nowrap lg:justify-around lg:items-start py-8 px-6 md:py-10 lg:py-2 lg:px-8 xl:px-12">
                         <h3 id="vehicle-title" title="{{ vehicle.name }}" class="font-rokkitt font-bold text-2xl text-onyx uppercase mb-4">{{ vehicle.name }}</h3>
                         <ul class="list-disc list-inside text-slate-500 my-2">
                             <li class="my-1">Année: <span>{{ vehicle.year }}</span></li>
@@ -66,8 +69,8 @@
                             {{ vehicle.price }}<span> €</span>
                         </p>
                         <div class="self-center">
-                            <p class="text-center text-celestialBlue">Un besoin d'information ?</p>
-                            <div class="flex flex-row flex-nowrap justify-center items-center my-2">
+                            <p class="text-center lg:text-left text-celestialBlue">Besoin de plus d'informations ?</p>
+                            <div class="flex flex-row flex-nowrap justify-center lg:justify-start items-center my-2">
                                 <button id="modal-vehicles-open-btn"
                                         class="modal-vehicles-open-btn font-regular text-whiteTeal uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded">
                                     Contactez nous
@@ -76,46 +79,46 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-onyx rounded-lg px-4 pt-6 pb-8">
+                <div class="bg-onyx rounded-md w-full px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
                     <h4 class="font-rokkitt text-lg text-whiteTeal uppercase mb-4">Informations générales</h4>
-                    <div class="grid grid-cols-1">
-                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-2 gap-x-6 lg:gap-y-3">
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 lg:py-2">
                             <span>Marque:</span>
                             <span class="font-semibold">{{ vehicle.brand }}</span>
                         </div>
-                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 lg:py-2">
                             <span>Modèle:</span>
                             <span class="font-semibold">{{ vehicle.model }}</span>
                         </div>
-                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 lg:py-2">
                             <span>Énergie:</span>
                             <span class="font-semibold">{{ vehicle.energy }}</span>
                         </div>
-                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 lg:py-2">
                             <span>Année:</span>
                             <span class="font-semibold">{{ vehicle.year }}</span>
                         </div>
-                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 lg:py-2">
                             <span>Kilométrage:</span>
                             <span class="font-semibold">{{ vehicle.km }}</span>
                         </div>
-                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 lg:py-2">
                             <span>Boîte de vitesse:</span>
                             <span class="font-semibold">{{ vehicle.gearbox }}</span>
                         </div>
-                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 lg:py-2">
                             <span>Puissance (cv):</span>
                             <span class="font-semibold">{{ vehicle.power }}</span>
                         </div>
-                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 lg:py-2">
                             <span>Vignette crit'air:</span>
                             <span class="font-semibold">{{ vehicle.critair }}</span>
                         </div>
-                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 lg:py-2">
                             <span>Couleur:</span>
                             <span class="font-semibold">{{ vehicle.color }}</span>
                         </div>
-                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 my-1">
+                        <div class="flex justify-between bg-whiteTeal rounded text-onyx px-3 py-1.5 lg:py-2">
                             <span>Nombre de sièges:</span>
                             <span class="font-semibold">{{ vehicle.seats }}</span>
                         </div>
