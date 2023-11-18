@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* MAIN */
 
 .preload * {
@@ -10,24 +11,35 @@
 
 /* BACKGROUND IMAGES */
 
-.bg-homeHeadingImg {
-    background-image: url('../../../static/garage/images/pictures/img-15.jpg');
+.bg-heading {
+    position: relative;
+}
+
+.bg-heading:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(0deg, rgba(69,69,69,0.4) 0%, rgba(69,69,69,1) 100%);
+}
+
+.bg-heading-home {
     background-image: image-set(
             url("../../../static/garage/images/pictures/img-15.webp") type("image/webp"),
             url("../../../static/garage/images/pictures/img-15.jpg") type("image/jpeg")
     );
 }
 
-.bg-vehiclesHeadingImg {
-    background-image: url('../../../static/garage/images/pictures/img-20.jpg');
+.bg-heading-vehicles {
     background-image: image-set(
             url("../../../static/garage/images/pictures/img-20.webp") type("image/webp"),
             url("../../../static/garage/images/pictures/img-20.jpg") type("image/jpeg")
     );
 }
 
-.bg-contactHeadingImg {
-    background-image: url('../../../static/garage/images/pictures/img-18.jpg');
+.bg-heading-contact {
     background-image: image-set(
             url("../../../static/garage/images/pictures/img-18.webp") type("image/webp"),
             url("../../../static/garage/images/pictures/img-18.jpg") type("image/jpeg")
@@ -37,7 +49,7 @@
 /* BUTTONS */
 
 .btn-gradient-animation {
-    background: linear-gradient(90deg, #1f01b9 0% 20%, #1e91d6 80% 100%);
+    background: linear-gradient(90deg, #1f01b9 0% 20%, #007cbb 80% 100%);
     background-size: 400% 100%;
     background-position: 100% 0%;
     transition: all 300ms ease-in-out;
@@ -52,6 +64,20 @@
 
 .mobile-menu-active {
     height: 214px !important;
+}
+
+/* FOR MOBILE MENU ANIMATION */
+
+.transform-mobile-menu-line2 {
+    opacity: 0;
+}
+
+.transform-mobile-menu-line1 {
+    transform: translateY(0.625rem) rotate(45deg);
+}
+
+.transform-mobile-menu-line3 {
+    transform: translateY(-0.5rem) rotate(-45deg);
 }
 
 /* INPUT RANGE */
@@ -75,14 +101,14 @@
     -webkit-mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"/></svg>') left center/2rem repeat-x;
     block-size: 100%;
     inline-size: calc(2rem * var(--number));
-    background: linear-gradient(to right, #1e91d6 0 var(--percentage), #c3c3c3 0 var(--percentage));
+    background: linear-gradient(to right, #007cbb 0 var(--percentage), #c3c3c3 0 var(--percentage));
 }
 
 .range-stars::-moz-range-track {
     mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"> <path d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"/></svg>') left center/2rem repeat-x;
     block-size: 100%;
     inline-size: calc(2rem * var(--number));
-    background: linear-gradient(to right, #1e91d6 0 var(--percentage), #c3c3c3 0 var(--percentage));
+    background: linear-gradient(to right, #007cbb 0 var(--percentage), #c3c3c3 0 var(--percentage));
 }
 
 .range-stars::-moz-range-thumb {
@@ -125,13 +151,13 @@
 }
 
 .range-filters::-webkit-slider-thumb:hover {
-    background-color: #1e91d6;
+    background-color: #007cbb;
 }
 
 .range-filters::-webkit-slider-thumb:active {
-    background-color: #1e91d6;
-    box-shadow: inset 0 0 2px #1e91d6, 0 0 4px #1e91d6;
-    -webkit-box-shadow: inset 0 0 2px #1e91d6, 0 0 4px #1e91d6;
+    background-color: #007cbb;
+    box-shadow: inset 0 0 2px #007cbb, 0 0 4px #007cbb;
+    -webkit-box-shadow: inset 0 0 2px #007cbb, 0 0 4px #007cbb;
 }
 
 .range-filters::-moz-range-thumb {
@@ -146,13 +172,13 @@
 }
 
 .range-filters::-moz-range-thumb:hover {
-    background-color: #1e91d6;
+    background-color: #007cbb;
 }
 
 .range-filters::-moz-range-thumb:active {
-    background-color: #1e91d6;
-    box-shadow: inset 0 0 2px #1e91d6, 0 0 4px #1e91d6;
-    -webkit-box-shadow: inset 0 0 2px #1e91d6, 0 0 4px #1e91d6;
+    background-color: #007cbb;
+    box-shadow: inset 0 0 2px #007cbb, 0 0 4px #007cbb;
+    -webkit-box-shadow: inset 0 0 2px #007cbb, 0 0 4px #007cbb;
 }
 
 #range-price-min,
