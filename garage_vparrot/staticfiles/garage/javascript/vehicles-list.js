@@ -1,4 +1,4 @@
-const celestialBlueColor = "#1E91D6";
+const celestialBlueColor = "#007CBB";
 const greyColor = "#C3C3C3";
 const priceStep = 1000;
 const yearStep = 1;
