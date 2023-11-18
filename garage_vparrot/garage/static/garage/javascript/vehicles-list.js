@@ -79,7 +79,7 @@ const limitMaxSlider = (rangeMin, rangeMax) => {
 };
 
 const fillSlider = (rangeMin, rangeMax) => {
-    const celestialBlueColor = "#1E91D6";
+    const celestialBlueColor = "#007CBB";
     const greyColor = "#C3C3C3";
     const rangeDistance = rangeMax.max - rangeMin.min;
     const minPosition = rangeMin.value - rangeMin.min;

@@ -5,9 +5,8 @@ module.exports = {
     extend: {
       colors: {
         onyx: "#454545",
-        celestialBlue: "#1E91D6",
+        celestialBlue: "#007CBB",
         whiteTeal: "#FBFFFE",
-        rosyBrown: "#BF8B85",
         darkBlue: "#1F01B9",
         whiteTealForGradient: "#FBFFFECC",
       },
