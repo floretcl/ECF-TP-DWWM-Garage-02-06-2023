@@ -9,11 +9,10 @@ const toggleMobileMenu = () => {
 };
 
 const toggleTransitionButtonMobileMenu = () => {
-    mobileMenuLine2.classList.toggle('opacity-0');
-    mobileMenuLine1.classList.toggle('rotate-45');
-    mobileMenuLine3.classList.toggle('-rotate-45');
-    mobileMenuLine1.classList.toggle('translate-y-2.5');
-    mobileMenuLine3.classList.toggle('-translate-y-2');
+    console.log('work');
+    mobileMenuLine1.classList.toggle('transform-mobile-menu-line1');
+    mobileMenuLine2.classList.toggle('transform-mobile-menu-line2');
+    mobileMenuLine3.classList.toggle('transform-mobile-menu-line3');
 };
 
 buttonMobileMenu.addEventListener('click', () => {
