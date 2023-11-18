@@ -16,7 +16,9 @@ from pathlib import Path
 # Django-environ
 # environment variables
 
-env = environ.Env()
+env = environ.Env(
+    DEBUG=(bool, False)
+)
 environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -139,24 +141,33 @@ THOUSAND_SEPARATOR = ' '
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+if env('ENV') == 'PROD':
+    STATIC_URL = 'garage_vparrot/static/'
+    STATIC_ROOT = '/home/uzfucnyd/public_html/garage_vparrot/static/'
+else:
+    STATIC_URL = 'static/'
+    STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Media
+
+if env('ENV') == 'PROD':
+    MEDIA_URL = ''
+    MEDIA_ROOT = '/home/uzfucnyd/public_html/'
 
 # Security
 
 if env('ENV') == 'PROD':
+    ADMINS = env('ADMINS')  # CODE ERROR NOTIFICATIONS
     CSRF_TRUSTED_ORIGINS = ['https://garage-vparrot.clementfloret.fr']
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
     SECURE_SSL_REDIRECT = True
-    ADMINS = env('ADMINS')
-    # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 else:
     CSRF_TRUSTED_ORIGINS = ['https://*.127.0.0.1']
 
