@@ -1,0 +1,21 @@
+{% extends "garage/base.html" %}
+{% load static %}
+
+{% block meta %}
+    <meta name="robots" content="noindex, nofollow">
+{% endblock %}
+
+{% block title %}Garage V.Parrot à Toulouse{% endblock %}
+{% block meta-description %}
+    Le garage V.parrot vous propose ses services de mécanique, carrosserie et ses forfaits d'entretien. Confiez la santé
+    de votre véhicule à des professionnels passionnés. Réparation de véhicules toutes marques. Garage V.Parrot, 11 Rue
+    Léon Jouhaux, 31500 Toulouse.
+{% endblock %}
+
+<!-- MAIN -->
+{% block main %}
+    <section id="404" class="flex flex-col flex-nowrap justify-center items-center px-8 pt-12 pb-4 xl:mx-2 bg-whiteTeal">
+        <h1 class="my-2">Erreur 404 : ressource introuvable</h1>
+        <a href="{% url 'garage:index' %}">Retournez à l'accueil</a>
+    </section>
+{% endblock main %}
