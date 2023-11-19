@@ -45,14 +45,14 @@
                 <div class="flex flex-col lg:flex-row flex-nowrap w-full lg:my-5 lg:pb-3 xl:pb-5">
                     <div class="flex flex-col md:flex-row flex-nowrap md:max-h-96">
                         <div id="vehicle-main-picture" class="md:h-96 my-2 md:my-0 md:me-2 lg:me-3 xl:me-4">
-                            <!--{% picture vehicle.pictures.first.picture vehicle.name img_class="object-cover md:h-96" img_loading="lazy" %}-->
+                            {# {% picture vehicle.pictures.first.picture vehicle.name img_class="object-cover md:h-96" img_loading="lazy" %} #}
                             <img class="object-cover md:h-96 rounded-md" src="/{{ vehicle.pictures.first.picture }}" alt="{{ vehicle.name }}">
                         </div>
                         <div id="vehicle-thumbnails">
                             <ul class="flex flex-row md:flex-col flex-nowrap w-screen max-w-full sm:w-full md:max-h-96 overflow-scroll rounded-md">
                                 {% for picture in vehicle.pictures.all %}
                                     <li id="{{ picture.picture }}" class="vehicle-thumbnail-picture hover:cursor-pointer hover:brightness-125 transition mx-0.5 md:my-0.5">
-                                        <!--{% picture picture.picture vehicle.name img_class="max-w-none w-28 sm:w-32" img_loading="lazy" sm=2 md=2 lg=1 %}-->
+                                        {# {% picture picture.picture vehicle.name img_class="max-w-none w-28 sm:w-32" img_loading="lazy" sm=2 md=2 lg=1 %} #}
                                         <img class="max-w-none w-28 sm:w-32" src="/{{ picture.picture }}" alt="{{ vehicle.name }}">
                                     </li>
                                 {% endfor %}
