@@ -54,8 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'debug_toolbar',
-    'pictures'
+    'debug_toolbar'
 ]
 
 MIDDLEWARE = [
@@ -179,21 +178,3 @@ EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = env('EMAIL_USE_TLS')
 EMAIL_USE_LOCALTIME = env('EMAIL_USE_LOCALTIME')
-
-# Django pictures
-PICTURES = {
-    "BREAKPOINTS": {
-        "sm": 640,
-        "md": 768,
-        "lg": 1024,
-        "xl": 1280,
-        "2xl": 1536,
-    },
-    "GRID_COLUMNS": 12,
-    "CONTAINER_WIDTH": 1536,
-    "FILE_TYPES": ["WEBP"],
-    "PIXEL_DENSITIES": [1, 2],
-    "USE_PLACEHOLDERS": False,
-    "QUEUE_NAME": "pictures",
-    "PROCESSOR": "pictures.tasks.process_picture",
-}

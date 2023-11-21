@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth import models as auth_models
 from django.utils import timezone
 from django.core import validators
-from pictures import models as pictures_models
 
 
 class Garage(models.Model):
@@ -66,7 +65,7 @@ class OpeningTime(models.Model):
 
 class ServiceType(models.Model):
     name = models.CharField("nom", max_length=50)
-    image = pictures_models.PictureField("image", upload_to="uploads/%Y/%m/")
+    image = models.ImageField("image", upload_to="uploads/%Y/%m/")
 
     def __str__(self) -> str:
         return self.name
@@ -130,7 +129,7 @@ class VehiclePicture(models.Model):
         on_delete=models.PROTECT,
         related_name="pictures",
     )
-    picture = pictures_models.PictureField("photos", upload_to="uploads/%Y/%m/")
+    picture = models.ImageField("photos", upload_to="uploads/%Y/%m/")
 
     def __str__(self) -> str:
         return self.picture.name

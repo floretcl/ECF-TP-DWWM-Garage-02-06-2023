@@ -18,7 +18,6 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
-from pictures.conf import get_settings
 import debug_toolbar
 
 urlpatterns = [
@@ -26,12 +25,7 @@ urlpatterns = [
     path('', include('garage.urls')),
 ]
 
-if get_settings().USE_PLACEHOLDERS:
-    urlpatterns += [
-        path('_pictures/', include("pictures.urls")),
-    ]
-
 if settings.DEBUG:
     urlpatterns += [
-                       path('__debug__/', include(debug_toolbar.urls)),
-                   ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+       path('__debug__/', include(debug_toolbar.urls)),
+   ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
