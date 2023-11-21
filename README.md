@@ -1,53 +1,52 @@
 # ECF-TP-DWWM-Garage-02-06-2023
 
-## Garage V.Parrot website
+## Garage V.Parrot web app
 
 [Link to the Website](https://garage-vparrot.clementfloret.fr/)
 
 ### Requirements
 
-- Python 3.11.5
-- Django 4.2.3
-- MariaDB 10.11.4
+- Node (21.1.0) & Npm (10.2.0) [Nodejs.org](https://nodejs.org/)
+- Python (3.9.6) [wiki.python.org](https://wiki.python.org/moin/BeginnersGuide/Download)
+- Pip (21.2.4) [pip documentation](https://pip.pypa.io/en/stable/installation/)
+- MariaDB (11.1.3) [https://mariadb.org/download/](https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.1.3)
 
 ### Installation
-
-- Install python 3.11 [wiki.python.org](https://wiki.python.org/moin/BeginnersGuide/Download) 
-
-- Install and start MariaDB 10.11 [https://mariadb.org/download/](https://dev.mysql.com/doc/refman/8.1/en/installing.html)
-
-- Create database with MariaDB :
-  - `CREATE DATABASE garage_vparrot;`
-
-- Create an admin with privileges (replace password by yours) :
-  - `CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';`
-
-- Add admin privileges to database : 
-  - `GRANT ALL ON garage_vparrot.* TO 'admin'@'localhost';`
-  - `FLUSH PRIVILEGES;`
 
 - Clone the repository :
   - `git clone https://github.com/floretcl/ECF-TP-DWWM-Garage-02-06-2023.git`
 
 - Install and create virtual env :
-  - `cd ECF-TP-DWWM-Garage-02-06-2023/garage_vparrot`
-  - Install [Pypi virtualenv](https://pypi.org/project/virtualenv/)
-  - `python3 -m pip install virtualenv`
-  - Create `python3 -m venv venv`
-  - then start virtual env : `source venv/bin/activate`
-  - update pip version : `pip install --upgrade pip`
+  - Go to garage_vparrot root folder (with "manage.py" file) : `cd ECF-TP-DWWM-Garage-02-06-2023/garage_vparrot`
+  - Install virtualenv with pip : `python3 -m pip install virtualenv`
+  - Create a virtualenv `python3 -m venv venv`
+  - Start virtual env : `source venv/bin/activate` 
 
-- Install Django and other packages :
-  - `pip install -r requirements.txt`
+- Install Django and pip packages :
+  - Upgrade pip : `pip install --upgrade pip`
+  - Install requirements `pip install -r requirements.txt`
 
-- Install tailwindcss with npm :
-  - Install [Nodejs and npm](https://nodejs.org/) 
-  - `npm install`
+- Initialize npm and install tailwindcss :
+  - `npm init -y`  
+  - `npm install -D tailwindcss`
+
+- Create css output file with Tailwindcss :
+  - `npm run tailwind-build`
+
+- Create database with MariaDB :
+  - `CREATE DATABASE garage_vparrot;`
+
+- Create an admin with password (replace username and password by yours) :
+  - `CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';`
+
+- Add admin privileges : 
+  - `GRANT ALL ON garage_vparrot.* TO 'admin'@'localhost';`
+  - `FLUSH PRIVILEGES;`
 
 - Create and set .env file
-  - `cd garage_vparrot` (dir : ECF-TP-DWWM-Garage-02-06-2023/garage_vparrot/garage_vparrot)
+  - Go to garage_vparrot project folder (with "settings.py" file) : `cd garage_vparrot`
   - create an .env file 
-  - copy and replace with your mariadb user password and secret_key (create a secret_key with at least 50 characters) :
+  - copy and replace with your secret_key and your mariadb admin username, password (create a secret_key with at least 50 characters) :
 
     ```
     DEBUG=True
@@ -60,29 +59,33 @@
     DB_HOST=localhost
     DB_PORT=3306
     
-    EMAIL_HOST=email_host
-    EMAIL_PORT=587
-    EMAIL_HOST_USER=email_user
-    EMAIL_HOST_PASSWORD=email_password
-    EMAIL_USE_TLS=True
+    EMAIL_HOST=localhost
+    EMAIL_PORT=8025
+    EMAIL_HOST_USER=
+    EMAIL_HOST_PASSWORD=
+    EMAIL_USE_TLS=
     EMAIL_USE_LOCALTIME=True
     ```
-- Initialize Database and create admin superuser :
-  - In garage_vparrot root folder (with manage.py file) :
-    - `python manage.py migrate`
-
-- Migrate and load data :
-  - `python manage.py loaddata contenttypes.json`
-  - `python manage.py makemigrations`
+    
+- Initialize database :
+  - Go to garage_vparrot root folder (with "manage.py" file) : `cd ..`
   - `python manage.py migrate`
+  - `python manage.py loaddata contenttypes.json`
   - `python manage.py loaddata sample.json`
-
-- Check project with : `python manage.py check`
 
 - Create an admin superuser :
   - `python manage.py createsuperuser`
 
+- Check project with : `python manage.py check`
+
 - Run Django server:
   - `python manage.py runserver`
+  -  now the wep app should be accessible at the following url : [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+
+#### Configuring email for development (Avoiding errors when submitting a contact form)
+- Start a "dumb" smtp server with aiosmtpd
+  - `python3 -m aiosmtpd -n -l localhost:8025`
+- aiosmtpd will receive the emails locally and display them to the terminal
+
 
 "ECF - TP DWWM - Sujet Garage" - Created on 02 June 2023.
