@@ -26,24 +26,15 @@
 }
 
 .bg-heading-home {
-    background-image: image-set(
-            url("../../../static/garage/images/pictures/img-15.webp") type("image/webp"),
-            url("../../../static/garage/images/pictures/img-15.jpg") type("image/jpeg")
-    );
+    background-image: url("../../../static/garage/images/pictures/img-15.webp");
 }
 
 .bg-heading-vehicles {
-    background-image: image-set(
-            url("../../../static/garage/images/pictures/img-20.webp") type("image/webp"),
-            url("../../../static/garage/images/pictures/img-20.jpg") type("image/jpeg")
-    );
+    background-image: url("../../../static/garage/images/pictures/img-20.webp");
 }
 
 .bg-heading-contact {
-    background-image: image-set(
-            url("../../../static/garage/images/pictures/img-18.webp") type("image/webp"),
-            url("../../../static/garage/images/pictures/img-18.jpg") type("image/jpeg")
-    );
+    background-image: url("../../../static/garage/images/pictures/img-18.webp");
 }
 
 /* BUTTONS */
