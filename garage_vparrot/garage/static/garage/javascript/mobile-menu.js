@@ -9,7 +9,6 @@ const toggleMobileMenu = () => {
 };
 
 const toggleTransitionButtonMobileMenu = () => {
-    console.log('work');
     mobileMenuLine1.classList.toggle('transform-mobile-menu-line1');
     mobileMenuLine2.classList.toggle('transform-mobile-menu-line2');
     mobileMenuLine3.classList.toggle('transform-mobile-menu-line3');
