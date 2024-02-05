@@ -126,7 +126,7 @@ class Vehicle(models.Model):
 class VehiclePicture(models.Model):
     vehicle = models.ForeignKey(
         Vehicle,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
         related_name="pictures",
     )
     picture = models.ImageField("photos", upload_to="uploads/%Y/%m/")
