@@ -6,6 +6,6 @@ Django==5.0.2
 django-debug-toolbar==4.3.0
 django-environ==0.11.2
 django-pictures==1.2.2
-mysqlclient==2.2.4
+mysqlclient==2.2.1
 pillow==10.2.0
 sqlparse==0.4.4
