@@ -6,9 +6,9 @@
 
 ### Requirements
 
-- Node (21.1.0) & Npm (10.2.0) [Nodejs.org](https://nodejs.org/)
-- Python (3.9.6) [wiki.python.org](https://wiki.python.org/moin/BeginnersGuide/Download)
-- Pip (21.2.4) [pip documentation](https://pip.pypa.io/en/stable/installation/)
+- Node (21.6.2) & Npm (10.2.4) [Nodejs.org](https://nodejs.org/)
+- Python (3.12.2) [wiki.python.org](https://wiki.python.org/moin/BeginnersGuide/Download)
+- Pip (24.0) [pip documentation](https://pip.pypa.io/en/stable/installation/)
 - MariaDB (11.1.3) [https://mariadb.org/download/](https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.1.3)
 
 ### Installation
