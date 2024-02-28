@@ -26,6 +26,7 @@ class ContactForm(ModelForm):
             'phone_number': TextInput(attrs={
                 'type': 'tel',
                 'pattern': '0[1-9]{1}[0-9]{8}',
+                'title': 'Entrez un numéro de téléphone français valide, ex: 0123456789.',
             }),
         }
 
@@ -44,6 +45,7 @@ class VehicleContactForm(ModelForm):
             'phone_number': TextInput(attrs={
                 'type': 'tel',
                 'pattern': '0[1-9]{1}[0-9]{8}',
+                'title': 'Entrez un numéro de téléphone français valide, ex: 0123456789.',
             })
         }
 
