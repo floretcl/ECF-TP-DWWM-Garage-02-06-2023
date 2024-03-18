@@ -14,7 +14,7 @@ def contact_mail(cleaned_data):
         subject=f'Message reçu de {first_name} {last_name} - {phone_number}, sujet: {subject or "Non renseigné"}',
         message=message,
         from_email=email,
-        recipient_list=['contact@garage-vparrot.clementfloret.fr'],
+        recipient_list=['contact@garage-vparrot.clementfloret.dev'],
     )
 
 
