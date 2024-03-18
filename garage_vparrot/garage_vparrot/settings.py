@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 import environ
+from .validators import PasswordCharacterValidator
 from pathlib import Path
 
 # Django-environ
@@ -35,7 +36,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
 if env('ENV') == 'PROD':
-    ALLOWED_HOSTS = ['garage-vparrot.clementfloret.fr']
+    ALLOWED_HOSTS = ['garage-vparrot.clementfloret.dev']
 else:
     ALLOWED_HOSTS = ['*']
 
@@ -115,6 +116,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 12,
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -122,6 +126,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {
+        'NAME': 'garage_vparrot.validators.PasswordCharacterValidator',
+    }
 ]
 
 # Internationalization
@@ -163,7 +170,7 @@ if env('ENV') == 'PROD':
 
 if env('ENV') == 'PROD':
     ADMINS = env('ADMINS')  # CODE ERROR NOTIFICATIONS
-    CSRF_TRUSTED_ORIGINS = ['https://garage-vparrot.clementfloret.fr']
+    CSRF_TRUSTED_ORIGINS = ['https://garage-vparrot.clementfloret.dev']
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
     SECURE_SSL_REDIRECT = True
