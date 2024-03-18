@@ -2,7 +2,7 @@
 
 ## Garage V.Parrot web app
 
-[Link to the Website](https://garage-vparrot.clementfloret.fr/)
+[Link to the Website](https://garage-vparrot.clementfloret.dev/)
 
 ### Requirements
 
@@ -65,6 +65,8 @@
     EMAIL_HOST_PASSWORD=
     EMAIL_USE_TLS=
     EMAIL_USE_LOCALTIME=True
+    
+    ADMINS=[("username", "email")]
     ```
     
 - Initialize database :
