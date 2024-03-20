@@ -20,6 +20,7 @@ const rangeKmMax = document.querySelector("#range-km-max");
 const spanKmMin = document.querySelector("#text-km-min");
 const spanKmMax = document.querySelector("#text-km-max");
 
+const divVehiclesFilters = document.querySelector("#vehicles-filters");
 const divVehicles = document.querySelector("#vehicles-content");
 
 const buttonResetFilters = document.querySelector("#button-reset-filters");
@@ -191,16 +192,20 @@ const manageSliders = () => {
 
 buttonStartPage.addEventListener('click', () => {
     fetchRequest(1);
+    divVehiclesFilters.scrollIntoView(true);
 })
 buttonPreviousPage.addEventListener('click', () => {
     fetchRequest(currentPage - 1);
+    divVehiclesFilters.scrollIntoView(true);
 });
 
 buttonNextPage.addEventListener('click', () => {
     fetchRequest(currentPage + 1);
+    divVehiclesFilters.scrollIntoView(true);
 });
 buttonEndPage.addEventListener('click', () => {
-    fetchRequest(numPages)
+    fetchRequest(numPages);
+    divVehiclesFilters.scrollIntoView(true);
 })
 
 const setPagination = (page, hasPrevious, hasNext) => {
