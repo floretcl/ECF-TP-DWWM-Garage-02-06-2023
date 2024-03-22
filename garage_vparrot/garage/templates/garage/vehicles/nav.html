@@ -1,0 +1,35 @@
+<section id="vehicles-nav" class="xl:container mx-auto">
+    <div class="flex flex-col lg:flex-row flex-nowrap items-center lg:justify-between px-8 pt-12 pb-6 xl:mx-2">
+        <div>
+            <div id="vehicles-search" class="flex flex-col items-center lg:flex-row my-4 lg:mx-4">
+                <label for="input-search" class="font-regular text-slate-500 lg:mx-2">Rechercher</label>
+                <input type="search" id="input-search" name="input-search"
+                       class="h-10 font-regular text-celestialBlue text-center bg-whiteTeal border-celestialBlue border-4 active:border-darkBlue pt-3 pb-2 px-4 drop-shadow-md rounded"/>
+            </div>
+        </div>
+        <div class="flex flex-col lg:flex-row flex-nowrap">
+            <div id="vehicles-sort" class="flex flex-col items-center lg:flex-row my-4 lg:mx-4">
+                <label for="select-sort" class="font-regular text-slate-500 lg:mx-2">Trier par</label>
+                <select name="select-sort" id="select-sort"
+                        class="font-regular text-whiteTeal text-center bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded">
+                    <option value="price">Prix croissant</option>
+                    <option value="-price">Prix décroissant</option>
+                    <option value="year">Année croissante</option>
+                    <option value="-year">Année décroissante</option>
+                    <option value="km">Kilométrage croissant</option>
+                    <option value="-km">Kilométrage décroissant</option>
+                </select>
+            </div>
+            <div id="vehicles-limit" class="flex flex-col items-center lg:flex-row my-4 lg:mx-4">
+                <label for="select-limit" class="font-regular text-slate-500 lg:mx-2">Véhicule par page</label>
+                <select name="select-limit" id="select-limit"
+                        class="font-regular text-whiteTeal text-center uppercase bg-celestialBlue active:bg-darkBlue btn-gradient-animation pt-3 pb-2 px-4 drop-shadow-md rounded">
+                    <option value="6">6</option>
+                    <option value="9">9</option>
+                    <option value="12">12</option>
+                    <option value="24">24</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</section>

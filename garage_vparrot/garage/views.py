@@ -4,9 +4,9 @@ from django.urls import reverse_lazy
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.forms.models import model_to_dict
-from django.views.generic import (View, TemplateView, FormView, ListView, DetailView)
+from django.views.generic import View, TemplateView, FormView, ListView, DetailView
 from .modelforms import ContactForm, VehicleContactForm, ReviewForm
-from .models import (OpeningTime, Service, Vehicle, VehiclePicture, CustomerReview)
+from .models import OpeningTime, Service, Vehicle, VehiclePicture, CustomerReview
 
 
 class IndexView(View):
@@ -52,7 +52,7 @@ class VehiclesListView(ListView):
     model = Vehicle
     context_object_name = 'vehicles'
     paginate_by = 6
-    ordering = 'id'
+    ordering = 'km'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -85,13 +85,14 @@ class VehiclesListView(ListView):
 class VehiclesJsonResponse(View):
     default_page = 1
     paginate_by = 6
-    ordering = 'id'
+    ordering = 'price'
 
     def get(self, request, *args, **kwargs):
         # GET REQUEST PARAMS
         page = self.request.GET.get('page')
-        limit = self.request.GET.get('limit')
+        search = self.request.GET.get('search')
         sort_by = self.request.GET.get('sort_by')
+        limit = self.request.GET.get('limit')
         price_min = self.request.GET.get('price_min')
         price_max = self.request.GET.get('price_max')
         year_min = self.request.GET.get('year_min')
@@ -102,6 +103,9 @@ class VehiclesJsonResponse(View):
         # GET ALL VEHICLES
         vehicles = Vehicle.objects.all()
 
+        # SEARCH VEHICLES
+        if search:
+            vehicles = vehicles.filter(name__icontains=search)
         # FILTERING VEHICLES
         if price_min:
             vehicles = vehicles.filter(price__gte=price_min)
@@ -139,12 +143,13 @@ class VehiclesJsonResponse(View):
         page_obj = paginator.get_page(num_page)
 
         # CREATE DICT OF VEHICLES
-        vehicles_obj = page_obj
         vehicle_dict = {}
-        for vehicle in vehicles_obj:
-            vehicle_dict[vehicle.id] = model_to_dict(vehicle)
+        count = 0
+        for vehicle in page_obj:
+            count += 1
+            vehicle_dict[count] = model_to_dict(vehicle)
             pictures = VehiclePicture.objects.filter(vehicle=vehicle)
-            vehicle_dict[vehicle.id]['pictures'] = [picture.picture.url for picture in pictures]
+            vehicle_dict[count]['pictures'] = [picture.picture.url for picture in pictures]
 
         # CREATE RESPONSE DICT
         response = {

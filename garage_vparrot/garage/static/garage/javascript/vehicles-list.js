@@ -20,10 +20,15 @@ const rangeKmMax = document.querySelector("#range-km-max");
 const spanKmMin = document.querySelector("#text-km-min");
 const spanKmMax = document.querySelector("#text-km-max");
 
+const buttonResetFilters = document.querySelector("#button-reset-filters");
+
+const selectSort = document.querySelector("#select-sort");
+const selectLimit = document.querySelector("#select-limit");
+
+const inputSearch = document.querySelector("#input-search");
+
 const divVehiclesFilters = document.querySelector("#vehicles-filters");
 const divVehicles = document.querySelector("#vehicles-content");
-
-const buttonResetFilters = document.querySelector("#button-reset-filters");
 
 // PAGINATION VARIABLES
 let paginateBy = 6;
@@ -39,7 +44,10 @@ let kmMin = "";
 let kmMax = "";
 
 // SORTING VARIABLE
-let sort_by = "";
+let sort_by = "price";
+
+// SEARCH VARIABLE
+let search = "";
 
 // -------------------- UTILITY -----------------------//
 
@@ -60,6 +68,27 @@ const withThousandsSpace = (num, arr = []) => {
         return arr.join(" ");
     }
 }
+
+// -------------------- SET SEARCH ---------------------------//
+
+inputSearch.addEventListener("input", () => {
+    search = inputSearch.value;
+    fetchRequest(1);
+})
+
+// -------------------- SET SORTING ---------------------------//
+
+selectSort.addEventListener("change", () => {
+    sort_by = selectSort.value;
+    fetchRequest(1);
+})
+
+// -------------------- SET PAGINATION LIMIT ---------------------------//
+
+selectLimit.addEventListener("change", () => {
+    paginateBy = selectLimit.value;
+    fetchRequest(1);
+})
 
 // -------------------- SET SLIDERS ---------------------------//
 
@@ -291,7 +320,7 @@ const setContent = (vehicles) => {
 // -------------------- VEHICLES FETCH XHR REQUEST ---------------------------//
 
 const fetchRequest = (page) => {
-    const requestUrl = `http://127.0.0.1:8000/api/get/vehicles?page=${page}&sort_by=${sort_by}&limit=${paginateBy}&price_min=${priceMin}&price_max=${priceMax}&year_min=${yearMin}&year_max=${yearMax}&km_min=${kmMin}&km_max=${kmMax}`;
+    const requestUrl = `http://127.0.0.1:8000/api/get/vehicles?page=${page}&search=${search}&sort_by=${sort_by}&limit=${paginateBy}&price_min=${priceMin}&price_max=${priceMax}&year_min=${yearMin}&year_max=${yearMax}&km_min=${kmMin}&km_max=${kmMax}`;
 
     let requestHeaders = new Headers();
     requestHeaders.append("Content-Type", "application/json");
