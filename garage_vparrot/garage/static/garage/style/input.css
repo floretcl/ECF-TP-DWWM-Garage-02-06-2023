@@ -9,6 +9,10 @@
     transition: none !important;
 }
 
+select {
+    -webkit-appearance: none;
+}
+
 /* BACKGROUND IMAGES */
 
 .bg-heading {
