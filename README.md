@@ -4,6 +4,8 @@
 
 [Link to the Website](https://garage-vparrot.clementfloret.dev/)
 
+[Link to figma](https://www.figma.com/design/5AxYvgXovBbeH9OQWJWqwm/Garage-VParrot?node-id=89%3A330&t=vxEtfNeIqruOlGvR-1)
+
 ### Requirements
 
 - Node (21.6.2) & Npm (10.2.4) [Nodejs.org](https://nodejs.org/)
