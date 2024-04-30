@@ -3,6 +3,7 @@
 ## Garage V.Parrot web app
 
 [Link to the Website](https://garage-vparrot.clementfloret.dev/)
+[Link to figma](https://www.figma.com/design/5AxYvgXovBbeH9OQWJWqwm/Garage-VParrot?node-id=89%3A330&t=vxEtfNeIqruOlGvR-1)
 
 ### Requirements
 
