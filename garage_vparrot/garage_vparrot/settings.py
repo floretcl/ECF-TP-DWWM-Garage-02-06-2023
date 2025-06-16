@@ -36,7 +36,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
 if env('ENV') == 'PROD':
-    ALLOWED_HOSTS = ['garage-vparrot.clementfloret.dev']
+    ALLOWED_HOSTS = ['garagevparrot.clementfloret.fr']
 else:
     ALLOWED_HOSTS = ['*']
 
@@ -149,8 +149,8 @@ THOUSAND_SEPARATOR = ' '
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 if env('ENV') == 'PROD':
-    STATIC_URL = 'garage_vparrot/static/'
-    STATIC_ROOT = '/home/uzfucnyd/public_html/garage_vparrot/static/'
+    STATIC_URL = env('STATIC_URL')
+    STATIC_ROOT = env('STATIC_ROOT')
 else:
     STATIC_URL = 'static/'
     STATIC_ROOT = BASE_DIR / 'staticfiles'
@@ -163,14 +163,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Media
 
 if env('ENV') == 'PROD':
-    MEDIA_URL = ''
-    MEDIA_ROOT = '/home/uzfucnyd/public_html/'
+    MEDIA_URL = env('MEDIA_URL')
+    MEDIA_ROOT = env('MEDIA_ROOT')
+else:
+    MEDIA_URL = 'media/'
+    MEDIA_ROOT = BASE_DIR / 'media'
 
 # Security
 
 if env('ENV') == 'PROD':
     ADMINS = env('ADMINS')  # CODE ERROR NOTIFICATIONS
-    CSRF_TRUSTED_ORIGINS = ['https://garage-vparrot.clementfloret.dev']
+    CSRF_TRUSTED_ORIGINS = ['https://garagevparrot.clementfloret.fr']
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
     SECURE_SSL_REDIRECT = True
@@ -181,7 +184,9 @@ else:
 
 EMAIL_HOST = env('EMAIL_HOST')
 EMAIL_PORT = env('EMAIL_PORT')
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = env('EMAIL_USE_TLS')
-EMAIL_USE_LOCALTIME = env('EMAIL_USE_LOCALTIME')
+if env('ENV') == 'PROD':
+    EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+    EMAIL_USE_TLS = env('EMAIL_USE_TLS')
+    EMAIL_USE_SSL = env('EMAIL_USE_SSL')
+    EMAIL_USE_LOCALTIME = env('EMAIL_USE_LOCALTIME')
