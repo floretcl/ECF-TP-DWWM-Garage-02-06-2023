@@ -1,11 +1,11 @@
 aiosmtpd==1.4.6
 asgiref==3.8.1
-atpublic==5.1
-attrs==25.1.0
-Django==5.1.5
-django-debug-toolbar==5.0.1
+atpublic==6.0.1
+attrs==25.3.0
+Django==5.2.3
+django-debug-toolbar==5.2.0
 django-environ==0.12.0
-django-pictures==1.4.0
-pillow==11.1.0
+django-pictures==1.4.2
+pillow==11.2.1
 PyMySQL==1.1.1
 sqlparse==0.5.3
